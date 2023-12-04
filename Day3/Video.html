@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getting a video on webpage</title>
+</head>
+<body>
+    <h1> Loading Video</h1>
+    <video src="https://player.vimeo.com/progressive_redirect/playback/884699127/rendition/540p/file.mp4?loc=external&oauth2_token_id=1747418641&signature=b93166a381450a9faa73f34d3dcfede15a2afb55e306230b16824cd2451f3042" controls  muted autoplay height="200px" width="200px"> squirrel</video>
+
+    <!-- controls - to see play and pause button -->
+    <!-- autoplay - video starts playing automatically when webpage is loaded with sound -->
+    <!-- muted - video plays but voice is muted/off -->
+
+
+
+    <!-- another method - this is used generally for person who are using old versions so that if one doesn't play, seccond will -->
+
+    <video controls autoplay muted height="200px" width="300px">
+        <!-- source is self closing tag -->
+        <source src="https://player.vimeo.com/progressive_redirect/playback/884699127/rendition/540p/file.mp4?loc=external&oauth2_token_id=1747418641&signature=b93166a381450a9faa73f34d3dcfede15a2afb55e306230b16824cd2451f3042">
+    </video>
+</body>
+</html>
