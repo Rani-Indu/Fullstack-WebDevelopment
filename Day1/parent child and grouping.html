@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent child and grouping</title>
+</head>
+<body>
+
+    <!--             Parent child       -->
+    <div>
+        <p>
+            <li></li>
+        </p>
+    </div>
+
+
+    <!--  shortcut - div>p>li + tab -->
+    <div>
+        <p>
+            <li></li>
+        </p>
+    </div>
+
+
+    <!--  shortcut - div>div>p>p>li + tab -->
+    <div>
+        <div>
+            <p>
+                <p>
+                    <li></li>
+                </p>
+            </p>
+        </div>
+    </div>
+
+
+    <!--  shortcut -  div>p>p>li*5 -->
+    <div>
+        <p>
+            <p>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </p>
+        </p>
+    </div>
+
+
+    <!-- shortcut -  div.class1>p.classp>p#uni1>li*5-->
+    <div class="class1">
+        <p class="classp">
+            <p id="uni1">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </p>
+        </p>
+    </div>
+
+
+    <!--          Adding sibling      -->
+
+    <!--    shortcut  - div>p+p+p -->
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <!--  shortcut - P+P+P -->
+    <P></P>
+    <P></P>
+    <P></P>
+
+    <!-- multiplication -->
+
+    <!--  shortcut  - ul>li*5 -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+
+
+    <!-- Grouping -->
+    <!--   shortcut -  div>(nav>li*5)+section   -->
+    <div>
+        <nav>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </nav>
+        <section></section>
+    </div>
+
+</body>
+</html>
