@@ -1,0 +1,50 @@
+
+/*  Universal Selector  */
+/* * {
+    mddargin: 0;
+    paing: 0;
+} */
+
+
+/* Element Selector */
+/* h1{
+    color: rgb(202, 173, 9);
+}
+
+p {
+    color: #a52a2a;
+} */
+
+
+/* Class Selector */
+/* .para {
+    color: #14dbdb;
+}
+
+.hello {
+    font-size: 30px;
+
+} */
+
+
+/*  ID Selectors */
+
+/* #id1 {
+    color: #4d4804;
+    background-color: #f350f3;
+      
+} */
+
+
+/*  Selector List */
+/* .class1 , .class4 , .class2 , .world {
+    color: rgb(211, 121, 136);
+}
+
+.lang , .class3 {
+    background-color: rgb(211, 9, 93);
+}
+
+#id4 , #id3 , h1 {
+    text-align: center;
+} */
