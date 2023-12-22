@@ -235,6 +235,11 @@ span {
     color: #007185 ;
 }
 
+.box-content p:hover {
+    text-decoration: underline;
+    color: #c75408;
+}
+
 
 /*  Footer Tag */
 
@@ -250,4 +255,39 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 0.85rem;
+}
+
+.foot-panel2 {
+    background-color: #222f3d;
+    color: white;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.foot-panel2 a{
+     color: white;
+     text-decoration: none;
+}
+
+ul {
+    margin-top: 20px;
+}
+
+ul a {
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+
+ul p {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.foot-panel3 {
+    background-color: #222f3d;
+    color: white;
+    border-top: 0.5px solid white;
 }
