@@ -1,6 +1,50 @@
 
-//                            
-//  method 1
+// console.log(document.head);                         
+// console.dir(document.head); 
+
+// console.log(document.body);                         
+// console.dir(document.body); 
+
+
+// console.dir(document.body.childNodes[0])
+// console.dir(document.body.childNodes[1])
+// console.dir(document.body.childNodes[2])
+
+// document.body.childNodes[2].innerText = "indu";
+// document.body.childNodes[1].innerText = "indu";
+// document.body.childNodes[0].innerText = "indu";
+
+// let heading = document.getElementById("box");
+// console.log(heading);
+// console.dir(heading);
+
+//  if we write code for ID that don't exist
+// let header = document.getElementById("header");
+// console.log(header);
+// console.dir(header);
+
+// -----------------------------------------------------
+// let para = document.getElementsByClassName("para");
+// console.log(para);
+// console.dir(para);
+
+// if we write code for class that don't exist
+// let myClass = document.getElementsByClassName("myClass");
+// console.log(myClass);
+// console.dir(myClass);
+
+// let tag = document.getElementsByTagName("p");
+// console.log(tag);
+// console.dir(tag);
+
+// let tagClass = document.getElementsByTagName("button");
+// console.log(tagClass);
+// console.dir(tagClass);
+
+
+
+//           chapter -  7 - DOM part 2     method 1
+// --------------------------------------------------------------------------------------------------------------------
 
 
 //                     for div
@@ -8,9 +52,22 @@
 // let div = document.querySelector("div");
 // console.log(div);
 
+// let divClass = document.querySelectorAll("div");
+// console.log(divClass);
+
+// let para = document.querySelector(".para");
+// console.log(para);
+
+// let paraClass = document.querySelectorAll(".para");
+// console.log(paraClass);
+
+// let id = document.querySelector("#btn");
+// console.dir(id);
 // let id = div.getAttribute("id");
 // console.log(id);
 
+// let tagName = document.querySelector("p");
+// console.dir(tagName);
 
 //                         for class
 
@@ -146,5 +203,7 @@
 
 //                                          question  7:12:00
 // let para = document.querySelector("p");
-let para = document.querySelector("p");
+// let para = document.querySelector("p");
+
+// -----------------------------------------------------------------------------------------------------------------------------------
 
