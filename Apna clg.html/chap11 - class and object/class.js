@@ -1,7 +1,8 @@
 class ToyotaCar {
-	constructor(brand){
+	constructor(brand, mileage){
 		console.log("creating new object");
 		this.brand = brand;
+		this.mileage = mileage;
 	}
 	start(){
 		console.log("start");
@@ -21,13 +22,15 @@ class ToyotaCar {
 }
 
 
-// new object from above class
-// fortuner.setBrand("Toyota");
-// nexus.setBrand("TATA");
+// // new object from above class
+// let fortuner = new ToyotaCar("Toyota", 16);
+// // fortuner.setBrand("Toyota");
+// let nexus = new ToyotaCar("TATA", 20);
+// // nexus.setBrand("TATA");
+// nexus.brand = "innova"
 
-let fortuner = new ToyotaCar("Toyota");
-let nexus = new ToyotaCar("TATA");
-let safari = new ToyotaCar("");
-let suv = new ToyotaCar();
-nexus.brand = "innova"
+let safari = new ToyotaCar("TATA",10);
+console.log(safari);
+let KIA = new ToyotaCar("suv",12);
+console.log(KIA);
 
