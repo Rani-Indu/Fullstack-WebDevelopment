@@ -1,26 +1,30 @@
+// practice question
 
-//   Inheritance
-// super keyword
+let DATA = "confidential information"
 
-class Person{
-	constructor(name){
-		this.species = "Homo Sapiens";
+class User {
+	constructor (name, email) {
 		this.name = name;
+		this.email = email;
 	}
-	eat() {
-		console.log("eat");
+
+	viewData(){
+		console.log("data is : ", DATA);
+	}
+}	
+
+class Admin extends User {
+	constructor(name,email) {
+		super(name,email);
+	}
+	editData(){
+		// DATA = "add new values"
 	}
 }
 
-class Engineer extends Person {
-	constructor(name){
-		super(); // to invoke / call parent class constructor
-	}
-	work() {
-		// suppose - engineer first eat then he/she work
-		eat();
-		console.log("solve problems, build something");
-	}
-}
-                          
-let engobj = new Engineer("indu");                          
+student1 = new User("indu", "abc@gmail.com")
+student2 = new User("rani", "xyz@yahoo.com")
+teacher1 = new User("eva", "ury@yahoo.com")
+// admin1 = new Admin()
+admin1 = new Admin("ema", "watson@yahoo.com")
+
