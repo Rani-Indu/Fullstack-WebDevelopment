@@ -1,30 +1,19 @@
-// practice question
 
-let DATA = "confidential information"
+// Try and Catch
 
-class User {
-	constructor (name, email) {
-		this.name = name;
-		this.email = email;
-	}
-
-	viewData(){
-		console.log("data is : ", DATA);
-	}
-}	
-
-class Admin extends User {
-	constructor(name,email) {
-		super(name,email);
-	}
-	editData(){
-		// DATA = "add new values"
-	}
+a = 5;
+b = 6;
+console.log("a = ", a);
+console.log("b = ",b);
+console.log("a+b = ", a+b);
+console.log("a-b = ", a-b);
+try {
+	console.log("c*b = ", c*b);   // error
+} catch (err) {
+	console.log(err);
 }
-
-student1 = new User("indu", "abc@gmail.com")
-student2 = new User("rani", "xyz@yahoo.com")
-teacher1 = new User("eva", "ury@yahoo.com")
-// admin1 = new Admin()
-admin1 = new Admin("ema", "watson@yahoo.com")
-
+console.log("a/b = ", a/b);
+console.log("a+b = ", a+b);
+console.log("a-b = ", a-b);
+console.log("a*b = ", a*b);
+console.log("a/b = ", a/b);
