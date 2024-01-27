@@ -23,15 +23,45 @@ function getData(dataId, getNextData) {// after 2 sec
 // 	getData(id, () => {})
 // })
 
+// getData(1, () => {
+// 	getData(2, () => {
+// 		getData(3, () => {
+// 			getData(4, () => {
+// 				getData(5, () => {
+// 					getData(6)
+// 				});
+// 			});
+// 		});
+// 	});
+// });
+
 getData(1, () => {
+	console.log("getting data 2.....");
 	getData(2, () => {
+		console.log("getting data 3.....");
 		getData(3, () => {
-			getData(4, () => {
-				getData(5, () => {
-					getData(6)
-				})
-			})
-		})
-	})
+			console.log("getting data 3.....");
+			getData(4, () => {console.log("getting data 4....."),getData(5)
+			});
+		});
+	});
 });
+
+
+// Promises
+
+// let promise1 = new Promise((resolve, reject) => {
+// 	console.log("I am a promise");
+// });
+
+// let promise1 = new Promise((resolve, reject) => {
+// 	console.log("I am a promise");
+// 	resolve("product delivered")
+// });
+
+// let promise1 = new Promise((resolve, reject) => {
+// 	console.log("I am a promise");
+// 	reject("product canceled, refund initiated")
+// });
+
 
