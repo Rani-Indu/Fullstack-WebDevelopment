@@ -100,28 +100,144 @@
 // }
 
 // function name(params) {}
-	
-const getPromise = () => {
+
+
+//                  Reject
+// const getPromise = () => {
+// 	return new Promise((resolve, reject) => {
+// 		console.log("I am a promise");
+// 		reject("Network error");   // err - is the message that we have passed here
+// 		resolve("success"); // res - is the message that we have passed here
+
+// 	});
+// };
+
+// let promise = getPromise();
+// promise.catch((err) => {
+// 	console.log("rejected", err);
+// });
+
+
+// promise.then((res) => {
+// 	console.log("promise fulfilled", res);
+// });
+
+
+
+//              Promise Chain
+
+
+// it is a asyncFunc which will return some data here it will return a promise and promise ke andar pass karne ke liye hume ek function pass karna hota hai
+// function asyncFunc() {
+	// 	return new Promise((resolve, reject) => {
+// 		// in order to return we need to pass a function within Promise so arrow func
+// 		setTimeout(() => {  // as asynchronous func
+// 			console.log("data1"); //this is what func will return after 4sec
+// 			resolve("success") // after returning data it will solve the promise	
+// 		}, 4000);
+// 	})
+// }
+
+
+// function asyncFunc1() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {  
+// 			console.log("data1"); 
+// 			resolve("success") 	
+// 		}, 4000);
+// 	})
+// }
+// function asyncFunc2() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {  
+// 			console.log("data2"); 
+// 			resolve("fulfilled") 	
+// 		}, 4000);
+// 	})
+// }
+
+// console.log("fetching data1......");
+// let p1 = asyncFunc1();
+// p1.then((res) => {
+// 	console.log(res);
+// 	console.log("fetching data2......")
+// 	let p2 = asyncFunc2();
+// 	p2.then((res) => {
+// 	console.log(res);
+// });
+// });
+
+// console.log("fetching data1......");
+// let p1 = asyncFunc1();
+// p1.then((res) => {
+	// 	console.log(res);
+	// });
+
+// console.log("fetching data2......");
+// let p2 = asyncFunc2();
+// p2.then((res) => {
+// 	console.log(res);
+// });
+
+
+
+
+// function getData(dataId, getNextData) {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log("data", dataId);
+// 			resolve("success");
+// 			reject("error");
+// 			if(getNextData) {
+// 				getNextData();
+// 			}	
+// 		}, 5000);
+// 	});	
+// };
+
+// // promise chain
+
+// let p1 = getData(142);
+// p1.then((res) => {
+// 	console.log(res);
+// });
+
+function getData(dataId, getNextData) {
 	return new Promise((resolve, reject) => {
-		console.log("I am a promise");
-		resolve("success"); // res - is the message that we have passed here
-		reject("Network error");   // err - is the message that we have passed here
-	});
+		setTimeout(() => {
+			console.log("data", dataId);
+			resolve("success");	
+		}, 2000);
+	});	
 };
 
-let promise = getPromise();
-promise.then((res) => {
-	console.log("promise fulfilled", res);
-});
-promise.catch((err) => {
-	console.log("rejected", err);
-});
+// promise chain
+
+// getData(1).then((res) => {
+// 	console.log(res);
+// 	getData(2).then((res) => {
+// 		console.log(res);
+// 	});
+// });
+
+// better way to write above promise chain
+
+getData(1)
+	.then((res) => {
+		return getData(2);
+	})
+	.then((res) => {
+		return getData(3);
+	})
+	.then((res) => {
+		return getData(4);
+	})
+	.then((res) => {
+		console.log("success");
+	})
 
 
 
-
-
-// let promise = getPromise
 
 
 
