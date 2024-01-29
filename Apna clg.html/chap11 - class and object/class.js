@@ -112,15 +112,16 @@
 // 	});
 // };
 
+// promise.then((res) => {
+// 	console.log("promise fulfilled", res);
+// });
+
 // let promise = getPromise();
 // promise.catch((err) => {
 // 	console.log("rejected", err);
 // });
 
 
-// promise.then((res) => {
-// 	console.log("promise fulfilled", res);
-// });
 
 
 
@@ -181,6 +182,7 @@
 
 
 
+//            previous example
 
 // function getData(dataId, getNextData) {
 // 	return new Promise((resolve, reject) => {
@@ -202,14 +204,14 @@
 // 	console.log(res);
 // });
 
-function getData(dataId, getNextData) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			console.log("data", dataId);
-			resolve("success");	
-		}, 2000);
-	});	
-};
+// function getData(dataId) {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log("data", dataId);
+// 			resolve("success");	
+// 		}, 2000);
+// 	});	
+// };
 
 // promise chain
 
@@ -222,22 +224,104 @@ function getData(dataId, getNextData) {
 
 // better way to write above promise chain
 
-getData(1)
-	.then((res) => {
-		return getData(2);
+// getData(1)
+// 	.then((res) => {
+// 		return getData(2);
+// 	})
+// 	.then((res) => {
+// 		return getData(3);
+// 	})
+// 	.then((res) => {
+// 		return getData(4);
+// 	})
+// 	.then((res) => {
+// 		console.log("success");
+// 	})
+
+
+
+
+
+//             Async Await 
+
+// function hello() {
+// 	console.log("hello");	
+// }
+// async function hello() {
+// 	console.log("hello");	
+// }
+
+// function api() {
+// 	return new Promise((resolve, reject) => {
+// 		console.log("weather data");
+// 		resolve(200);
+// 	});
+// }
+
+
+// // if we want above function to execute after 2 sec we can setTimeout 
+
+// function api() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log("weather data");
+// 			resolve(200);	
+// 		}, 2000);
+// 	});
+// }
+
+// api()
+
+// await api()
+
+
+
+// function api() {
+// 	return new Promise((resolve, reject) => {
+// 		setTimeout(() => {
+// 			console.log( "weather data - windy");
+// 			resolve(200);	
+// 		}, 2000);
+// 	});
+// }
+
+// async function weatherData() {
+// 	await api(); //1st call - first this will complete entirely then next
+// 	await api(); // 2nd call
+// }
+
+//         IIFE
+
+// (async function () {
+// 	await api(); //1st call - first this will complete entirely then next
+// 	await api(); // 2nd call
+// })();
+
+function getData(dataId) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log("data", dataId);
+			resolve("success");	
+		}, 2000);
 	})
-	.then((res) => {
-		return getData(3);
-	})
-	.then((res) => {
-		return getData(4);
-	})
-	.then((res) => {
-		console.log("success");
-	})
+}
 
+async function getAllData() {
+	console.log("getting data 1.....")
+	await getData(1);
+	console.log("getting data 2.....")
+	await getData(2);
+	console.log("getting data 3.....")
+	await getData(3);
+}
 
-
-
-
+//                  IIFE
+// (async function () {
+// 	console.log("getting data 1.....")
+// 	await getData(1);
+// 	console.log("getting data 2.....")
+// 	await getData(2);
+// 	console.log("getting data 3.....")
+// 	await getData(3);
+// })();
 
