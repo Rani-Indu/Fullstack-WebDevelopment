@@ -1,0 +1,90 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* text-align: center; */
+}
+
+body{
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fa9c79;
+	height: 100vh;
+}
+
+.container{
+	background-color: #f9ccbc;
+	padding: 2rem;
+	border-radius: 1rem;
+	min-height: 45vh;
+	min-width: 40vh;
+}
+
+form{ 
+	/* from enter amount - get exchange rate */
+	margin: 2rem 0 1rem 0;
+}
+
+form select, button, input{
+	width: 100%;
+	border: none;
+	outline: none ;
+	/* when we will enter some value in the box we'll get no outlinein border */
+	border-radius: 0.75 rem;
+}
+form input{
+	border: 1px solid #a29e9e;
+	font-size: 1rem;
+	font-weight: 600;
+	height: 2rem;
+	padding-left: 10px;
+}
+.dropdown{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 2rem;
+}
+.select-container img{
+	max-width: 1.5rem;
+}
+.select-container{
+	display: flex;
+	justify-content: center;
+	/* background-color: #a03914; */
+	width: 5rem;
+	align-items: center;
+	border-radius: 0.75 rem;
+	border: 1px solid #7a7878;
+
+}
+.dropdown i {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-top: 1.2rem;
+}
+
+.select-container select {
+	font-size: 1rem;
+	width: 100%;
+	font-weight: 600;
+}
+
+.msg{
+	margin: 2rem 0 2rem 0;
+	font-weight: 600
+}
+
+form button {
+	height: 3rem;
+	background-color: #92028b;
+	color: white;
+	font-size: 1rem;
+	font-weight: 600;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+
