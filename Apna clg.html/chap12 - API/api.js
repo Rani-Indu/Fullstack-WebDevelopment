@@ -25,10 +25,11 @@ const getFacts = async () => {
 	}
 	
 	// same code using (.then)
+
 // 	function getFacts() {
 // 		fetch(URL)
 // 		.then((response) => {
-// 			return response.json();
+// 			return response.json();// changing format of response from json to js object
 // 		})
 // 		.then((data) => {
 // 			console.log(data);
