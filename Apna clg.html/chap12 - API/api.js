@@ -1,5 +1,6 @@
 const URL = "https://cat-fact.herokuapp.com/facts";
-const factPara = document.querySelector("#fact");
+// const factPara = document.querySelector("#fact");
+const factPara = document.querySelectorAll("#fact");
 const button = document.querySelector("#btn");
 
 // we have multiple ways to get result from promises - 1. (.then)/ promise chaining 2. Async Await
@@ -14,7 +15,7 @@ const button = document.querySelector("#btn");
 // // }
 const getFacts = async () => {
     let response = await fetch(URL); 
-	console.log(response); // json format
+	// console.log(response); // json format
 	let data = await response.json();// await becoz json is asynchronous 
 	console.log(data);								
 	console.log(data[0]);	// making data global							
