@@ -13,10 +13,16 @@ const form = document.querySelector("form");
 	
 
 form.addEventListener("submit", (e) => {
+	// form ko jab submit karu to arrow function ke andar jo function / kaam likha hai wo ho jaye
 	e.preventDefault();
+	// prevent auto submit of form - which is default nature of form when button is clicked
 	getWordInfo(form.elements[0].value);
+	//  ye function run ho jaye jab bhi form submit ho
+
 	// select input directly or form first child as here one and samething
+
 	// The code form.element[0].value is used to retrieve the value of the first element (index 0) within a form. 
+
 	// For example, if you have a form with an input field for entering a word and you want to retrieve the value entered by the user in that input field, you can use this code.
 })
 
@@ -34,6 +40,7 @@ const getWordInfo = async (word) => {
 	
 
 	// === undefined ? "Not Found" : data[0].word
+	// i html we haven't created any html tags/elements so we'll create element/tags here only and then access then to show result
 	resultDiv.innerHTML = `
 		<h2><strong>Word : </strong>${data[0].word }</h2>
 

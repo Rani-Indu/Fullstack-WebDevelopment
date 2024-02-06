@@ -30,7 +30,6 @@ header h1{
 	font-size: 1rem;	
 }
 main{
-	border: 1px solid red;
 	height: 80vh;
 	padding: var(--padding);
 	max-width: 800px; 
