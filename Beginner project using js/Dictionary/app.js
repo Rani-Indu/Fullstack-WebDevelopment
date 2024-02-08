@@ -21,11 +21,10 @@ form.addEventListener("submit", (e) => {
 
 	// select input directly or form first child as here one and samething
 
-	// The code form.element[0].value is used to retrieve the value of the first element (index 0) within a form. 
+	//getWordInfo(form.elements[0].value): This line calls a function named getWordInfo and passes it the value of the first input element (form.elements[0].value) within the form as an argument. This is typically used to retrieve the user's input from the form and pass it to a function for further processing, such as making an API request to fetch data based on the user's input.
 
-	// For example, if you have a form with an input field for entering a word and you want to retrieve the value entered by the user in that input field, you can use this code.
-	// ish jagah pe hum woed enter karenge isliye form.elements[0].value use kar ke hum wo word mil jayega 
-})
+// In summary, this code sets up a listener so that when the form is submitted, it prevents the default form submission behavior, extracts the value entered by the user in the first input field, and then calls a function (getWordInfo) to perform some action with that input value. 
+});
 
 
 const getWordInfo = async (word) => {
@@ -78,6 +77,7 @@ const getWordInfo = async (word) => {
 		resultDiv.innerHTML = `<p>Sorry, Word couldn't be found</p>`
 			
 	}
+	
 
 
 };
