@@ -5,6 +5,7 @@ const input = document.querySelector("input");
 
 const getWordInfo = async (word) => {
 	try {
+	resultDiv.innerHTML = "Fetching Data ..."
 	const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 	const data = await response.json();
 	// console.log(data);
@@ -14,7 +15,7 @@ const getWordInfo = async (word) => {
 
 	resultDiv.innerHTML = `
 	<h2><strong>Word : </strong> ${data[0].word}</h2>
-	<p><strong></strong>${data[0].meanings[0].partOfSpeech}</p>
+	<p class="pos"><strong></strong>${data[0].meanings[0].partOfSpeech}</p>
 	<p><strong>Definition : </strong>${data[0].meanings[0].definitions[0].definition === undefined ? "No Result Found" : data[0].meanings[0].definitions[0].definition }</p>
 	<p><strong>Definition : </strong>${data[0].meanings[1].definitions[0].definition === undefined ? "No Result Found" : data[0].meanings[1].definitions[0].definition}</p>
 	<p><strong>Example : </strong>${data[0].meanings[1].definitions[0].example === undefined ? "No Result Found" : data[0].meanings[1].definitions[0].example}</p>
