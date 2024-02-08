@@ -24,6 +24,7 @@ form.addEventListener("submit", (e) => {
 	// The code form.element[0].value is used to retrieve the value of the first element (index 0) within a form. 
 
 	// For example, if you have a form with an input field for entering a word and you want to retrieve the value entered by the user in that input field, you can use this code.
+	// ish jagah pe hum woed enter karenge isliye form.elements[0].value use kar ke hum wo word mil jayega 
 })
 
 
@@ -36,11 +37,13 @@ const getWordInfo = async (word) => {
 	const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 	// console.log(response); // JSON format
 	const data = await response.json();
-	console.log(data);
+	// console.log(data);
+	// console.log(form.elements[0].value);
+	// alert("word : " + word);
 	
 
-	// === undefined ? "Not Found" : data[0].word
-	// i html we haven't created any html tags/elements so we'll create element/tags here only and then access then to show result
+	// === undefined ? "Not Found" : data[0].word - for handling undefined word we have used try and catch 
+	// we haven't created any html tags/elements so we'll create element/tags here only and then access then to show result
 	resultDiv.innerHTML = `
 		<h2><strong>Word : </strong>${data[0].word }</h2>
 
@@ -50,13 +53,13 @@ const getWordInfo = async (word) => {
 
 		<p><strong>Definition : </strong>${data[0].meanings[1].definitions[0].definition === undefined ? "Not Found" : data[0].meanings[1].definitions[0].definition}</p>
 
-
+		
 		<p><strong>Example : </strong>${data[0].meanings[0].definitions[0].Example === undefined ? "Not Found" : data[0].meanings[0].definitions[0].Example}</p>
-
+		
+		<p><strong>Antonyms :</strong> </p>
 
 		${ /*we can also find antonym like this : <p><strong>Antonyms : </strong>${data[0].meanings[0].antonyms[0] === undefined ? "Not Found" : data[0].meanings[0].antonyms[0]}</p>*/'' }
 
-		<p><strong>Antonyms :</strong> </p>
 		
 		`;
 		

@@ -30,6 +30,7 @@ header h1{
 	font-size: 1rem;	
 }
 main{
+	border: 2px solid black;
 	height: 80vh;
 	padding: var(--padding);
 	max-width: 800px; 
@@ -51,7 +52,7 @@ input[type="text"],button[type="submit"], .result div a{
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
-	border: var(--border-radius);
+	border-radius: var(--border-radius);
 	padding: calc(var(--padding)/2);
 }
 form button[type="submit"], .result div a{
@@ -71,7 +72,7 @@ footer{
 }
 
 .result{
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	background-color: var(--bgc-color);
 	padding: var(--padding);
 	border-radius: var(--border-radius);
