@@ -53,12 +53,12 @@ main button{
 	font-size: 1rem;
 }
 footer{
-	background-color: #1ae7e7;
+	text-align: center;
 	position: fixed;
 	width: 100%;
 	bottom: 0;
+	background-color: #1ae7e7;
 	padding: 10px;
-	text-align: center;
 	font-size: 1rem;
 	color: #ffffff;
 	/* border: 2px solid #6b096b; */
@@ -71,6 +71,8 @@ footer{
 }
 
 .result{
+	text-transform: capitalize; 
+	/* har word ka first letter capital */
 	margin-top: 2rem;
 	background-color: white;
 	padding: 20px;
