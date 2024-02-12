@@ -69,7 +69,9 @@ body {
 }
 
 .weather-body{
-	display: flex;
+	/* display: flex; */
+	display: none;
+	/* we don't want this to show from start */
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
@@ -83,18 +85,20 @@ body {
 	text-align: center;
 }
 
-.weather-box .temp{
+.weather-box .temperature{
 	font-size: 40px;
 	font-weight: 900;
 	position: relative;
 }
 
-.weather-box .temp sup{
-	font-size: 20px;
+.weather-box .temperature sup{
+	font-size: 15px;
+	font-weight: 600;
 	position: absolute;
 }
 .weather-box .description{
 	font-size: 20px;
+	font-weight: 600;
 	text-transform: capitalize;
 }
 
@@ -128,4 +132,25 @@ body {
 }
 .text p{
 	font-size: 16px;
+}
+
+.location-not-found{
+	margin-top: 20px;
+	display: none;
+	/* display: flex; */
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
+
+.location-not-found h1{
+	font-size: 20px;
+	color: #6a9e9e;
+	margin-block-end: 15px;
+}
+
+.location-not-found img{
+	width: 80%;
 }
