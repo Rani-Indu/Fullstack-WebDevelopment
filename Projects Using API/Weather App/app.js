@@ -20,7 +20,10 @@ const checkWeather = async (city) => {
 	const api_key = "41d9e484066cbfa41318a25e827060a3";
 	const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
 
-	// const response = await fetch(`${url}`);
+	try {
+		
+
+	const response = await fetch(`${url}`);
 	const weather_data = await response.json();
 	// console.log(data);
 	// or
@@ -56,7 +59,7 @@ const checkWeather = async (city) => {
 
 	switch(weather_data.weather[0].main){
 		case "Smoke":
-			weatherImg.src = "./Assets/mist.png";
+			weatherImg.src = "./Assets/image.jpg";
 			break;
 		case "Clouds":
 			weatherImg.src = "./Assets/cloud.png";
@@ -75,8 +78,9 @@ const checkWeather = async (city) => {
 			weatherImg.src = "./Assets/clear.png";
 			break;		
 	}
-
-
-
+} catch (error) {
+	console.error("Error fetching weather data:", error);
+		
+}
 
 };
