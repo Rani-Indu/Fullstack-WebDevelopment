@@ -18,9 +18,10 @@ body{
 
 .container{
 	min-height: 80%;
-	padding: 45px;
+	padding: 40px;
 	width: 400px;
 	display: flex;
+	align-items:center ;
 	flex-direction: column;
 	justify-content: space-around;
 	background-color: #fff;
@@ -45,7 +46,7 @@ body{
 	background-color: #ccc4c1;
 	border-radius: 10px;
 	width: 80%;
-	margin-right: 15px;
+	margin-right: 25px;
 	outline: none;
 }
 .input::placeholder{
@@ -56,6 +57,7 @@ body{
 }
 
 .search{
+	margin-right: 15px;
 	height: 43px;
 	width: 43px;
 	padding: 2px;
@@ -77,8 +79,6 @@ body{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	/* padding: 10px 0 0 0; */
-	margin-bottom: 80px;
 	/* border: 4px solid #640970; */
 }
 .weather_body img {
@@ -125,13 +125,13 @@ body{
 	align-items: center;
 	justify-content: space-between;
 	width: 110%;
-	margin-top: 100px;
+	margin-top: 40px;
 }
 .humidity, .wind_speed{
 	/* border: 4px solid #64d607; */
 	display: flex;
 	text-align: center;
-	width: 40%;
+	width: 30%;
 }
 
 .text{
