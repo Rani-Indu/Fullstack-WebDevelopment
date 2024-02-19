@@ -45,7 +45,8 @@ const fetchImages = async(text, pageNo)=>{
 	
 			// creating overlay text
 			const overlayText = document.createElement("h3");
-			overlayText.innerHTML = `${photo.alt_description}`;
+			// overlayText.innerHTML = `${photo.alt_description}`;
+			overlayText.innerText = `${photo.alt_description}`;
 			
 			overlayElement.appendChild(overlayText);	
 		});
