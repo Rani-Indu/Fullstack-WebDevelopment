@@ -5,6 +5,9 @@ const todoList = document.querySelector("#todoList");
 
 
 let editTodo = null;
+// global variable - isliye bana rahe hai kyuki hume ishe addTodo and updateTodo dono function me access karna hai
+
+
 // Function to add Todo
 const addTodo = () => {
 	// alert("Hello");
@@ -56,20 +59,25 @@ const addTodo = () => {
 const updateTodo = (e) =>{
 	// console.log(e.target);
 	// console.log(e.target.innerHTML);
+	// try clicking on li we can see name of elements we click on console
+	// Edit Remove and Task1/p tag ka parentelement hai li 
+	// Edit Remove and Task1/p tag aapas me siblings hue
+	// li ka first child hai task1
 	if(e.target.innerHTML === "Remove"){
-		// Edit Remove and Task1/p tag ka parentelement hai li 
-		// Edit Remove and Task1/p tag aapas me siblings hue
-		// li ka first child hai task1
+
 		// console.log(e.target.parentElement);
-		// todoList.removeChild(e.target.parentElement);
 		todoList.removeChild(e.target.parentElement);
+		// parent.removeChild(child)
+		// todoList.remove(li)
 		// we can see li or p getting removed from browser page
 		deleteLocalTodos(e.target.parentElement);
 	}
 
 	if(e.target.innerHTML === "Edit"){
 		inputBox.value = e.target.previousElementSibling.innerHTML;
-		// edit ka previous element hai p tag / task1 i,e jisme hum task likhte hai
+		// e.target = edit
+		// previousElementSibling.innerHTML = p tag ka innerHTML
+		// inputBox.value = p tag ka innerHTML
 		inputBox.focus();
 		// cursor will automatically be present at inputBox
 		addBtn.value = "Edit";
