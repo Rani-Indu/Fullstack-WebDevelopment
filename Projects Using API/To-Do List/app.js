@@ -97,6 +97,7 @@ const saveLocalTodos = (todo) => {
 		todos = JSON.parse(localStorage.getItem("todos"));	
 	}
 	todos.push(todo);
+	// array.push(element we want to push)
 	localStorage.setItem("todos",JSON.stringify(todos));
 	// console.log(localStorage.getItem("todos"));
 	// console.log(JSON.parse(localStorage.getItem("todos")));
@@ -156,6 +157,7 @@ const deleteLocalTodos = (todo) => {
 	let todoIndex = todos.indexOf(todoText);
 	console.log(todoIndex);
 	todos.splice(todoIndex, 1);
+	// todoIndex se delete karenge , 1 = 1 word pura;
 	localStorage.setItem("todos",JSON.stringify(todos));
 };
 
