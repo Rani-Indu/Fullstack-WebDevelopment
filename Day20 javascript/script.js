@@ -1,4 +1,26 @@
 
+// values - number , string, boolean etc
+
+// Datatypes
+
+// Primitive Data Type
+
+// number - 1, 2, 3, 4, 5, 6
+// string - "indu" or 'rani'
+// boolean - true , false
+// null- null doesn't mean 0, null means nothing ex- on weather app we want to display temp of various places and if app is unable to find temp then display null (which mans nothing) as 0 is also a temp.
+// undefined -
+// example -
+// let a;
+// console.log(a);
+// output is  undefined - we have declared the variable and we can assign name later
+
+// Non Primitive Data Type
+
+// Array
+// let names = ["Radhe Radhe", "Hare Krishn","indu", "rani", 1, 2, 3, true, false];
+
+// conditions and loops
 // condition
 
 // let signal ="yellow"
@@ -17,6 +39,8 @@
 // else {
 //     console.log("invalid")
 // }
+
+//   {} - this is called scope
 
 
 //                          Switch case
@@ -46,7 +70,7 @@
 // }
 
 
-//                   while (initialization, condition, increment)
+//          while (initialization, condition, increment)
 
 // let i = 0;
 // while (i < 5) {
@@ -61,7 +85,7 @@
 // }
 
 
-//                     Do While
+//              Do While - at least ek baar run caahiye
 // let i = 0;
 // do {
 //     console.log("Hello World");
@@ -77,12 +101,14 @@
 
 //                 Ternary operator or Ternary Condition
 
-// Condition 
-// 1. ? true
-// 2. : false
+//                            condition  ? TRUE : FALSE
+//  ? ke baad true waali chiz - true 
+//  : ke baad false waali chiz- false
 
 // isloggedin = true;
 // isloggedin ? console.log("Home Page") : console.log("login Page")
+
+// meaning of above line - agar user logged in hai to home page pe jao aur agar condition false hai i,e logged in nahi hai to login page display karo
 
 // isloggedin = false;
 // isloggedin ? console.log("Home Page") : console.log("login Page")

@@ -1,3 +1,5 @@
+// values - number , string, boolean etc
+
 // Datatypes
 
 // Primitive Data Type
@@ -17,10 +19,8 @@
 // Array
 // let names = ["Radhe Radhe", "Hare Krishn","indu", "rani", 1, 2, 3, true, false];
 
-// let highScore = 400;
-// console.log(highScore);
-
-let courseFee = 300;
-let GstTax = 36;
-let finalAmount = courseFee + GstTax;
-console.log("Total Course Fee is =", finalAmount );
+// conditions and loops
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
