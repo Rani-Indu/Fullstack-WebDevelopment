@@ -1,26 +1,142 @@
-// values - number , string, boolean etc
+//    Array
+// [1, 2, 3, "indu", true, 4.5, "89"]
 
-// Datatypes
-
-// Primitive Data Type
-
-// number - 1, 2, 3, 4, 5, 6
-// string - "indu" or 'rani'
-// boolean - true , false
-// null- null doesn't mean 0, null means nothing ex- on weather app we want to display temp of various places and if app is unable to find temp then display null (which mans nothing) as 0 is also a temp.
-// undefined -
-// example -
-// let a;
+// we can store array in variables
+// let a = [1, 2, 3, "indu", true, 4.5, "89"];
 // console.log(a);
-// output is  undefined - we have declared the variable and we can assign name later
 
-// Non Primitive Data Type
+// let b = new Array();
+// console.log(b);
+// output - empty array
 
-// Array
-// let names = ["Radhe Radhe", "Hare Krishn","indu", "rani", 1, 2, 3, true, false];
+// 5 length ki element jisme abhi koi element nahi hai
+// let b = new Array(5);
+// console.log(b);
 
-// conditions and loops
-let number = 0;
-console.log(number++);
-console.log(++number);
-console.log(number);
+// we want to initialize array with some values
+// let b = new Array("indu", "rani");
+// console.log(b);
+
+//         array  = [11, 21, 22, 34, 45]
+// index/position = [ 0, 1, 2, 3, 4,  5]
+// index last element- (array.length -1)
+
+
+// let a = [1, 2, 3, "indu", true, 4.5,"86"];
+// // console.log(a[0]);
+// // console.log(a[6]);
+// // console.log(a[8]);
+
+// a[6] = "rani";
+// console.log(a);
+// console.log(a[6]);
+// we can see that arrays in js are mutable - i,e we can update values
+
+
+
+
+//                               Array Methods
+
+// for adding in last
+// let arr = [1, 2, 3, 4, 5];
+// let b = arr.push(77);
+// console.log(b);
+// console.log(arr);
+
+// // for removing from last
+// let c = arr.pop();
+// console.log(c);
+// console.log(arr);
+
+// // for removing from first
+// let f = arr.shift();
+// console.log(f);
+// console.log(arr);
+
+// // for adding in first
+// let d = arr.unshift(9);
+// console.log(d);
+// console.log(arr);
+
+
+// // to join two or more arrays
+// let a1 = [1, 2, 3, 4, 5];
+// let a2 = [4, 5, 6];
+// let a3 = a2.concat(a1);
+// console.log(a1, a2, a3);
+
+// // to reverse entire  array
+// // a3.reverse();
+// // console.log(a3);
+
+// // to convert arrays into string
+// let s = a3.join("");
+// console.log(s);
+
+// let n = a3.join("@");
+// console.log(n);
+
+// console.log(a3.indexOf(4));
+
+// // this is not part of array so index becomes -1
+// console.log(a3.indexOf(74));
+
+// let arr1 = [81, 62, 43, 44, 89, 765,43];
+// console.log(arr1.slice(2, 5));
+
+
+// // if we want to add or delete in between array 
+// // arr1.splice(2, 0, 11);
+// // arr1.splice(2, 1, 11);
+// arr1.splice(2, 2, 11, 22, 33);
+// // at 2nd index 0 delete add 11
+// console.log(arr1);
+
+
+
+//                               Functions
+
+// function  greet(){
+// 	console.log("Hi There");
+// 	console.log("how r u");
+// }
+
+// greet()
+
+
+// function sqr(x){ // x - parameter 
+// 	// console.log(x*x);
+// 	return(x*x);
+// }
+
+// let a = sqr(8); // 8 - argument
+// console.log(a);
+
+
+
+//       Function without a parameter(single and multiple)
+
+// function add(x,y){
+// 	return x+y;
+// }
+
+// console.log(add(1,3));
+
+// function add(x,y=10){
+// 	return x+y;
+// }
+
+// console.log(add(1,3));
+// // x = 1 , y = 3
+// console.log(add(1));
+// // x = 1 , y = 10
+
+
+function add(x=10,y){
+	return x+y;
+}
+console.log(add(1));
+// x = 1 , y has no value 
+// as the parameters takes value from left to right so first x then y
+
+
