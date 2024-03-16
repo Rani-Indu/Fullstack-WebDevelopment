@@ -163,7 +163,7 @@
 // let emp = new Object();
 // emp.id = 22;
 // emp.name = "rani";
-// emp.habbit = "dancing";
+// emp.habit = "dancing";
 // console.log(emp);
 
 // we can also create objects using function constructors
@@ -196,3 +196,42 @@
 
 
 //                          Object methods
+
+// let emp = {
+//   id: 10,
+//   name: "indu",
+//   age: 29
+// };
+// let keys = Object.keys(emp);
+// console.log(keys);
+
+// let values = Object.values(emp);
+// console.log(values);
+
+// let entries = Object.entries(emp);
+// console.log(entries);
+
+// becoz of freeze - we can see that even if we try to change the value of id it still remains the same old value , 
+
+//  after applying freeze we can't change the values
+// Object.freeze(emp);
+// emp.id = 245736;
+// emp.address = "random"
+// console.log(emp);
+
+// Object.seal(emp);
+// emp.id = 11001100;
+// console.log(emp); 
+
+
+
+//                           new object using old object
+let emp = {
+  id: 10, name: "indu", age: 29
+};
+
+// let o = Object.assign({}, emp);
+// ish empty object me koi key value pair add karenge to wo bhi add ho jayega
+let o = Object.assign({x: 16}, emp);
+console.log(o);
+// emp object ke saare values o me aa jayenge
