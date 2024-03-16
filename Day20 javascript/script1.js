@@ -143,8 +143,21 @@
 
 //                         Anonymous Function
 
-let x = function(){
-	console.log("Hi");
-}
+// let x = function(){
+// 	console.log("Hi");
+// }
 
-x();
+// x();
+
+//            Immediately invoke function expression IIFE
+
+// syntax to write this function
+// (function)()
+
+(function(){
+	console.log("Hi");
+})();
+
+(function(x){
+	console.log(x*x);
+})(5);
