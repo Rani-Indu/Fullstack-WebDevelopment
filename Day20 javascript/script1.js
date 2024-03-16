@@ -154,10 +154,38 @@
 // syntax to write this function
 // (function)()
 
-(function(){
-	console.log("Hi");
-})();
+// // named function expression
+// (function exec(){
+// 	console.log("Hi");
+// })();
 
-(function(x){
-	console.log(x*x);
-})(5);
+
+// // anonymous function expression
+// (function(x){
+// 	console.log(x*x);
+// })(5);
+
+
+//                       Object
+
+let obj = {id: 101, name : "indu", salary: 50000};
+console.log(obj);
+
+
+// we can create objects using empty functions 
+let emp = new Object();
+emp.id = 22;
+emp.name = "indu";
+emp.habbit = "dancing";
+console.log(emp);
+
+
+// we can also create objects using function constructors
+function Emp(i, n, s) {
+	this.id = i;
+	this.name = n;
+	this.salary = s;
+}
+
+const e = new Emp(103, "indu", 120000);
+console.log(e);
