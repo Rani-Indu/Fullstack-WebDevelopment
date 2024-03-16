@@ -132,11 +132,19 @@
 // // x = 1 , y = 10
 
 
-function add(x=10,y){
-	return x+y;
-}
-console.log(add(1));
+// function add(x=10,y){
+// 	return x+y;
+// }
+// console.log(add(1));
 // x = 1 , y has no value 
 // as the parameters takes value from left to right so first x then y
 
 
+
+//                         Anonymous Function
+
+let x = function(){
+	console.log("Hi");
+}
+
+x();
