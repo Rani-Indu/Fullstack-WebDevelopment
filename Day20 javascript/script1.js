@@ -150,39 +150,49 @@
 // 	console.log(x*x);
 // })(5);
 
+
+
+
 //                       Object
+//          Creating object and Manipulating values in Object
 
 // let obj = {id: 101, name : "indu", salary: 50000};
 // console.log(obj);
 
-// // we can create objects using empty functions
-let emp = new Object();
-emp.id = 22;
-emp.name = "rani";
-emp.habbit = "dancing";
-console.log(emp);
+//  we can create objects using empty functions
+// let emp = new Object();
+// emp.id = 22;
+// emp.name = "rani";
+// emp.habbit = "dancing";
+// console.log(emp);
 
 // we can also create objects using function constructors
-function Emp(i, n, s) {
-  this.id = i;
-  this.name = n;
-  this.salary = s;
-}
+// function Emp(i, n, s) {
+//   this.id = i;
+//   this.name = n;
+//   this.salary = s;
+// }
 
-const e = new Emp(103, "indu", 120000);
-console.log(e);
+// const e = new Emp(103, "indu", 120000);
+// console.log(e);
 
 // method to access/ fetch content inside object
-console.log(e.id);
-console.log(e.name);
-console.log(emp.name);
-console.log(e["salary"]);
+// console.log(e.id);
+// console.log(e.name);
+// console.log(emp.name);
+// console.log(e["salary"]);
 
 // method to assign content inside object
-emp.salary = 50000;
-emp["school"] = "D.A.V";
-console.log(emp);
+// emp.salary = 50000;
+// emp["school"] = "D.A.V";
+// console.log(emp);
 
 // method to update content inside object
-emp.id = 1994;
-console.log(emp);
+// emp.id = 1994;
+// console.log(emp);
+// delete emp.name;
+// console.log(emp);
+
+
+
+//                          Object methods
