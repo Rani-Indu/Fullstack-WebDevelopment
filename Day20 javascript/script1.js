@@ -21,7 +21,6 @@
 // index/position = [ 0, 1, 2, 3, 4,  5]
 // index last element- (array.length -1)
 
-
 // let a = [1, 2, 3, "indu", true, 4.5,"86"];
 // // console.log(a[0]);
 // // console.log(a[6]);
@@ -31,9 +30,6 @@
 // console.log(a);
 // console.log(a[6]);
 // we can see that arrays in js are mutable - i,e we can update values
-
-
-
 
 //                               Array Methods
 
@@ -57,7 +53,6 @@
 // let d = arr.unshift(9);
 // console.log(d);
 // console.log(arr);
-
 
 // // to join two or more arrays
 // let a1 = [1, 2, 3, 4, 5];
@@ -84,15 +79,12 @@
 // let arr1 = [81, 62, 43, 44, 89, 765,43];
 // console.log(arr1.slice(2, 5));
 
-
-// // if we want to add or delete in between array 
+// // if we want to add or delete in between array
 // // arr1.splice(2, 0, 11);
 // // arr1.splice(2, 1, 11);
 // arr1.splice(2, 2, 11, 22, 33);
 // // at 2nd index 0 delete add 11
 // console.log(arr1);
-
-
 
 //                               Functions
 
@@ -103,16 +95,13 @@
 
 // greet()
 
-
-// function sqr(x){ // x - parameter 
+// function sqr(x){ // x - parameter
 // 	// console.log(x*x);
 // 	return(x*x);
 // }
 
 // let a = sqr(8); // 8 - argument
 // console.log(a);
-
-
 
 //       Function without a parameter(single and multiple)
 
@@ -131,15 +120,12 @@
 // console.log(add(1));
 // // x = 1 , y = 10
 
-
 // function add(x=10,y){
 // 	return x+y;
 // }
 // console.log(add(1));
-// x = 1 , y has no value 
+// x = 1 , y has no value
 // as the parameters takes value from left to right so first x then y
-
-
 
 //                         Anonymous Function
 
@@ -159,33 +145,44 @@
 // 	console.log("Hi");
 // })();
 
-
 // // anonymous function expression
 // (function(x){
 // 	console.log(x*x);
 // })(5);
 
-
 //                       Object
 
-let obj = {id: 101, name : "indu", salary: 50000};
-console.log(obj);
+// let obj = {id: 101, name : "indu", salary: 50000};
+// console.log(obj);
 
-
-// we can create objects using empty functions 
+// // we can create objects using empty functions
 let emp = new Object();
 emp.id = 22;
-emp.name = "indu";
+emp.name = "rani";
 emp.habbit = "dancing";
 console.log(emp);
 
-
 // we can also create objects using function constructors
 function Emp(i, n, s) {
-	this.id = i;
-	this.name = n;
-	this.salary = s;
+  this.id = i;
+  this.name = n;
+  this.salary = s;
 }
 
 const e = new Emp(103, "indu", 120000);
 console.log(e);
+
+// method to access/ fetch content inside object
+console.log(e.id);
+console.log(e.name);
+console.log(emp.name);
+console.log(e["salary"]);
+
+// method to assign content inside object
+emp.salary = 50000;
+emp["school"] = "D.A.V";
+console.log(emp);
+
+// method to update content inside object
+emp.id = 1994;
+console.log(emp);
