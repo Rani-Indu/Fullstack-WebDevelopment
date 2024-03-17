@@ -49,6 +49,10 @@ console.log(b);
 // console.log(b);
 
 // b.setAttribute("id", "js")
+// upon hover on first on browser we can see indu
 b.setAttribute("title", "indu");
 // b.setAttribute("Attribute ka naam", "Attribute ki value")
 
+
+
+//                                   DOM - part 2
