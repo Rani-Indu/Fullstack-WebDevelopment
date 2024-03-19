@@ -38,8 +38,6 @@ const button = document.querySelector("#btn");
 // };
 
 // button.addEventListener("click", changeRandomColor)
-var a=0;
-for(a;a<5;a++);
-console.log(a);
+
 
 
