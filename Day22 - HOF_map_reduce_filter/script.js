@@ -131,6 +131,29 @@
 
 
 //                                         reduce
-const cartBill = [20, 30, 40]
-const sumOfCartBill = cartBill.reduce((previous, current) => previous+current, 0)
-console.log(sumOfCartBill);
+// const cartBill = [20, 30, 40]
+// const sumOfCartBill = cartBill.reduce((previous, current) => previous+current, 0)
+// console.log(sumOfCartBill);
+
+
+//                          check if all values are numbers
+const gameScore = [200, 250, 300, 310, 250, 150]
+// output is true
+
+// const gameScore = [200, 300, 310, 250, 150, "indu"]
+// output is false
+
+
+console.log(typeof gameScore[1]);  
+// o/p = number (in lowercase) (in string format)
+
+// const gameScoreCheck = gameScore.every((val) => typeof v === Number)
+// due to above reason we need to change Number to 'number'.
+
+const gameScoreCheck = gameScore.every((val) => typeof val === 'number')
+console.log("check : ", gameScoreCheck);
+
+// find score above 200 
+
+const above200 = gameScore.find((score) => score > 200);
+console.log(above200);
