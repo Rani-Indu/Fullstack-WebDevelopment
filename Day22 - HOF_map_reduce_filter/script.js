@@ -157,3 +157,9 @@ console.log("check : ", gameScoreCheck);
 
 const above200 = gameScore.find((score) => score > 200);
 console.log(above200);
+
+
+
+// findIndex
+// some
+// sort
