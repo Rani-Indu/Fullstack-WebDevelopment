@@ -10,6 +10,29 @@ let flag = "gi"
 
 let regExTwo = new RegExp(pattern, flag);
 
-let regExThree = /pw/gi
+let regExThree = /PW/gi
+// o/p - true
+// let regExThree = /ew/gi
+// o/p - false
 
-const strToCheck = "pw Skills is the one-stop destination for your upskilling journey. PW Brace yourself to find the best job-ready PW courses and high-end technologies available in the sector pw COURSER. "
+const strToCheck = "pw Skills is the one-stop destination for your upskilling journey. PW Brace yourself to find the best job-ready PW courses and high-end technologies available in the sector pw COURSER"
+
+// match karne ke 2 tarike hai 
+
+//  1 - regExpression se puch sakte hai ki req result string me kabhi aaya hai kya
+//  2 - string se puch sakte hai ki kya uske andar ye pattern hai
+
+// test method - tabhi aayega jab regEx ban jaaye ga warna nahi aayega - gives output in boolean values
+
+const result = regExThree.test(strToCheck);
+// console.log(result);
+// PS C:\Users\lenovo\new github\Fullstack-WebDevelopment\day23> node .\script.js
+// true
+
+const anotherResult = strToCheck.match(regExThree)
+// console.log(anotherResult);
+
+
+// pattern ko match karega aur replace bhi karega
+const oneMoreResult = strToCheck.replace(regExThree, "p-w")
+console.log(oneMoreResult);
