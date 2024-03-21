@@ -35,4 +35,16 @@ const anotherResult = strToCheck.match(regExThree)
 
 // pattern ko match karega aur replace bhi karega
 const oneMoreResult = strToCheck.replace(regExThree, "p-w")
-console.log(oneMoreResult);
+// console.log(oneMoreResult);
+
+// const webUrl = "https://pwskills.com/hitesh%21choud%20hary"
+// const useableUrl = webUrl.replace(/%20/gi, "-")
+// const useableUrl = webUrl.replace(/%20/, "-")
+// const useableUrl = webUrl.replace(/%\d0/gi, "-")
+
+
+const webUrl = "https://pwskills.com/hitesh%21choud%20hary"
+const useableUrl = webUrl.replace(/%\d\d/gi, "-")
+console.log(useableUrl);
+
+// \d - to recognize numbers
