@@ -52,14 +52,31 @@ let newArrayTwo = new Array(1, 2, 3)
 // 1.  arguments ko convert karo array me 
 // 2.  phir jo arguments / args aate hai uspe map/loop laga do
 function manyArguments(){
+    console.log(typeof arguments);
     let args = Array.from(arguments)  // args is array
     let finalArr = args.map(x => x)
-    // let finalArr1 = args.map(x => x*2)
-    // let finalArr2 = args.map(x => x*x)
     console.log(finalArr);
-    // console.log(finalArr1);
-    // console.log(finalArr2);
 }
+// manyArguments(1, 2, 3)
+// manyArguments(1, 2, 3, 4, 5, 6, 7)
 
-manyArguments(1, 2, 3)
-manyArguments(1, 2, 3, 4, 5, 6, 7)
+// let finalArr1 = args.map(x => x*2)
+// let finalArr2 = args.map(x => x*x)
+// console.log(finalArr1);
+// console.log(finalArr2);
+
+//                                     OR
+
+
+//  ...args - here is rest operator - ye values ko leta hai aur pack kar deta hai array ke andar
+function manyArgument1(...args){
+    console.log(typeof args);
+    let finalArr = args.map(e => e)
+    console.log(finalArr);
+}
+// manyArguments(1, 2, 3)
+// manyArgument1(1, 2, 3, 4, 5, 6, 7)
+
+
+// spread operator - 2 array diye hai unke elements ko spread karna ho tab use hota hai 
+// rest operator - elements diye ho unko array me conmine karna ho tab use hota hai 
