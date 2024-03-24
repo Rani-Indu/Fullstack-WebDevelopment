@@ -51,6 +51,7 @@ let newArrayTwo = new Array(1, 2, 3)
 // steps -
 // 1.  arguments ko convert karo array me 
 // 2.  phir jo arguments / args aate hai uspe map/loop laga do
+
 function manyArguments(){
     console.log(typeof arguments);
     let args = Array.from(arguments)  // args is array
@@ -80,3 +81,20 @@ function manyArguments(){
 
 // spread operator - 2 array diye hai unke elements ko spread karna ho tab use hota hai 
 // rest operator - elements diye ho unko array me conmine karna ho tab use hota hai 
+
+
+// examples of spread operator
+
+const names = ["Hanuman", "spiderman"]
+const newNames = ["Batman", ...names, "thor", "ironman"]
+console.log(newNames);
+
+const sitename = "pwskills"
+console.log([...sitename]);
+
+// examples of rest operator
+
+function pwskills(...values){
+    return values
+}
+console.log(pwskills("Hanuman", "ironman"));
