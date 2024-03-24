@@ -69,11 +69,11 @@ function manyArguments(){
 
 
 //  ...args - here is rest operator - ye values ko leta hai aur pack kar deta hai array ke andar
-function manyArgument1(...args){
-    console.log(typeof args);
-    let finalArr = args.map(e => e)
-    console.log(finalArr);
-}
+// function manyArgument1(...args){
+//     console.log(typeof args);
+//     let finalArr = args.map(e => e)
+//     console.log(finalArr);
+// }
 // manyArguments(1, 2, 3)
 // manyArgument1(1, 2, 3, 4, 5, 6, 7)
 
