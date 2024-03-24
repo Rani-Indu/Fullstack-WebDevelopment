@@ -14,4 +14,15 @@ let emptySet = new Set()
 
 let myArray = [1, 2, 3, 4, 3, 2]
 let newSet = new Set([...myArray])  // spread operator
+// console.log(newSet);
+
+//              add
+newSet.add(2)
 console.log(newSet);
+
+newSet.add(9)
+console.log(newSet);
+
+newSet.add(22)
+console.log(newSet);
+console.log(newSet.has(9));
