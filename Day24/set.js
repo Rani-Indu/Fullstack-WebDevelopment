@@ -17,12 +17,12 @@ let newSet = new Set([...myArray])  // spread operator
 // console.log(newSet);
 
 //              add
-newSet.add(2)
-console.log(newSet);
+// newSet.add(2)
+// console.log(newSet);
 
-newSet.add(9)
-console.log(newSet);
+// newSet.add(9)
+// console.log(newSet);
 
-newSet.add(22)
-console.log(newSet);
-console.log(newSet.has(9));
+// newSet.add(22)
+// console.log(newSet);
+// console.log(newSet.has(9));
