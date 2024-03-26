@@ -124,6 +124,7 @@
 // heroes = ["hanuman", "abhimanyu", "karn", "arjun", "spiderman", "batman", "superman"];
 // // console.log(heroes);
 // const heroesWithMan = heroes.filter((hero) => {
+	// filter me har ek element pe loop chalta hai
 // 	return hero.endsWith("man")
 // })
 // console.log(heroesWithMan);

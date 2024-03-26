@@ -20,8 +20,9 @@ let newSet = new Set([...myArray])  // spread operator
 // newSet.add(2)
 // console.log(newSet);
 
-// newSet.add(9)
-// console.log(newSet);
+newSet.add(9)
+newSet.clear(9)
+console.log(newSet);
 
 // newSet.add(22)
 // console.log(newSet);
