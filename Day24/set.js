@@ -14,10 +14,10 @@ let emptySet = new Set()
 
 
 let myArray = [1, 2, 3, 4, 3, 2]
-let newSet = new Set([...myArray])  // spread operator
+let newSet = new Set([...myArray])  // //spread operator
 // console.log(newSet);
 
-//              add
+//                                       add
 // newSet.add(2)
 // console.log(newSet);
 
@@ -30,7 +30,7 @@ let newSet = new Set([...myArray])  // spread operator
 // console.log(newSet);
 // console.log(newSet.has(9));
 
-// set difference
+//                                   set difference
 function setDifference(set1, set2){
 	// Convert arrays to sets
 	const setA = new Set(set1);
@@ -51,7 +51,10 @@ let difference = setDifference([1, 2, 3], [4, 5, 6])
 // difference = setDifference([1, 2, 3, 4], [7, 8, 9])
 // console.log(difference);
 
+
+
 //                              map
+
 // koi bhi format ki key le sakte , koi bhi format ki value le sakte hai eg - map1.set('a', 1);
 
 let map = new Map();
@@ -59,7 +62,10 @@ console.log(map.size);  // o/p = 0
 map.set
 
 // array to map
+
+// below array is 2-D array - array inside array//
+  
 let arr = [[1, "Radhe Radhe"], [2, "Hare Krishn"], [3, "Shree ji"], [4, "Vrindavan"], [5, "Barsana"]];
-// array se map banana hai to loop lagana hoga
+// array se map banana hai to loop lagana hoga, map, for each
 arrItem = arr.map((item) => map.set(item[0], item[1]))
 console.log(arrItem);
