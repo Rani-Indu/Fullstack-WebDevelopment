@@ -1,4 +1,5 @@
 //  set is a object
+// method to declare a set
 let emptySet = new Set()
 
 // console.log(emptySet.size);  // o/p = 0
@@ -38,9 +39,8 @@ function setDifference(set1, set2){
 }
 
 let difference = setDifference([1, 2, 3], [4, 5, 6])
-console.log(difference);
-console.log([...difference]);
-
+// console.log(difference);
+// console.log([...difference]);
 
 // function setDifference(set1, set2){
 // 	const setA = new Set(set1)
@@ -50,3 +50,16 @@ console.log([...difference]);
 
 // difference = setDifference([1, 2, 3, 4], [7, 8, 9])
 // console.log(difference);
+
+//                              map
+// koi bhi format ki key le sakte , koi bhi format ki value le sakte hai eg - map1.set('a', 1);
+
+let map = new Map();
+console.log(map.size);  // o/p = 0
+map.set
+
+// array to map
+let arr = [[1, "Radhe Radhe"], [2, "Hare Krishn"], [3, "Shree ji"], [4, "Vrindavan"], [5, "Barsana"]];
+// array se map banana hai to loop lagana hoga
+arrItem = arr.map((item) => map.set(item[0], item[1]))
+console.log(arrItem);
