@@ -46,11 +46,39 @@
 
 //                          Arrow function
 
-const product = (n, p, r) => {
-	this.name = n;
-	this.price = p;
-	this.rating = r;
+// const product = (n, p, r) => {
+// 	this.name = n;
+// 	this.price = p;
+// 	this.rating = r;
+// }
+
+// const p = new product("Xperia", 150000, 5);
+// console.log(p);
+
+// we can't use arrow function as function constructor
+
+
+// let obj = {
+// 	x : 10,
+// 	fun: () => {
+// 		console.log(this.x);
+// 	}
+// }
+
+// obj.fun();
+// we are getting error as it is arrow function
+
+
+let obj = {
+	x : 10,
+	fun() {
+		y = {
+			gun: () => {
+				console.log(this.x);
+			}
+		}
+		y.gun();
+	}
 }
 
-const p = new product("Xperia", 150000, 5);
-console.log(p);
+obj.fun();
