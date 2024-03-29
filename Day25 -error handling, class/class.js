@@ -46,6 +46,27 @@ class product{
 		console.log("calling a static method");
 	}
 
+	// getRating(){
+	// 	console.log(this.#rating);
+	// }
+
+	// setRating(r){
+	// 	if(r < 10)return;
+	// 	this.#rating = r;
+	// }
+
+	//                          OR
+	//                        method 2
+	
+	get ratingGetter(){
+		console.log(this.#rating);
+	}
+
+	set ratingSetter(r){
+		if(r < 10)return;
+		this.#rating = r;
+	}
+
 
 	// function
 	// behaviours ---- functions  ---  member functions
@@ -58,8 +79,18 @@ class product{
 
 const a = new product("toyota", 5000000, 9.9);  // new ==== keyword creates an empty plain object
 // in the above piece of code we are calling the constructor method
-a.rating = 10;
+// a.rating = 10;
 console.log(a);
+// a.setRating(6);
+// a.getRating(120);
+
+
+//                        method 2
+// or we can access this as property
+
+a.ratingGetter = 100
+a.ratingSetter = 9990
+
 // console.log(typeof(a));   // o/p = object
 a.name = "suv"
 console.log(a.name);
@@ -68,6 +99,7 @@ a.display()
 
 
 // static function or method
+
 // a.custom();  // o/p = error , kyuki static method class property hai isliye isheobject ke saath call nahi kar sakte
 //  a is object
 // product.custom();
