@@ -77,6 +77,7 @@ let obj = {
 }
 
 obj.fun();
+//  o/p = undefined
 // we are getting error as it is arrow function
 
 
@@ -93,3 +94,6 @@ obj.fun();
 // }
 
 // obj.fun();
+// jab bhi hume koi behaviour execute karna hai to uske liye hum member functions add kar sakte hai aur member function ko call karne ke liye hum object ka use karte hai
+// pehle object banate hai 
+// phir ushobject ka use kar ke ek member function ko call kar pate hai
