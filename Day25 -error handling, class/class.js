@@ -13,9 +13,9 @@
 //  syntax to write class
 class product{
 	// properties
-	// name: 
-	// price:
-	// rating:
+	name;
+	price;
+	rating;
 
 	// constructor  - write inside class
 	// hamesha object return/o/p karta hai
@@ -50,7 +50,7 @@ class product{
 	// function
 	// behaviours ---- functions  ---  member functions
 	display(){
-		console.log("displaying the current product");
+		console.log("displaying the current product", this.name, this.price, this.#rating );
 	}
 	// display here is function , we can write function here even without using function keyword
 }
@@ -58,12 +58,13 @@ class product{
 
 const a = new product("toyota", 5000000, 9.9);  // new ==== keyword creates an empty plain object
 // in the above piece of code we are calling the constructor method
+a.rating = 10;
 console.log(a);
 // console.log(typeof(a));   // o/p = object
 a.name = "suv"
 console.log(a.name);
-console.log(a.rating);  // undefined, private data mmber can't be accessed outside
-// a.display()
+// console.log(a.rating);  // undefined, private data mmber can't be accessed outside
+a.display()
 
 
 // static function or method
