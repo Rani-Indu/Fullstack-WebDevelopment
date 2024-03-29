@@ -55,30 +55,41 @@
 // const p = new product("Xperia", 150000, 5);
 // console.log(p);
 
-// we can't use arrow function as function constructor
-
-
+//                            normal function
 // let obj = {
 // 	x : 10,
-// 	fun: () => {
+// 	fun () {
 // 		console.log(this.x);
 // 	}
 // }
 
 // obj.fun();
-// we are getting error as it is arrow function
+//  o/p = 10
 
 
+//                            arrow function      
+// we can't use arrow function as function constructor we can see that we'll get error
 let obj = {
 	x : 10,
-	fun() {
-		y = {
-			gun: () => {
-				console.log(this.x);
-			}
-		}
-		y.gun();
+	fun: () => {
+		console.log(this.x);
 	}
 }
 
 obj.fun();
+// we are getting error as it is arrow function
+
+
+// let obj = {
+// 	x : 10,
+// 	fun() {
+// 		y = {
+// 			gun: () => {
+// 				console.log(this.x);
+// 			}
+// 		}
+// 		y.gun();
+// 	}
+// }
+
+// obj.fun();
