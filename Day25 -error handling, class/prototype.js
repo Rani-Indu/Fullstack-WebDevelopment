@@ -16,8 +16,16 @@ let heroPower = {
 Object.prototype.indu = function(){
 	console.log(`indu is present in all objects`);
 }
-console.log(myHeroes.indu());
-console.log(heroPower.indu());
+// console.log(myHeroes.indu());
+// console.log(heroPower.indu());
 
 // jaisa ki sab kuch hi object hai to sab ko access mil gaya but 
 // abhi sirf array ko access denahai
+Array.prototype.heyIndu = function(){
+	console.log(`indu say hi`);
+}
+
+// console.log(myHeroes.indu());
+// console.log(heroPower.indu());
+// console.log(myHeroes.heyIndu());
+// console.log(heroPower.heyIndu());  // error as we have injected in array and not in object
