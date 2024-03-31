@@ -1,3 +1,5 @@
+//                       Example 1
+
 // let score = 4  // this has global scope so every everyoe canaccess this
 // function one(){
 // 	let score = 1
@@ -31,23 +33,42 @@
 // // lexical scoping - inner functions, outer function ko access kar sakte hai lekin outer function inner function ko access nahi kar sakte 
 
 
-const myGlobalValue = 0
 
-function func(){
-	const val1 = 1;
-	console.log(myGlobalValue);
-	// console.log(myGlobalValue, val2); //can't access val2 as it is out of scope of func of val2
+//                                     Example 2
+// const myGlobalValue = 0
 
-	function innerofFunc(){
-		const val2 = 2;
-		console.log(val1, val2, myGlobalValue);
+// function func(){
+// 	const val1 = 1;
+// 	console.log(myGlobalValue);
+// 	// console.log(myGlobalValue, val2); //can't access val2 as it is out of scope of func of val2
+
+// 	function innerofFunc(){
+// 		const val2 = 2;
+// 		console.log(val1, val2, myGlobalValue);
 		
-		function innerofInnerfunction(){
-			const val3 = 3;
-			console.log(val1, val2, val3,  myGlobalValue);	
-		} 
-		innerofInnerfunction()
-	}
-	innerofFunc()
-}
-func()
+// 		function innerofInnerfunction(){
+// 			const val3 = 3;
+// 			console.log(val1, val2, val3,  myGlobalValue);	
+// 		} 
+// 		innerofInnerfunction()
+// 	}
+// 	innerofFunc()
+// }
+// func()
+
+//                                     Example 3
+// function superFun(){
+// 	let outerValue = 'I am outer'
+// 	function minorFunc(){
+// 		console.log(outerValue);
+// 	}
+// 	minorFunc()
+// }
+
+// superFun()
+
+
+const errorMessage = "File not found"
+setTimeout(function callback(){
+	console.log(errorMessage);
+}, 2000)
