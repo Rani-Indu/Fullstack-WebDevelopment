@@ -28,3 +28,4 @@ function outerFunc(){
 }
 outerFunc()
 
+// lexical scoping - inner functions, outer function ko access kar sakte hai lekin outer function inner function ko access nahi kar sakte 
