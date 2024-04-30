@@ -1,9 +1,9 @@
 const path = require("path");
-console.log(path.sep);
+// console.log(path.sep);
 
-console.log(process.env.PATH);
+// console.log(process.env.PATH);
 
-console.log(path.delimiter);
+// console.log(path.delimiter);
 
 const filePath1 = '/public_html/home/index.html';
 
@@ -45,8 +45,8 @@ let pathToDir = path.join('/home', 'js', 'dist', 'index.js',);
 // console.log('relative path :', path.relative('/home/user/config', '/home/user/js'));
 
 const currentFilePath2 =  __dirname;
-// console.log('currentFilePath2 : ',currentFilePath2);
+console.log('currentFilePath2 : ',currentFilePath2);
 
-// console.log('resolve:', path.resolve());
+console.log('resolve:', path.resolve());
 
 console.log('normalize :', path.normalize('//home//user//js'));
