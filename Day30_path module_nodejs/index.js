@@ -5,8 +5,10 @@ const path = require("path");
 
 // console.log(path.delimiter);
 
+// file path that we have created or given
 const filePath1 = '/public_html/home/index.html';
 
+// taking present index.js in which we are working as the base file to perform all operations
 const currentFilePath =  __filename;
 // console.log(currentFilePath);
 
@@ -49,4 +51,4 @@ console.log('currentFilePath2 : ',currentFilePath2);
 
 console.log('resolve:', path.resolve());
 
-console.log('normalize :', path.normalize('//home//user//js'));
+// console.log('normalize :', path.normalize('//home//user//js'));
