@@ -47,8 +47,8 @@ let pathToDir = path.join('/home', 'js', 'dist', 'index.js',);
 // console.log('relative path :', path.relative('/home/user/config', '/home/user/js'));
 
 const currentFilePath2 =  __dirname;
-console.log('currentFilePath2 : ',currentFilePath2);
+// console.log('currentFilePath2 : ',currentFilePath2);
 
-console.log('resolve:', path.resolve());
+// console.log('resolve:', path.resolve());
 
-// console.log('normalize :', path.normalize('//home//user//js'));
+console.log('normalize :', path.normalize('//home//user//js'));
