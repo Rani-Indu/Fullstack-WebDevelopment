@@ -1,4 +1,4 @@
-//                              statuscode
+//                              statuscode: 200
 
 // const http = require('http');
 
@@ -15,7 +15,7 @@
 //     console.log(`server running at ${HOSTNAME}: ${PORT}`);
 // });
 
-
+//                                  Statuscode: 500
 
 const http = require('http');
 
