@@ -8,6 +8,7 @@ const options = {
 
 const apiReq = http.request(options, (apiRes) => {
     apiRes.on("data", (data) => {
+        console.log(data);
         console.log(data.toString());
     })
 
@@ -17,6 +18,5 @@ apiReq.on("error", () => {
     console.log(e);
 })
 
-apiRes.end();
+apiReq.end();
 
-// 23:56
