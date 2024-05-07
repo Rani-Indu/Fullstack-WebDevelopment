@@ -1,6 +1,8 @@
+//                              statuscode
+
 // const http = require('http');
 
-// const PORT = 3022;
+// const PORT = 3024;
 // const HOSTNAME = 'localhost';
 
 // const server = http.createServer((req, res) => {
@@ -12,3 +14,20 @@
 // server.listen(PORT, () => {
 //     console.log(`server running at ${HOSTNAME}: ${PORT}`);
 // });
+
+
+
+const http = require('http');
+
+const PORT = 3025;
+const HOSTNAME = 'localhost';
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 500;
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify({error: "Server Error!"}));
+});
+
+server.listen(PORT, () => {
+    console.log(`server running at ${HOSTNAME}: ${PORT}`);
+});
