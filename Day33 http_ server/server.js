@@ -1,6 +1,6 @@
 const http = require('http');
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((req, res) => {  // creating server
     if (req.url == '/') {
         res.write('<h1>Hello, Nodejs !</h1>'); 
     } else if(req.url == '/about'){

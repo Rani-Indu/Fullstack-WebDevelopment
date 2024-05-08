@@ -46,7 +46,7 @@
 
 const http = require('http');
 
-const PORT = 3032;
+const PORT = 4010;
 const HOSTNAME = 'localhost';
 
 const server = http.createServer((req, res) => {
