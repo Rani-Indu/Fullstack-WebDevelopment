@@ -2,31 +2,36 @@
 // import express from "express"
 // const app = express()
 import app from './app.js'
+import mongoose from 'mongoose';
+
 const port = 3000
 
 // database connection mongodb
 // const mongoose = require('mongoose');
-import mongoose from 'mongoose';
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+
 // 127.0.0.1:27017/  or write localhost - samething
 
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// async IIFE - to handle situation of database in another continent
+(async() => {
+  // try catch - to handle database connection failure
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    console.log('DB connected successfully ');
+
+    app.on("error",() => {
+      console.log('Error', err);
+      throw err;
+    })
+  } catch (error) {
+    console.error("error", err);
+    throw err
+    
+  }
+})()
 
 
-
-
-// async IIFE
-(async() => {})()
-
-// try catch
-try {
-  
-} catch (error) {
-  console.error("error", err);
-  throw err
-  
-}
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
