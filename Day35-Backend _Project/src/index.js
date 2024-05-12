@@ -9,7 +9,7 @@ const port = 3000
 // database connection mongodb
 // const mongoose = require('mongoose');
 
-// 127.0.0.1:27017/  or write localhost - samething
+// 127.0.0.1:27017/  or write localhost - same thing
 
 
 
@@ -17,12 +17,16 @@ const port = 3000
 (async() => {
   // try catch - to handle database connection failure
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    await mongoose.connect('dbstring');
     console.log('DB connected successfully ');
 
     app.on("error",() => {
       console.log('Error', err);
       throw err;
+    })
+
+    app.listen(port, () => {
+      console.log(`listening on port ${port}`);
     })
   } catch (error) {
     console.error("error", err);
