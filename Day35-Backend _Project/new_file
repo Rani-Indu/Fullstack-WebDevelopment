@@ -1,0 +1,3 @@
+
+
+await mongoose.connect('mongodb+srv://indupwskills:Indu5843@testdb.qiti6il.mongodb.net/todoapp');
