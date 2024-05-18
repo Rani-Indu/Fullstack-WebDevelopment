@@ -37,3 +37,4 @@ const userSchema = new mongoose.Schema(
 
 export default mongoose.model("User", userSchema )
 
+const schema = new mongoose.Schema({ name: String, size: String });
