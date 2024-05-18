@@ -37,12 +37,14 @@ const port = 3000
 
 
 (async() => {
+  // this is done for mongoose
   try {
     // database connection - await as db is in another continent
    await mongoose.connect('mongodb+srv://indupwskills:Indu5843@testdb.qiti6il.mongodb.net/todoapp');
    console.log('DB connected successfully ');
 
 // db up hai but app down hai - error will occur - so we need to handle it
+// this is done for express
    app.on("error", (err) => {
     console.error("ERROR :", err);
     throw err
