@@ -15,8 +15,6 @@ app.use(cors())
 // init connection to db
 connectToDb()
 
-app.get('/', (req, res) => {
-    res.send('Hello World !!')
-})
+app.get('/', )
 
 module.exports = app; 
