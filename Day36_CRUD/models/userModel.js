@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
             // unique username only allowed
         },
         password: String,
-        age: number, 
+        age: Number, 
         
     }
     

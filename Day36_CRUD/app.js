@@ -17,6 +17,6 @@ connectToDb()
 
 
 const userRoutes = require('./routes/userRoutes.js')
-app.get('/', userRoutes)
+app.use('/', userRoutes)
 
 module.exports = app; 
