@@ -19,17 +19,17 @@ const userSchema = new mongoose.Schema(
     
         email: {
             type: String,
+            required: true,
             unique: true
             // unique emails only allowed
         }, 
         
         username: {
             type: String,
+            required: true,
             unique: true
             // unique username only allowed
         },
-        password: String,
-        age: Number, 
         
     }
     

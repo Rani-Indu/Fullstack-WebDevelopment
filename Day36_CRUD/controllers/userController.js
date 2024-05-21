@@ -1,9 +1,10 @@
+const User = require('../models/userModel')
+
 exports.home = (req, res) => {
     res.send('Hello World !!')}
 
-const User = require('../models/userModel.js')
     
-exports.createUser= async(req, res) => {
+exports.createUser = async(req, res) => {
     // extract info
     try {
         const {name, email} = req.body

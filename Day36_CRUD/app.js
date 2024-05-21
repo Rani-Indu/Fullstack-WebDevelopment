@@ -7,7 +7,7 @@ const connectToDb = require('./config/db.js')
 const app = express();
 
 // Express middleware
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 app.use(cors())
@@ -16,7 +16,7 @@ app.use(cors())
 connectToDb()
 
 
-const userRoutes = require('./routes/userRoutes.js')
+const userRoutes = require('./routes/userRoutes')
 app.use('/', userRoutes)
 
 module.exports = app; 
