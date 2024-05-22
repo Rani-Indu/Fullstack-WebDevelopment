@@ -1,13 +1,7 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema(
-    // { 
-    //     name: String, 
-    //     size: String, 
-    //     email: String, 
-    //     password: String,
-    //     age: number, 
-    // }
+    
     { 
         name: {
             type: String,
@@ -23,13 +17,13 @@ const userSchema = new mongoose.Schema(
             unique: true
             // unique emails only allowed
         }, 
-        
-        username: {
-            type: String,
-            required: true,
-            unique: true
-            // unique username only allowed
-        },
+        // if we uncomment this then we need to make changes in code and include uesrname while sending POST request and accordingly at various other places
+        // username: {
+        //     type: String,
+        //     required: true,
+        //     unique: true
+        //     // unique username only allowed
+        // },
         
     }
     
