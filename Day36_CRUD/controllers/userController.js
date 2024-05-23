@@ -41,3 +41,60 @@ exports.createUser = async(req, res) => {
         })    
     } 
 }
+
+exports.getUsers = async(req, res) => {
+    try{
+        // await User.find({email})  // previous example
+        const users = await User.find({})  // no condition mentioned , so all data needed
+        res.status(200).json({
+            success: true,
+            message: "process successful",
+            users
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: "process failed"
+        })
+    }
+}
+
+exports.deleteUser = async(req, res) => {
+    try {
+        const userId = req.params.id
+        const user = await User.findByIdAndDelete(userId)
+        res.status(200).json({
+            success: true,
+            message: "User deleted successfully"
+        })
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: "process failed"
+        })
+        
+    }
+}
+
+
+xports.editUser = async(req, res) => {
+    try {
+        const user = await User.findByIdAndUpdate(req.params.id, req.body)
+        ress.status(200).json({
+            success: true,
+            message: "User updated successfully"
+        })
+       
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: "process failed"
+        })
+        
+    }
+}
