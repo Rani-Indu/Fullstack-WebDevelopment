@@ -15,15 +15,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             unique: true
-            // unique emails only allowed
         }, 
-        // if we uncomment this then we need to make changes in code and include uesrname while sending POST request and accordingly at various other places
-        // username: {
-        //     type: String,
-        //     required: true,
-        //     unique: true
-        //     // unique username only allowed
-        // },
         
     }
     

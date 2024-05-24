@@ -63,7 +63,7 @@ exports.getUsers = async(req, res) => {
 
 exports.deleteUser = async(req, res) => {
     try {
-        const userId = req.params.id
+        const userId = req.params.id;
         const user = await User.findByIdAndDelete(userId)
         res.status(200).json({
             success: true,
@@ -81,10 +81,10 @@ exports.deleteUser = async(req, res) => {
 }
 
 
-xports.editUser = async(req, res) => {
+exports.editUser = async(req, res) => {
     try {
         const user = await User.findByIdAndUpdate(req.params.id, req.body)
-        ress.status(200).json({
+        res.status(200).json({
             success: true,
             message: "User updated successfully"
         })

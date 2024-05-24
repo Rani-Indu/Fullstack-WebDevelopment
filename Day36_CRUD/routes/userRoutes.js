@@ -10,8 +10,8 @@ const router = express.Router()
 router.get('/', home)
 router.post('/createUser', createUser)
 router.get('/getUsers', getUsers)
-router.delete('deleteuser/:userid', deleteUser)
-router.delete('editUser/:userid', editUser)
+router.delete('/deleteUser/:id', deleteUser)
+router.put('/editUser/:id', editUser)
 
 module.exports = router;
 
