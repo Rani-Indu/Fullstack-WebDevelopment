@@ -33,11 +33,11 @@
 
 const http = require('http');
 const PORT = 3020;
-HOSTNAME = 'localhost';
+const HOSTNAME = 'localhost';
 
 const Server = http.createServer((req, res) => {
-    if(req.url = '/'){
-        res.statusCode == 200;
+    if(req.url == '/'){
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         res.end('Hello world');
     }
@@ -55,6 +55,8 @@ const Server = http.createServer((req, res) => {
     //     res.statusCode = 200;
     //     res.setHeader('Content-Type', 'text/plain');
     //     res.end(JSON.stringify({productName: "Product 1"}));
+    // clent aur server ke bich me jo communication hota hai aur jo data pass hota hai wo serialized data hota hai - binary format ,string format , we cann’t send directly json type data 
+
     // }
     
     else if(req.url == '/product'){
@@ -68,13 +70,16 @@ const Server = http.createServer((req, res) => {
             apiRes.on("data", (data) => {
                     res.statusCode = 200;
                     res.setHeader('Content-Type', 'application/json');
-                    res.end(JSON.stringify(data.toString()));
+                    res.end(data.toString());
                 
             })
         });
         
-        apiReq.on('error', () => {
+        apiReq.on('error', (e) => {
             console.log(e);
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('error fetching product data!');
         })
         
         apiReq.end();
