@@ -1,10 +1,10 @@
 const express = require('express');
 const authRouter = require('./router/authRoutes');
+// authRouter kaha se milega
 const app = express();
-// const  authRouter = require('./router/authRoutes') 
+
+
 app.use(express.json());
-
-
 app.use('/api/auth/', authRouter)  // authRouter kaha se milega
 
 app.use('/', (req, res) => {
