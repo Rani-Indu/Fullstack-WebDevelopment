@@ -1,7 +1,10 @@
 const express = require('express');
+// authRouter yaha se milega
 const authRouter = require('./router/authRoutes');
-// authRouter kaha se milega
 const app = express();
+const databaseconnect = require('./config/databaseConfig');
+
+databaseconnect();
 
 
 app.use(express.json());
