@@ -33,7 +33,7 @@
 //                             practice 
 import app from './app.js'
 import mongoose from 'mongoose'
-const port = 3000
+const port = 3000;
 
 
 (async() => {
