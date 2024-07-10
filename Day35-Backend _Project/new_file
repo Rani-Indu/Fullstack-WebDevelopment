@@ -1,4 +1,6 @@
 //mongodb+srv://<username>:<password>@testdb.qiti6il.mongodb.net/database name
 
+
+
 // await mongoose.connect('mongodb+srv://indupwskills:Indu5843@testdb.qiti6il.mongodb.net/todoapp)
 // todoapp = name of the database we have created
