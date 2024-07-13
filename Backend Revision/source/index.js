@@ -16,26 +16,25 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 (async() => {
 	try {
     // db connection
-    await mongoose.connect('mongodb://127.0.0.1:27017/test')
-    console.log('db connected successfully');
+    await mongoose.connect('dbstring')
+    console.log('DB connected successfully');
+
+
+// Db up hai but app down hai to error aayega, which we need to handle as below
+
+    app.on("error", (err) => {
+      console.log("ERROR: ", err);
+      throw err
+    })
+
+    app.listen(port, () => {
+      console.log(`listening on port ${port}`);
+    });
 		
 	} catch (error) {
 	console.error("error", err);
     throw err	
 	}
 })()
-// app.get('route', callback)
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.get('/instagram', (req, res) => {
-  res.send('<h1>visited instagram</h1> ')
-})
 
-app.get('/twitter', (req, res) => {
-  res.send('<h1>visited twitter</h1> ')
-})
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
