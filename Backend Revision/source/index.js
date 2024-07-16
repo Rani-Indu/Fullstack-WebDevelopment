@@ -3,7 +3,7 @@ const port = 3000
 
 // database connection
 import mongoose from 'mongoose';
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+// mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 // Points to remember while making database connection
 // Database connection may fail
@@ -22,7 +22,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 
 
 // Db up hai but app down hai to error aayega, which we need to handle as below
-
+// app.on - is event listener 
+// yaha error event listen karna hai
     app.on("error", (err) => {
       console.log("ERROR: ", err);
     })
