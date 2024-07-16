@@ -16,7 +16,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 (async() => {
 	try {
     // db connection
-    await mongoose.connect('dbstring')
+    await mongoose.connect('mongodb://127.0.0.1:27017/test')
+    // await mongoose.connect('dbstring')
     console.log('DB connected successfully');
 
 
@@ -24,7 +25,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 
     app.on("error", (err) => {
       console.log("ERROR: ", err);
-      throw err
     })
 
     app.listen(port, () => {
@@ -32,9 +32,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
     });
 		
 	} catch (error) {
-	console.error("error", err);
-    throw err	
+	console.error("ERROR", error);
+    
 	}
-})()
+})();
 
 

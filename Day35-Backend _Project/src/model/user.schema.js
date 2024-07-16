@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// const schema = new mongoose.Schema({ name: String, size: String });
 const userSchema = new mongoose.Schema(
     // { 
     //     name: String, 
@@ -36,5 +37,3 @@ const userSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("User", userSchema )
-
-const schema = new mongoose.Schema({ name: String, size: String });
