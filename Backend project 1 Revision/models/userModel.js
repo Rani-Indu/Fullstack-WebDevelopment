@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
-const userSchema = new mongoose.Schema({ name: {
+const userSchema = new mongoose.Schema({ 
+	name: {
 	type: String,
 	required: [true, 'name is required'],
 	trim: true,
