@@ -1,4 +1,5 @@
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+// const { default: mongoose } = require("mongoose");
 
 const userSchema = new mongoose.Schema({ 
 	name: {
@@ -16,3 +17,4 @@ email: {
 });
 
 module.exports = mongoose.model("User", userSchema)
+// mongoose ke model ke paas super powers hai
