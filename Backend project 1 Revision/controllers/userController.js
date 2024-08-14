@@ -43,16 +43,10 @@ exports.createUser = async(req, res) => {
 }
 
 
-exports.getUser = async(req, res) => {
-	try{
-		// const users = await user.find({name}) // search on basis of name
-		// const users = await user.find({email}) // search on basis of email
-		const users = await user.find({})  // no condition is mentioned so all users are required
-		res.status(200).json({
-			success: true,
-			users
-		})
-	}
+exports.getUsers = async(req, res) => {
+	// try{
+	// 	// const users = await user.find({name}) // search on basis of name
+	// 	// const users = await user.find({email}) // search on basis of email
+	// 	const users = await User.find({})  // no condition is mentioned so all users are required
+	// }
 } 
-
-// 1:22:00
