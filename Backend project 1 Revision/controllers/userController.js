@@ -49,4 +49,17 @@ exports.getUsers = async(req, res) => {
 	// 	// const users = await user.find({email}) // search on basis of email
 	// 	const users = await User.find({})  // no condition is mentioned so all users are required
 	// }
+	try {
+		const users = await User.find({})
+		res.status(200).json({
+			success: true,
+			users
+		})	
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			success: false,
+			message: error.message,
+		})	
+	}
 } 
