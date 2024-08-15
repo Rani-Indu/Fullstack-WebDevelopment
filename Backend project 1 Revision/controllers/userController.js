@@ -63,3 +63,29 @@ exports.getUsers = async(req, res) => {
 		})	
 	}
 } 
+
+exports.deleteUser = async(req, res) => {
+	try {
+		// url se data kaise lenge 
+		// same as in body - req.body , here req.params
+		// req.params.id - hold it in a variable userId
+		// ab hamare paas ush user ki id hai so ab ush id ko find karenge and delete karenge
+		const userId = req.params.id
+		// db is in another continent so await 
+		// super power User ke paas hai 
+		// sare methods bhi User ke hi paas hai
+		// kyuki humne yaha pe parameters ke andar id lenge so router ko bhi batana hoga ki hum parameters se id lenge 
+		await User.findByIdAndDelete(userId)
+		res.status(200).json({
+			success: true,
+			message: "user deleted successfully"	
+		})
+		
+	} catch (error) {
+		console.log(error);
+		res.status(400).json({
+			success: false,
+			message: error.message,
+		})	
+	}
+}
