@@ -70,7 +70,10 @@ exports.deleteUser = async(req, res) => {
 		// same as in body - req.body , here req.params
 		// req.params.id - hold it in a variable userId
 		// ab hamare paas ush user ki id hai so ab ush id ko find karenge and delete karenge
+
 		const userId = req.params.id
+		// const userId = req.params.userid
+
 		// db is in another continent so await 
 		// super power User ke paas hai 
 		// sare methods bhi User ke hi paas hai
@@ -87,5 +90,20 @@ exports.deleteUser = async(req, res) => {
 			success: false,
 			message: error.message,
 		})	
+	}
+}
+
+exports.editUser = async (req, res) => {
+	try {
+		const user = await User.findByIdAndUpdate(req.params.id, req.body)
+		// kya find karna hai pata chale ga - req.params.id
+		// kya update karna hai - re.body se le lo
+		res.status(200).json({
+			success: true,
+			message: "User updated successfully"
+		})
+		
+	} catch (error) {
+		
 	}
 }

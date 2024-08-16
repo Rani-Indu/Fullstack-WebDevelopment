@@ -14,7 +14,7 @@ app.use(cors())
 connectToDb()
 
 // app.get('/', userRoutes);
-// app.use as we are handling everything here  
+// app.use as we are handling everything in routers 
 app.use('/', userRoutes);
 // app.get('/', (req, res) => {
 // 	res.send('Hii Indu!')
