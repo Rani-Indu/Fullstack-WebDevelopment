@@ -1,3 +1,5 @@
+require('dotenv').config();
+// console.log(process.env)
 const express = require("express");
 // imports the express module, which is a Node.js framework used to create web applications and APIs. Express provides a robust set of features for building web and mobile applications.
 const app = express();
@@ -5,9 +7,6 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('Hello World!')
   })
-
-
-
 
 
 
