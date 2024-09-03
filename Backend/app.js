@@ -1,10 +1,9 @@
 require('dotenv').config();
 // console.log(process.env)
 const express = require("express");
-// imports the express module, which is a Node.js framework used to create web applications and APIs. Express provides a robust set of features for building web and mobile applications.
 const connectToDb = require("./config/db")
 const app = express();
-// This line initializes an Express application by calling the express() function. The app variable now holds an instance of an Express application, which can be used to define routes, middleware, and other application settings.
+
 
 // init connection to db
 connectToDb() 
