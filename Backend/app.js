@@ -1,16 +1,15 @@
 require('dotenv').config();
 // console.log(process.env)
 const express = require("express");
-const connectToDb = require("./config/db")
+const connectToDb = require("./config/db");
 const app = express();
+const userRoutes = require("./routes/userRoutes")
 
 
 // init connection to db
 connectToDb() 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+app.get('/', userRoutes)
 
 
 
