@@ -1,5 +1,6 @@
 require('dotenv').config();
 // console.log(process.env)
+const cors = require("cors")
 const express = require("express");
 const connectToDb = require("./config/db");
 const app = express();
@@ -9,9 +10,12 @@ const userRoutes = require("./routes/userRoutes")
 // init connection to db
 connectToDb() 
 
-app.get('/', userRoutes)
 
-
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(cors())
+// app.get('/', userRoutes)
+app.use('/', userRoutes)
 
 
 
