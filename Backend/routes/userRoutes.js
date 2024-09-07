@@ -7,6 +7,7 @@ const{home, createUser, getUser, deleteUser,editUser } = require("../controllers
 
 
 const router = express.Router();
+
 router.get("/", home)
 router.get("/getUser", getUser)
 router.post("/createUser", createUser)
