@@ -8,7 +8,7 @@ connectToDb();
 
 app.use('/api/auth', authRouter)
 
-app.use(express.json())
+app.use(express.json());
 
 app.post('/signup', )
 app.use('/', (req, res) => {
