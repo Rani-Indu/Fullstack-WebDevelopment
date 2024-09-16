@@ -15,10 +15,10 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
     },
     // hum dekh sakte hai ki kitna powerful hai mongoose, humne user me kuch aur data diya hai , hum ush data ko sanetize kar ke, better tarike se store karna cahate hai db me, automatically mongoose hume ye karne me help kar raha hai 
-    // password: {
-    //     type: String,
-    //     select: false,
-    // },
+    password: {
+        type: String,
+        select: false,
+    },
     // // password will expire after sometime
     // forgotPasswordToken: {
     //     type: String
