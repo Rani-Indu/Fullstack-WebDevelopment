@@ -4,9 +4,6 @@ exports.home = (req, res) => {
     res.send('Hii Indu!')
 }
 
-
-
-
 exports.signup = async(req, res, next) => {
     try {
         const { name, email } = req.body;

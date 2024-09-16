@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'email is required'],
-        unique: [true, 'already registered'],
+        unique: [true, 'already registered'], // if email entered is not unique then we'll get this errort
         lowercase: true,
     },
     // hum dekh sakte hai ki kitna powerful hai mongoose, humne user me kuch aur data diya hai , hum ush data ko sanetize kar ke, better tarike se store karna cahate hai db me, automatically mongoose hume ye karne me help kar raha hai 
