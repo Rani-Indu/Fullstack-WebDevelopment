@@ -9,12 +9,22 @@ exports.home = (req, res) => {
 
 exports.signup = async(req, res, next) => {
     try {
-        // Check if req.body exists
-        if (!req.body) {
-          return res.status(400).json({ success: false, message: 'Request body is missing' });
-        }
-    
         const { name, email } = req.body;
+        const user = await User.create({
+            name,
+            email
+        })
+
+        // Check if req.body exists
+        if (!name || !email) {
+            return res.status(400).json({ 
+              success: false, 
+              message: 'name and email are required'});
+          }
+        // if (!req.body) {
+        //   return res.status(400).json({ success: false, message: 'Request body is missing' });
+        // }
+    
         
         // Further processing here
     
