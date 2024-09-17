@@ -73,7 +73,12 @@ const signup = async(req, res, next) => {
     }
 
     try {
-        const userInfo = userModel (req.body); //userModel - name used to access userSchema
+        const userInfo = userModel (req.body); //userModel(name used to access userSchema)
+        // agar schema me and req.body me key name same nahi hai to hume yaha pe mention karna hoga like
+        // const userInfo = userModel (
+        // name: new key name e.g- username, etc
+        // email: new email name e.g- useremail, etc
+        // );
         const result = await userInfo.save();
 
         return res.status(200).json({
@@ -87,7 +92,7 @@ const signup = async(req, res, next) => {
             // code for duplicate entry
             return res.status(400).json({
                 success: false,
-                message: 'Account already exists'
+                message: 'Account already exists with provided email id'
             })
         }
         return res.status(400).json({ // agar data store nahi hua to error send karenge
@@ -101,6 +106,30 @@ const signup = async(req, res, next) => {
 }
 
 
+const signin = async(req, res) => {
+    // if in I/p there is no email or password
+    const{email, password} = req.body;
+    if(!email || !password){
+        res.status(400).json({
+            success: false,
+            message: "every field is mandatory"
+        })
+    }
+
+    const user = await userModel.findOne({email}).select('+password');
+
+    // select('+password') - ush user me bahot sari chize defined hai but humko sab information nahi caahiye , kuch selected information hi caahiye like password 
+
+    // in db find if email exists and if yes then give password
+    
+
+    // for signin we need to check whether email already exists or not 
+};
+
+
+
+
 module.exports = {
-    signup
+    signup,
+    signin
 }
