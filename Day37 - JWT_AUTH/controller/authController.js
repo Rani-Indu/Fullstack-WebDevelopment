@@ -114,60 +114,57 @@ const signin = async (req, res) => {
   }
 
   try {
-    
-      const user = await userModel.findOne({ email }).select("+password");
-      // for signin we need to check whether email already exists or not
-    
-      // select('+password') - ush user me bahot sari chize defined hai but humko sab information nahi caahiye , kuch selected information hi caahiye like password
-    
-      // in db find if email exists and if yes then give password for that email
-    
-    
-    
-    
-    
-      // email id exist karti hai ya nahi
-      // kya provided password hamare req.body me jo password hai ushse match karti hai ya nahi
-    
-      // password ko encrypt kar ke send karna hoga
-      if (!user || user.password !== password) {
-        return res.status(400).json({
-          success: false,
-          message: "invalid credentials",
-        });
-      }
-      //  upto here - mera username password sahi tha
-      // ab ek token generate kar dena hai
-      
-      const token = user.jwtToken(); // user ke through jwt token mil gaya
-      user.password = undefined // ish token me ek chiz ensure karni hai ki mere pass jo password hai wo leak nahi hona cahiye so password ko null set kar do
-      
-      // ab hume cookie banani hai , token to generate ho gaya
-      // cookie me rakhne ke liye kuch chize hoti hai
-      const cookieOption = {
-          // cookie 24hr ke liye valid rahe , ms(millisecond) me generate karenge
-          maxAge: 24*60*60*1000, // 24hr
-          httpOnly: true // for security purpose, client side se , js se hum ishe access nahi kar sakte
-      }
-      
-      // ye configuration de diya ab ishke response me cookie set karni hai, naam hai cookie ka "token", cookie ki value ke liye 3 option hote hai token - jo mera actual token hai , and uske options cookieOption, option is optional
-      
-      res.cookie("token", token, cookieOption)
-      res.status(200).json({
-          success: true,
-          data: user // humne password ko pehle hi null kar diya hai taki hum client ko password na bhej de
-      })
-    } catch (error) {
-    res.status(400).json({
-        success: false,
-          message: e.message
-    })
-    
-  }
+    const user = await userModel.findOne({ email }).select("+password");
+    // for signin we need to check whether email already exists or not
 
-    module.exports = {
-      signup,
-      signin,
+    // select('+password') - ush user me bahot sari chize defined hai but humko sab information nahi caahiye , kuch selected information hi caahiye like password
+
+    // in db find if email exists and if yes then give password for that email
+
+    // email id exist karti hai ya nahi
+    // kya provided password hamare req.body me jo password hai ushse match karti hai ya nahi
+
+    // password ko encrypt kar ke send karna hoga
+    if (!user || user.password !== password) {
+      return res.status(400).json({
+        success: false,
+        message: "invalid credentials",
+      });
+    }
+    //  upto here - mera username password sahi tha
+    // ab ek token generate kar dena hai
+
+    const token = user.jwtToken(); // user ke through jwt token mil gaya
+    user.password = undefined; // ish token me ek chiz ensure karni hai ki mere pass jo password hai wo leak nahi hona cahiye so password ko null set kar do
+
+    // ab hume cookie banani hai , token to generate ho gaya
+    // cookie me rakhne ke liye kuch chize hoti hai
+    const cookieOption = {
+      // cookie 24hr ke liye valid rahe , ms(millisecond) me generate karenge
+      maxAge: 24 * 60 * 60 * 1000, // 24hr
+      httpOnly: true, // for security purpose, client side se , js se hum ishe access nahi kar sakte
     };
 
-}
+    // ye configuration de diya ab ishke response me cookie set karni hai, naam hai cookie ka "token", cookie ki value ke liye 3 option hote hai token - jo mera actual token hai , and uske options cookieOption, option is optional, koi read na kar sake client side se isliye httpOnly diya hai 8
+
+    res.cookie("token", token, cookieOption);
+    res.status(200).json({
+      success: true,
+      data: user, // humne password ko pehle hi null kar diya hai taki hum wapas se client ko password na bhej de
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: e.message,
+    });
+  }
+};
+
+
+const getUser = (req, res) => {}
+
+module.exports = {
+  signup,
+  signin,
+  getUser,
+};

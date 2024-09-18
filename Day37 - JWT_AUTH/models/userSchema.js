@@ -21,14 +21,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       select: false,
     },
-    // // password will expire after sometime
-    // forgotPasswordToken: {
-    //     type: String
-    // },
-    // // expiry duration
-    // forgotPasswordExpiryDate: {
-    //     type: Date
-    // }
+    // password will expire after sometime
+    forgotPasswordToken: {
+        type: String
+    },
+    // expiry duration
+    forgotPasswordExpiryDate: {
+        type: Date
+    }
   },
   { timestamps: true }
 );
