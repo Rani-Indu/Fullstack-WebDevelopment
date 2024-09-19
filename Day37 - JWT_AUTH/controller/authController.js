@@ -161,7 +161,46 @@ const signin = async (req, res) => {
 };
 
 
-const getUser = (req, res) => {}
+const getUser = async(req, res) => {
+  // user information ke liye hume user id cahiye taki uske corresponding hum db me ja kar query kar sake 
+  const userId = req.user.id; 
+  //  1. hum user se har baar user id to mange ge nahi, kyuki already loggedin hu to cookie me information available hai to har baar information mangne ka sense hi nahi hai   
+  //  2. ye kaise validate kare ki already logged in hai ya nahi , yani kya hamare pass valid token hai 
+
+  // hum aconside karte hai ki hum already logged in hai aur hamare pass valid token hai - to db me query kar ke kaise information layenge dekhte hai 
+  try {
+    const user = await userModel.findById(userId);
+    // humne db se user ki sari information request ki hai yani password bhi aayega , but hum nahi cahte ki password reveal ho , iske liye humne schema me pehle se 
+    // password: {
+    //   type: String,
+    //   select: false,  
+     // ishse agar koi password nahi mang raha hai to password nahi milega ,
+     // },
+    //  jaha hume password cahiye waha hum aise le sakte hai 
+    // const user = await userModel.findOne({ email }).select("+password");
+    return res.status(200).json({
+      success: true,
+      data: user
+    })
+  } catch (e) {
+    return res.status(400).json({
+      success: false,
+      message: e.message
+    })
+    
+  }
+}
+
+// userController me 
+// 1. user ki information kaun dega
+// 2. validate kaun karega user logged in hai ya nahi 
+// uske liye hum banayenge middleware
+// middleware kis liye kaam aayega- humne login karne pe jo token generate kiya tha, jwt token ke through jaha pe humne id and email rakhi thi in schema 
+// return JWT.sign(
+        // part 1 - data
+        // {id: this._id, email: this.email},
+        // ye informatio stored hai client side pe token me 
+        // kya hum ush token ko decrypt kar ke id nikal le aur request me daal le to hamara kaam ho jayega - yes, ho jayega
 
 module.exports = {
   signup,
