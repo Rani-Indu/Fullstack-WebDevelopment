@@ -168,7 +168,7 @@ const logout = () => {
   try {
     const cookieOption = {
       expires: new Date(),
-      httpOnly: true
+      httpOnly: truegit 
     };
     res.cookie("token", null, cookieOption);
     res.status(200).json({

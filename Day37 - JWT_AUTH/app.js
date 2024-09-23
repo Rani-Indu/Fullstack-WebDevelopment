@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(cookieParser());
 // kisi bhi route me jane se pehle use kar lena cookieParser ko to ensure ki cookies parse ho gai hai
 
+
 connectToDb();
 
 app.use('/api/auth', authRouter)
-
 
 app.use('/', (req, res) => {
   res.status(200).json({data: 'JWTauth server'})
