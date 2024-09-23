@@ -1,0 +1,22 @@
+#box {
+	height: 200px;
+	width: 120px;
+	background-color: aqua;
+	color: black;
+	border: 2px solid black;
+
+}
+
+
+/*                          question 7 :12:00 */
+.content {
+	color: red;
+}
+
+.newClass{
+	background-color: green;
+}
+
+h1 {
+	/* visibility: hidden; */
+}

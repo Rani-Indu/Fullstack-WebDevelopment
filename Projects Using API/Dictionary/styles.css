@@ -1,0 +1,112 @@
+
+:root{
+	--primary-color: #0b8080;
+	--bgc-color: #f5f5f5;
+	--padding : 20px;
+	--text-color: #fff;
+	--border-radius: 5px;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:'Times New Roman', Times, serif;
+	font-weight: 500;	
+}
+
+body{
+	font-family: Arial, sans-serif;
+	background-color: #ece9e9;
+}
+
+header{
+	background-color: var(--primary-color);
+	padding: var(--padding);
+	color: var(--text-color);
+}
+header h1{
+	font-size: 1rem;	
+}
+main{
+	border: 2px solid black;
+	height: 80vh;
+	padding: var(--padding);
+	max-width: 800px; 
+	/* we want it to occupy max 800px  */
+	margin: 2px auto;
+	/* auto - will align iten in centre of screen by taking required margin by its own */
+}
+
+main form{
+	display: flex;
+	justify-content: center;
+}
+
+input[type="text"]{
+	flex-grow: 1;
+	/* 1 so that it occupy the entire horizontal space , leaving required space for button */
+} 
+input[type="text"],button[type="submit"], .result div a{
+	border: none;
+	font-size: 16px;
+	font-weight: 500;
+	border-radius: var(--border-radius);
+	padding: calc(var(--padding)/2);
+}
+form button[type="submit"], .result div a{
+	background-color: var(--primary-color);
+	color: var(--text-color);
+	margin-left: 10px;
+	border-radius: var(--border-radius);
+}
+footer{
+	background-color: var(--primary-color);
+	color: var(--text-color);
+	padding: calc(var(--padding) + 3.6px);
+	text-align: center;
+	font-size: 18px;
+	position: fixed;
+	width: 100%;	
+}
+
+.result{
+	/* border: 2px solid black; */
+	background-color: var(--bgc-color);
+	padding: var(--padding);
+	border-radius: var(--border-radius);
+	margin-top: 30px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.result p {
+	margin-top: 10px;
+}
+.result p[class="pos"]{
+	font-style: italic;
+	font-size: 16px;
+	color: #8b8b4b;
+	margin-top: 3px;
+}
+.result div{
+	margin-top: 25px;
+}
+.result div a {
+	text-decoration: none;
+	margin-left: 0;
+	padding: calc(var(--padding)/4);
+}
+
+.result li{
+	padding: calc(var(--padding)/6);
+	margin-left: 20px;
+}
+@media only screen and (max-width: 320px){
+	main form{
+		flex-direction: column;
+	}
+	form button[type="submit"]{
+		margin-left: 0px;
+		margin-top: 15px;
+	} 
+}

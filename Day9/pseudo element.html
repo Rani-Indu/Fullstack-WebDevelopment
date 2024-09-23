@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* p::first-line {
+            color: violet;
+        } */
+
+        p::first-letter {
+            color: #e01c1c;
+        }
+
+        p::after {
+            content: "-'Indu Rani'";
+            color: #f8899b;
+        }
+
+
+        p::before {
+            content: "-Indu Rani-";
+            color: #c24358;
+        }
+
+        p::selection {
+            background-color: #000000;
+            color: #d5eb17;
+            /*  on selecting the content we see the color changes */
+        }
+
+
+        /* Change color and style of markers in unordered list */
+        ul ::marker {
+        color: blue;
+        content: "##"; /*Change marker content*/
+        }
+
+
+
+    </style>
+    <title>Pseudo Element</title>
+</head>
+<body>
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quis beatae animi, corrupti cupiditate sit molestiae architecto eius eum sequi qui dolores ipsa ad perferendis. Deserunt harum, illo libero nam ducimus aliquid accusamus architecto, iusto ut provident quo culpa. Tempore!</p> 
+   
+   <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  
+</html>

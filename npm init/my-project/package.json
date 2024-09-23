@@ -1,0 +1,21 @@
+{
+  "name": "my-project",
+  "version": "1.0.1",
+  "description": "this project will to use dependencies in node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "nodejs",
+    "my-project"
+  ],
+  "author": "indu rani",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "react-script": "^2.0.5"
+  }
+}

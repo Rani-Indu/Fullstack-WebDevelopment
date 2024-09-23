@@ -1,0 +1,13 @@
+.heading {
+    /* color: red; */
+}
+
+/*  OR  */
+
+h1, h2, h3 {
+    color: red;
+}
+
+button {
+    background-color: green;
+}

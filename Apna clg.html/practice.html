@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.box {
+			height: 100px;
+			width: 100px;
+			background-color: #f79dac;
+			border: 1px solid black;
+			margin: 15px;
+			text-align: center;	
+		}
+
+		
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<!-- <h2>Hello Javascript</h2> -->
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	
+	
+	
+
+	
+
+
+
+<script>
+	// heading = document.querySelector("h2");
+	// console.dir(heading);
+	// heading.innerText = heading.innerText +" " + "from apna college";
+	// console.log(heading.innerText);
+	
+	// let divs = document.querySelectorAll(".box");
+	// console.dir(divs);
+	// console.log(divs);
+	// //                                   nodelist work as array
+	// console.log(divs[0]);
+	// divs[0].innerText = "Radhe Radhe"
+	// console.log(divs[1]);
+	// divs[1].innerText = "RadheKrishna"
+	// console.log(divs[2]);
+	// divs[2].innerText = "Hare Krishn"
+	
+	
+	
+	
+	
+	
+	//                      method 2 -     using loop
+	
+	let divs = document.querySelectorAll(".box");
+	let idx = 1
+	for(let div of divs) {
+		// console.log(div);
+		// console.log(div.innerText);
+		div.innerText = `Radhe Radhe at ${idx}`;
+		idx++;
+	}
+</script>
+</body>
+</html>

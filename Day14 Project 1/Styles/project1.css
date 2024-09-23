@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f0eeee;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    box-sizing: border-box;
+    /* content doesn't go out of size like this */
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin: 4px 15px; */
+}
+
+list {
+    list-style: none;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #49f1f1;
+    padding: 4px 10px;
+    cursor:pointer;
+    color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-weight: 600;
+    width: fit-content;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #080808;
+
+}
+header {
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center ;
+    justify-content: space-around;
+}
+
+nav.logo {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+}
+
+nav ul li:hover {
+    text-decoration: underline;
+    font-weight: 900;
+}
+
+.search-field {
+    display: flex;
+    gap: 35px;
+}
+
+input {
+    padding: 4px 10px;
+}
+
+.main-section {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* from doubt section */
+}
+
+.main-section-left {
+    /* font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 700; */
+    width: 60%;
+    padding: 0 8%;
+    
+}
+.main-section-left h1 span {
+    color: #00ffff;
+    font-weight: 800;
+    font-size: 27px;
+    /* margin-bottom: 26px; */
+}
+
+.main-section-left p {
+    font-weight: 400;
+    font-size: 18px;
+
+}
+
+.main-section-left p span {
+    font-weight: 700;
+    font-size: 17px;
+    color: #00ffff; 
+}
+
+.main-section-right {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px ;
+    
+}
+.main-section-right-btns {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-section-right img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    justify-content: space-around;
+}
+
+footer p {
+    font-weight: 800;
+}
+
+footer ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+footer ul li a i:hover {
+    text-decoration: underline;
+    color: #f52bf5;
+
+}

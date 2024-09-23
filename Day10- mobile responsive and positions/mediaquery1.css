@@ -1,0 +1,55 @@
+body {
+    background-color: #e62343;
+}
+
+div {
+    font-size: x-large;
+    text-align: center;
+}
+
+div::after {
+    content: ' - welcome to demo';
+}
+
+/*  method 1 */
+
+@media (max-width: 400px) {
+    body {
+        background-color: #f154ab;
+    }
+    div::after {
+        content: ' - very small';
+    }
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+    body {
+        background-color: #9acd32;
+    }
+    div::after {
+        content: ' - mid size device';
+    }
+
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    body {
+        background-color: #7fffd4;
+    }
+    div::after {
+        content: ' - woah its working';
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        background-color: #c71dc7;
+    }
+    div::after {
+        content: ' - woah';
+    }
+}

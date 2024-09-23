@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions and Tooltips</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            transition: width 5s, height 7s;
+            /* transition-timing-function: ease-in; */
+            /* transition-timing-function: ease-out; */
+            /* transition-timing-function: ease-in-out; */
+            transition-delay: 1s ;
+        }
+        div:hover {
+            width: 300px;
+            height: 500px;
+
+        }
+    </style>
+</head>
+<body>
+    <!--  Transitions -->
+    <div></div>
+
+    <!-- tooltip -->
+    <p title="Hello Indu">lorem3</p>
+    <!-- on moving mouse to lorem3 we can see Hello Indu, usually we use this on anchor tag or links , images  -->
+</body>
+</html>

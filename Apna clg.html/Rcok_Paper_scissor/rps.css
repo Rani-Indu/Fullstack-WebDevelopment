@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+/* 8:24:14 */
+h1 {
+	background-color: #06465a;
+	color: white;
+	height: 5rem;
+	line-height: 5rem;
+	/* trick is to set line height = height by doing this text-align in the center vertically , generally used for heading*/
+
+}
+
+.choice{
+	height: 165px;
+	width: 165px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+img{
+	height: 150px;
+	width: 150px;
+	object-fit: cover;
+	/* this property makes image look much better  */
+	border-radius: 50%;
+}
+.choices {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	margin-top: 5rem;
+}
+
+.choice:hover {
+	/* opacity: 0.5;            img gets blur */
+	background-color: #3e3e7c;
+	cursor: pointer;
+}
+
+.score_board {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	margin-top: 3rem;
+	gap: 5rem;
+}
+
+#user-score, #comp-score {
+	font-size: 4rem;
+}
+
+#msg{
+	font-size: 2rem;
+	background-color: #06465a;
+	color: white;
+	display: inline; /* to make big line due to div small*/
+	padding: 1rem;
+	border-radius: 1rem;
+}
+.msg-container {
+	margin-top: 5rem;
+
+}

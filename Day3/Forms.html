@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>User Details !!</legend>
+            <br>
+
+        <label for="name">Enter your Name : </label>
+        <input type="text" id="name" name="username">
+        <br>
+        <br>
+        <label for="address">Please enter your address : </label>
+        <textarea id="address" cols="30" rows="10" name="useraddress"></textarea>
+        <br>
+        <br>
+        <label for="dob">DOB</label>
+        <input type="date" id="dob" name="userdob">
+        <br>
+        <br>
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="userpassword">
+        <br>
+        <br>
+        <!-- when we have to select any one given option - where choosing one option automatically deselects the other within the same group.-->
+        Select gender: <br>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <br>
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <br>
+        <label for="Trans">Trans</label>
+        <input type="radio" id="Trans" name="gender" value="Transgender">
+        <br>
+        <br>
+        
+        <!--  when we have to select multiple options(2 out of given 3 options) -->
+        Select Favourite Movies: <br>
+        <label for="Avengers">Avengers</label>
+        <input type="checkbox" id="Avengers" name="Avengers">
+        <br>
+        <label for="Thor">Thor</label>
+        <input type="checkbox" id="Thor" name="Thor">
+        <br>
+        <label for="Ironman">Ironman</label>
+        <input type="checkbox" id="Ironman" name="Ironman">
+        <br>
+        <br>
+        <input type="submit" value="Submit Form">
+        
+        </fieldset>
+    </form>
+    
+</body>
+</html>

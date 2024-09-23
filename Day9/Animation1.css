@@ -1,0 +1,90 @@
+div {
+    height: 100px;
+    width: 100px;
+    background-color: #ee8395;
+    position: relative;
+    animation-name: colorchange;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: reverse; */
+    /* animation-direction: alternate-reverse; */
+    /* animation-fill-mode: backwards;
+    animation-direction: reverse ;
+    animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: colorchange 8s linear 2s 2 reverse both;
+}
+
+
+
+
+
+
+
+/*  all div will move together untill we apply below changes */
+/* #ease {
+    animation-timing-function: ease;
+}
+
+#linear {
+    animation-timing-function: linear;
+}
+#ease-in {
+    animation-timing-function: ease-in;
+}
+#ease-out {
+    animation-timing-function: ease-out;
+} */
+
+
+
+
+
+
+
+
+@keyframes colorchange {
+
+            /*  method 2 */
+    /* from{
+        background-color: #580715;
+        top: 0px;
+        left: 0px;
+    }
+
+    to{
+        background-color: #ffff00;
+        top: 0px;
+        left: 200px;
+    } */
+
+
+               /*  Method 3 */
+    0% {
+        background-color: #14b1b1;
+        top: 0px;
+        left: 0px;
+    }
+
+    25% {
+        background-color: #d87c26;
+        top: 0px;
+        left: 200px;
+    }
+    50% {
+        background-color: #b40f0f;
+        top: 200px;
+        left: 200px;
+    }
+    75% {
+        background-color: rgb(223, 83, 223);
+        top: 200px;
+        left: 0px;
+    }
+    100% {
+        background-color: #64ac07;
+        top: 0px;
+        left: 0px;
+    }
+}

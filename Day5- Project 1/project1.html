@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table Project with HTML</title>
+</head>
+<body>
+   <table border cellpadding="15px" cellspacing="10px">
+    <!--  Tablr Head -->
+    <thead>
+        <tr>
+            <th colspan="8">Time Table</th>
+        </tr>
+        <tr>
+            <th>Day/Period</th>
+            <th>I <br>09:00 - 09:30</th>
+            <th>II<br>09:30 - 10:00</th>
+            <th>III <br>10:00 - 10:30</th>
+            <th>IV<br>10:30 - 11:00</th>
+            <th rowspan="6">Lunch Break <br> 11:00 - 12:00</th>
+            <!-- we can see that rowspan didn't work , reason behind is that we are in the thead section and want to make changes in tbody section which is not allowed, we need to go to tbody and make the desired changes -->
+            <th>V <br>12:00 - 12:30</th>
+            <th>VI <br>12:30 - 01:00</th>
+            <th>VII <br>01:00 - 01:30</th>
+        </tr>
+    </thead>
+
+    <!--  Table Body -->
+    <tbody>
+        <tr>
+            <td>Monday</td>
+            <td>Hindi</td>
+            <td>S.S.T</td>
+            <td>Science</td>
+            <td rowspan="5">Lunch Break</td>
+            <td>Eco</td>
+            <td>EVS</td>
+            <td colspan="2">Maths</td>
+            
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td>Hindi</td>
+            <td>Gcience</td>
+            <td>Games</td>
+            <td>Sanskrit</td>
+            <td>Gk</td>
+            <td>Maths</td>
+            <td>English</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>Hindi</td>
+            <td>English</td>
+            <td>S.S.T</td>
+            <td>Gk</td>
+            <td colspan="2">Maths</td>
+            <td>Sanskrit</td>
+            
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td>Hindi</td>
+            <td>EVS</td>
+            <td>Gk</td>
+            <td>Maths</td>
+            <td>Games</td>
+            <td>Englisg</td>
+            <td>English</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>Hindi</td>
+            <td>Hindi</td>
+            <td>Science</td>
+            <td>Sst</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Science</td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td>Hindi</td>
+            <td>Gk</td>
+            <td>Maths</td>
+            <td colspan="5">Holiday</td>
+        </tr>
+
+    </tbody>
+
+   </table>
+</body>
+</html>

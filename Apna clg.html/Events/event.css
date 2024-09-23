@@ -1,0 +1,19 @@
+div {
+	height: 100px;
+	width: 100px;
+	background-color: #6868b9;
+	border: 1px solid black;
+	color: white;
+}
+
+
+
+/*                                  question 7:41:00       */
+.dark {
+	background-color: black;
+	color: white;
+}
+.light {
+	background-color: white;
+	color: black;
+}

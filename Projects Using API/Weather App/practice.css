@@ -1,0 +1,168 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+
+body{
+	background-color: #f8e0e8;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* border: 4px solid aqua; */
+	
+}
+
+.container{
+	min-height: 80%;
+	padding: 40px;
+	width: 400px;
+	display: flex;
+	align-items:center ;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: #fff;
+	/* max-width: 35vw;
+	min-height: 85vh; */
+	/* border: 4px solid aqua; */
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgb(119, 93, 93);
+}
+
+.search_box{
+	/* border: 4px solid #d67d07; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 110%;
+	
+}
+.input{
+	padding: 12px;
+	border: none;
+	background-color: #ccc4c1;
+	border-radius: 10px;
+	width: 80%;
+	margin-right: 25px;
+	outline: none;
+}
+.input::placeholder{
+	color: #84bbbb;
+	font-size: 1rem;
+	font-family: cursive;
+	
+}
+
+.search{
+	margin-right: 15px;
+	height: 43px;
+	width: 43px;
+	padding: 2px;
+	border: none;
+	font-size: 1rem;
+	cursor: pointer;
+	background-color: #ccc4c1;
+	border-radius: 50%;
+
+}
+
+.search:hover{
+	background-color: #127785;
+	color: white;
+}
+.weather_body{
+	/* display: flex; */
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* border: 4px solid #640970; */
+}
+.weather_body img {
+	margin-top: 55px;
+	width: 65%;
+	/* border: 4px solid #05a0a0; */
+}
+
+.location_not_found{
+	/* display: flex; */
+	display: none;
+	flex-direction: column;
+}
+
+.location_not_found img{
+	padding: 10px;
+	margin: auto ;
+	width: 65%;
+	
+	
+}
+.location_not_found h2{
+	margin-top: 20px;
+	color: #94dada;
+
+}
+
+.temp{
+	font-weight: 700;
+	font-size: 30px;
+	margin-top: 20px;	
+}
+.description{
+	font-size: 17px;	
+	margin-top: 5px;
+	font-weight: bold;	
+
+}
+
+.weather_details{
+	/* border: 4px solid #d67d07; */
+	/* padding: 8px 0 8px 32px; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 110%;
+	margin-top: 40px;
+}
+.humidity, .wind_speed{
+	/* border: 4px solid #64d607; */
+	display: flex;
+	text-align: center;
+	width: 30%;
+}
+
+.text{
+	/* border: 4px solid #c40cca; */
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	
+}
+
+.icon {
+	font-size: 1.8rem;
+	display: flex;
+	align-items: center;
+}
+.percentage, .speed{
+	font-weight: 550;
+}
+#humidity, #wind_speed{
+	font-size: 0.9rem;
+}
+
+/* @media only screen and (min-width: 1100px){
+	.search{
+		height: 43px;
+		width: 43px;
+		border: none;
+		font-size: 1rem;
+		background-color: #fae9e3;
+		border-radius: 10px;
+	
+	}
+
+} */

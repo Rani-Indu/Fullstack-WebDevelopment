@@ -1,0 +1,43 @@
+body {
+    background-color: pink;
+}
+
+/*  Descendent Selector */
+/* main p {
+    color:#076d6d
+} */
+
+
+/*  Child Sele */
+/* h1 > p {
+    color: blueviolet;
+} */
+
+
+/* Adjacent Sibling sele */
+/* section + p {
+    color: #679113
+} */
+
+
+/* General Sibling Selector */
+
+/* section ~ p {
+    color: #81064e
+} */
+
+/* Attribute Selec */
+/* [target="_blank"] {
+    color: #9c3949;
+    text-decoration: underline;
+} */
+
+/*  [attribute~="value"] Selector */
+/* [alt="PW"] {
+    background-color: rgb(67, 206, 216);
+} */
+
+/* [alt="PW Skills"] {
+    background-color: #aa4e4e;
+} */
+

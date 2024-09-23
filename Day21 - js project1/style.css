@@ -1,0 +1,21 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#btn{
+	font-size: 1rem;
+	padding: 10px;
+	border-radius: 12px;
+	color: #0f0f0f;
+	background-color: #959997;
+	border: none;
+}

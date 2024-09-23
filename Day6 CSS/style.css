@@ -1,0 +1,13 @@
+p {
+    color: blueviolet;
+}
+body {
+    background-color: aqua;
+}
+.heading {
+    color: #a52a2a;
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline;
+    border: 2px dotted #a52a2a;
+}
