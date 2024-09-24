@@ -164,13 +164,13 @@ const getUser = async(req, res) => {
         // ye informatio stored hai client side pe token me 
         // kya hum ush token ko decrypt kar ke id nikal le aur request me daal le to hamara kaam ho jayega - yes, ho jayega
 
-const logout = () => {
+const logout = (req, res) => {
   try {
     const cookieOption = {
       expires: new Date(),
-      httpOnly: truegit 
+      httpOnly: true 
     };
-    res.cookie("token", null, cookieOption);
+    res.cookie("token", null, cookieOption); //null means delete kar do
     res.status(200).json({
       success: true,
       message: "logged out"
