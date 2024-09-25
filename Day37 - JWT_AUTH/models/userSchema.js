@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const JWT = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema(
   {
@@ -33,6 +34,20 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) {// agar nahi modify hua hai password to yahi se aage badh jao , next karo
+  return next()
+}
+// agar password me change hua hai to hum password ko modify karenge
+this.password = await bcrypt.hash(this.password, 10);
+return next();
+})
+
+
+
+
 
 // mongoose allow karta hai schema me koi custom method define karne ko
 // yaha pe hum jwt token generate karne ka method likhte hai

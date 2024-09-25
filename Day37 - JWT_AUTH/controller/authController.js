@@ -1,5 +1,6 @@
 const userModel = require("../models/userSchema");
 const emailValidator = require("email-validator");
+const bcrypt = require("bcrypt");
 
 
 
@@ -73,17 +74,9 @@ const signin = async (req, res) => {
 
   try {
     const user = await userModel.findOne({ email }).select("+password");
-    // for signin we need to check whether email already exists or not
 
-    // select('+password') - ush user me bahot sari chize defined hai but humko sab information nahi caahiye , kuch selected information hi caahiye like password
-
-    // in db find if email exists and if yes then give password for that email
-
-    // email id exist karti hai ya nahi
-    // kya provided password hamare req.body me jo password hai ushse match karti hai ya nahi
-
-    // password ko encrypt kar ke send karna hoga
-    if (!user || user.password !== password) {
+    // if (!user || user.password !== password) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(400).json({
         success: false,
         message: "invalid credentials",
