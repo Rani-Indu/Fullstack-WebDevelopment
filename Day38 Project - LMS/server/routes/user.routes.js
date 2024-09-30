@@ -1,4 +1,5 @@
-import express from "express"
+import express from "express";
+import userController from "../controllers/userController"
 
 import {Router} from "express"
 
