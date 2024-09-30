@@ -1,5 +1,4 @@
 import {Schema, model} from "mongoose";
-import AppError from "../utils/error.util"
 
 const userSchema  = new Schema({
     fullName: {
