@@ -36,5 +36,7 @@ app.all('*', (req, res) => {
     res.status(404).send('OOPS!! 404 page not found')
 }) // for handling request in any route
 
+app.use(errorMiddleware)
+
 // module.exports = app;
 export default app;
