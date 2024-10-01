@@ -7,7 +7,8 @@ import cors from "cors";
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import connectToDb from './config/dbConnection.js';
-import userRoutes from './routes/user.routes.js'
+import userRoutes from './routes/user.routes.js';
+import errorMiddleware from './middlewares/error.middleware.js';
 
 connectToDb();
 

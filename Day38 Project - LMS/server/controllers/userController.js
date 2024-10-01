@@ -1,5 +1,12 @@
-import User from "../models/user.model";
-import AppError from "../utils/error.util"
+import User from "../models/user.model.js";
+import AppError from "../utils/error.util.js";
+
+const cookieOptions = {
+    maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
+    httpOnly: true,
+    secure: true
+}
+
 
 const register = async (req, res, next) => {
     const {fullName, email, password} = req.body;
@@ -37,6 +44,10 @@ const register = async (req, res, next) => {
 
     user.password = undefined;
 
+    const token = await user.generateJWTToken();
+
+    res.cookie('token', token, cookieOptions)
+
     res.status(201).json({
         success: true,
         message: 'User registered successfully',
@@ -44,13 +55,64 @@ const register = async (req, res, next) => {
     })
 }
 
-const login = (req, res) => {}
+const login = async(req, res, ) => {
+    try {
+        
+        const {email, password} = req.body;
+        
+        if (!email  || !password){ 
+            return next ( new AppError('All fields are required', 400))
+        }
+
+    const user = await User.findOne({ email }).select('+password');
+
+if (!user || !user.comparePassword(password)){ 
+    return next(new AppError("Email or password does not match", 400));
+}
+
+// generate JWT token
+const token = await user.generatejwtToken();
+user.password = undefined //user ke paas password na chala jaye
+res.cookie('token', token, cookieOptions);
+
+res.status(201).json({
+    success: true,
+    message: 'User logged in successfully',
+    user,
+})
+} catch (error) {
+    return next(new AppError(error.message, 500));   
+}
 
 
-const logout = (req, res) => {}
+
+}
 
 
-const getProfile = (req, res) => {}
+const logout = (req, res) => {
+    // best way iscookie delete kar do user automatically logout ho jayega
+    res.cookie('token', null,{
+        secure: true,
+        maxAge: 0,
+        httpOnly: true
+    })
+
+    res.status(200).json({
+        success: true,
+        message: 'User logged out successfully'
+    })
+};
+
+
+const getProfile = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const user = await User.findById(userId)
+        
+    } catch (error) {
+        
+    }
+}
 
 
 

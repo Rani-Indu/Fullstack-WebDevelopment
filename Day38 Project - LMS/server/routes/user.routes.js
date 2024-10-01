@@ -1,5 +1,5 @@
 import express from "express";
-import userController from "../controllers/userController"
+import {register,login,logout,getProfile} from "../controllers/userController.js"
 
 import {Router} from "express"
 
