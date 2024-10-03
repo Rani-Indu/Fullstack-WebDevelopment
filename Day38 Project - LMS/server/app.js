@@ -1,6 +1,6 @@
-// require('dotenv').config();
-import 'dotenv/config';
-// const express = require ('express')
+import { config } from 'dotenv';
+config();
+// import 'dotenv/config';
 import express from 'express'
 const app = express()
 import cors from "cors";
@@ -20,6 +20,7 @@ app.use(cors({
 app.use(cookieParser)
 
 app.use(morgan('dev'));
+
 
 app.use('/api/v1/user', userRoutes)
 app.use('/ping', function(req, res) {
