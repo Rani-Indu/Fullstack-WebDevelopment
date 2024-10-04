@@ -20,7 +20,7 @@ const register = async (req, res, next) => {
     if (userExists){ 
     return next(new AppError('Email already exists', 400));
     }
-    // creating user
+    // if user doesn't exist then we'll creating user
     // earlier we used .save for this eg -  const result = await userInfo.save();
     // now we'll do it in 2 step process
     // 1st : we'll store basic information of user in db
@@ -35,16 +35,16 @@ const register = async (req, res, next) => {
         }
     });
     if (!user) {
-        return next(new AppError('User registration failed, please try again later'))
+        return next(new AppError('User registration failed, please try again later', 400))
     }
 
     // TODO: file upload
 
-    await user.save();
+    await user.save(); //after uploading file we'll save again
 
     user.password = undefined;
 
-    const token = await user.generateJWTToken();
+    const token = await user.generateJWTToken();// no need to import user.model.js as it is under user , and we have a instance of user here
 
     res.cookie('token', token, cookieOptions)
 
