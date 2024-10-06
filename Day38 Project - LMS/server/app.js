@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 
 app.use('/api/v1/user', userRoutes)
 app.use('/ping', function(req, res) {
-  res.send('pong!')
+  res.send('pong!!')
 })
 
 // OR
