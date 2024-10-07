@@ -49,7 +49,7 @@ userSchema.pre("save", async function(next) {
     }
     this.password = await bcrypt.hash(this.password, 10);
 })
-
+//   
 
 userSchema.methods = {
     generateJWTToken: async function() {
@@ -63,8 +63,10 @@ userSchema.methods = {
         
     },
     // hum compare karna cahte hai jo plain text password humne diya hai and jo encrypted password hai db me 
+    
     comparePassword: async function(plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
+        // bcrypt async hota hai 
     }
 }
 
