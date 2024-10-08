@@ -41,4 +41,4 @@ app.all('*', (req, res) => {
 app.use(errorMiddleware)
 
 // module.exports = app;
-export default app;
+export default app;        //in ES6
