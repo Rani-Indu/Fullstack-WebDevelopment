@@ -66,7 +66,7 @@ userSchema.methods = {
     
     comparePassword: async function(plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
-        // bcrypt async hota hai 
+        // bcrypt async hota hai so use async await 
     }
 }
 
