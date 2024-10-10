@@ -39,6 +39,7 @@ const register = async (req, res, next) => {
     }
 
     // TODO: file upload
+    // next we'll write logic to upload file / image/ avatar
 
     await user.save(); //after uploading file we'll save again
 
