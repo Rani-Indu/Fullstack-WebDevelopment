@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import AppError from "../utils/error.util.js";
+import cloudinary from 'cloudinary';
 
 const cookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
@@ -40,6 +41,34 @@ const register = async (req, res, next) => {
 
     // TODO: file upload
     // next we'll write logic to upload file / image/ avatar
+
+    if (req.file) {
+        try {
+            // cloudinary pe upload karne wale hai
+            const result = cloudinary.v2.uploader.upload(req.file.path, {
+                folder: 'lms',
+                width: 250,
+                height: 250,
+                gravity: 'faces',
+                crop: 'fill'
+            });
+
+            if(result) {
+                user.avatar.public_id = (await result).public_id;
+                user.avatar.secure_url = (await result).secure_url;
+
+
+                // remove file from server
+                fs.rm(`uploads/${req.file.filename}`)
+            }
+            
+        } catch (error) {
+            return next(
+                new AppError(error || 'file not uploaded, please try again', 500)
+            )
+            
+        }
+    }
 
     await user.save(); //after uploading file we'll save again
 
