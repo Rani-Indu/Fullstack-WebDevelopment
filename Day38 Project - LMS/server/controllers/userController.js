@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import AppError from "../utils/error.util.js";
 import cloudinary from 'cloudinary';
+import fs from 'fs/promises'
 
 const cookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
@@ -43,9 +44,12 @@ const register = async (req, res, next) => {
     // next we'll write logic to upload file / image/ avatar
 
     if (req.file) {
+        console.log(req.file);
+        
         try {
             // cloudinary pe upload karne wale hai
-            const result = cloudinary.v2.uploader.upload(req.file.path, {
+            //  cloudinary pe jo img upload hoti hai wo async me hoti hai 
+            const result = await cloudinary.v2.uploader.upload(req.file.path, {
                 folder: 'lms',
                 width: 250,
                 height: 250,
@@ -53,7 +57,7 @@ const register = async (req, res, next) => {
                 crop: 'fill'
             });
 
-            if(result) {
+            if(result) { // agar hum result mil jata hai to upper jo dummy data diya hai usko modify karenge as below
                 user.avatar.public_id = (await result).public_id;
                 user.avatar.secure_url = (await result).secure_url;
 
