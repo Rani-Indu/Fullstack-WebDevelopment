@@ -2,9 +2,10 @@
   "name": "day40_-backend_project",
   "version": "1.0.0",
   "description": "complete project backend",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
