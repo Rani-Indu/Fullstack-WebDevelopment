@@ -30,7 +30,6 @@ import mongoose from "mongoose"
 // Method 2
 
 import mongoose from "mongoose"
-import {DB_NAME} from "./constants.js"
 
 
 const connectToDB = async() => {
@@ -41,8 +40,8 @@ const connectToDB = async() => {
         
     } catch (error) {
         console.log("MongoDB connection error: ", error);
-        process.exit(1)
-        
-        
+        process.exit(1) 
     }
 }
+
+export default connectToDB
