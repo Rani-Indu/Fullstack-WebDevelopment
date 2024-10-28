@@ -3,6 +3,7 @@ config();
 import express from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser"
+const app = express()
 
 
 app.use(cors({
@@ -15,7 +16,6 @@ app.use(express.urlencoded({extended: true, limit: "6kb"}))
 app.use(express.static("public")) // kuch file folder store karna ho tab ek 
 app.use(cookieParser())
 
-const app = express()
 
 const port = process.env.PORT || 8000
 
