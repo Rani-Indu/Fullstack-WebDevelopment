@@ -13,6 +13,7 @@ app.use(cors({
 
 app.use(express.json({limit: "6kb"}))
 app.use(express.urlencoded({extended: true, limit: "6kb"}))
+// extended - ishme hum objects ke andar bhi objects de pate hai i,e aur level pe nested objects de pate hai 
 app.use(express.static("public")) // kuch file folder store karna ho tab ek 
 app.use(cookieParser())
 
