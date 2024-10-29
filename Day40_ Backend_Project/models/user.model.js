@@ -4,6 +4,9 @@
 // OR 
 
 import mongoose, {Schema} from "mongoose";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
 const userSchema = new Schema(
     {
         username: { // check model image for required fields 
@@ -51,5 +54,9 @@ const userSchema = new Schema(
 )
 
 
+userSchema.pre("save", async function (next) {
+    this.password = bcrypt.hash(this.password, 10)
+    
+})
 
 export const User = mongoose.model("User", userSchema)
