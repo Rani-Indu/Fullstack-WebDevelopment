@@ -19,14 +19,15 @@ const videoSchema = new mongoose.Schema({
         required: true
     },
     duration: {
-        type: Number,
+        type: Number,  // from cloudinary 
+        // cloudinary jaise hi koi file upload kar leta hai uske baad ush file ki information bhejta hai like - url , duration of video, etc
         required: true
     },
     views: {
         type: Number,
         default: 0
     },
-    isPublished: {
+    isPublished: { // whether video is publically available or not 
         type: Boolean,
         default: true
     },
