@@ -1,5 +1,5 @@
 // import mongoose from "mongoose"
-// const userSchema = new MongooseError.Schema({}, {timestamps: true})
+// const userSchema = new Mongoose.Schema({}, {timestamps: true})
 
 // OR 
 
