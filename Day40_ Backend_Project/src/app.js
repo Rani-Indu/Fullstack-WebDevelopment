@@ -25,6 +25,17 @@ app.listen(port, () => {
 })
 
 
+//routes import
+
+import userRouter from "../routes/user.routes.js"
+
+
+// routes declaration
+// app.get // jab hum yahi pe routes likh rahe the , yahi pe controller likh rahe the 
+
+// but ab router ko alag kar diya hai so router ko laane ke liye middleware lana padega 
+app.use("/api/v1/users", userRouter)
+
 
 // import statement for both method
 export default app
