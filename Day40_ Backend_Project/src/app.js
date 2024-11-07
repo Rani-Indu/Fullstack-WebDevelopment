@@ -26,14 +26,15 @@ app.listen(port, () => {
 
 
 //routes import
-
 import userRouter from "../routes/user.routes.js"
 
 
 // routes declaration
 // app.get // jab hum yahi pe routes likh rahe the , yahi pe controller likh rahe the 
 
-// but ab router ko alag kar diya hai so router ko laane ke liye middleware lana padega 
+// kyuki ab chize seperate kar di hai router ko alag nikal kar le gaye ho to router router ko laane ke liye middleware lana hoga - compulsory hai , yahi syntax hai 
+// app.use("/users", userRouter)
+// standard practice
 app.use("/api/v1/users", userRouter)
 
 
