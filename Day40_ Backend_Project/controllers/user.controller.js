@@ -1,11 +1,14 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import ApiError from "../utils/api_error.js";
 import { User } from "../models/user.model.js"
+import { uploadOnCloudinary } from "../utils/cloudinary.js"
 
 
 
 const registerUser = asyncHandler(async (req, res) => {
   const { fullname, email, username, password } = req.body;
+  // console.log(req.boy);
+  
   console.log("email: ", email);
 
   // checking if any field is empty
@@ -28,14 +31,29 @@ const registerUser = asyncHandler(async (req, res) => {
   // checking for images, avatar
 
   const avatarLocalPath = req.files?.avatar[0]?.path
-  // console.log(req.files);
-  // iska reference hum store kar lete hai 
-  // avatarLocalPath kyu - kyuki abhi ye hamare server pe hai , cloudinary pe nahi gaya hai 
-  // similarly coverimahe ka bhi local le sakte hai 
   const coverImageLocalPath = req.files?.coverImage[0]?.path;
-
+ 
+  if (!avatarLocalPath) {
+    throw new ApiError(400, "avatar file is required")
+  }
   
+  const avatar = await uploadOnCloudinary(avatarLocalPath)
+  const coverImage = await uploadOnCloudinary(coverImageLocalPath)
 
+  if (!avatar) {
+    throw new ApiError(400, "avatar file is required") 
+  }
+
+
+
+  User.create({
+    fullName,
+    avatar: avatar.url,
+    coverImage: coverImage?.url || "",
+    email,
+    password,
+    username: username.toLowerCase()
+  }) 
 
 });
 
