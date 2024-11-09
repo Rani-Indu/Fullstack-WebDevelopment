@@ -14,4 +14,4 @@ const storage = multer.diskStorage({
       storage,
   })
 
-  
+  // ye destination lo , jo pat hai (./public/temp) waha pe file ko rakh lo, aur mujhe file ka original name hai ( file.originalname) ushi naam se de do , ishi wajah se hum usko (req.files?.avatar[0]?.path) yaha pe le paye

@@ -19,14 +19,22 @@ const registerUser = asyncHandler(async (req, res) => {
   // checking if user already exist i,e already registered
   const existedUser = User.findOne({
     $or: [{ username }, { email }]  
-})
+  })
+  // console.log(existedUser);
 
   if (existedUser) {throw new ApiError(409, "User with email or username already exists")
   }
 
   // checking for images, avatar
 
-  req.files?.avatar[0]?.path
+  const avatarLocalPath = req.files?.avatar[0]?.path
+  // console.log(req.files);
+  // iska reference hum store kar lete hai 
+  // avatarLocalPath kyu - kyuki abhi ye hamare server pe hai , cloudinary pe nahi gaya hai 
+  // similarly coverimahe ka bhi local le sakte hai 
+  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+
+  
 
 
 });
