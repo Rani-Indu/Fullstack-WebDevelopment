@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body_section{
+    position: absolute;
+    z-index: -1;
+}
+.header_section{
+    height: 100px;
+    padding: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.section{
+    display: block;
+}
+
+
+.header_section img{
+    border: 2px solid black;
+    background-color: gray;
+    
+}
