@@ -53,6 +53,10 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password,
     username: username.toLowerCase()
+    // watch History humko cahiye nahi kyuki isko by default 0 orempty rakhna cahenge jaise jaise user video dekhega , waha pe jo api hit hogi waha pe aa kar ish model me wapas aa kar add karte jayenge chize , 
+    // refreshToken by default hum cahate hai ki empty ho , 
+    //time stamp apne aap mil jayega isko  
+    //save karte time password ko encrypt kar diya jayega 
   }) 
 
 });
