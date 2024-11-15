@@ -60,13 +60,16 @@ const registerUser = asyncHandler(async (req, res) => {
   
   const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"
-    // agar user create ho gaya hai to find karne pe mil jayega 
+    // iska fayada kya hai - humne ek Api call kar ke,  id se puch ke liya hai isliye hum password aur refreshToken field hata sakte hai 
+    // agar user mila hai na findById se yaha pe hum .select laga ke chain kar sakte hai, select field ke andar wo wo field pass karte hai jo nahi cahiye , kyuki bydefault sab hi selected hote hai  
+    // agar user create ho gaya hai to findById se karne pe mil jayega 
   )
   if (!createdUser) {
-    throw new ApiError(500, "something went wrong while registering the usera")
+    throw new ApiError(500, "something went wrong while registering the user")
   }
   // next step 
-return res.status(201).json({})
+return res.status(201).json(
+  new ApiResponse(200, createdUser, "user registered successfully"))
 // json response bhenjege - json response jayega uska architecture define hai 
 });
 
