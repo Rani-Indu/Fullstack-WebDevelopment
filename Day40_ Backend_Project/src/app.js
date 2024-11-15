@@ -1,5 +1,10 @@
-import { config } from 'dotenv';
-config();
+// import { config } from 'dotenv';
+// config();
+// OR
+import dotenv from "dotenv"
+dotenv.config({
+    path: "./.env"
+})
 import express from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser"
