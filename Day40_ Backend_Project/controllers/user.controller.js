@@ -31,10 +31,22 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // checking for images, avatar
 
-  const avatarLocalPath = req.files?.avatar[0]?.path
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  
+  // const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  //on writing this code we are getting error - {"success":false,"message":"Cannot read properties of undefined (reading '0')"}
+  // so let's do it using if else
+  
+  let coverImageLocalPath;
+  // if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+  if (req.files?.coverImage?.length > 0) {
+    coverImageLocalPath = req.files.coverImage[0].path;
+  }
+  // console.log(req.files);
+  
+  const avatarLocalPath = req.files?.avatar?.[0]?.path;
  
   if (!avatarLocalPath) {
+    console.log("req.files:", req.files);
     throw new ApiError(400, "avatar file is required")
   }
   
