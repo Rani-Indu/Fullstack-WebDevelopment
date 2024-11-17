@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.container {
+  height: 100vh;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hex-colors {
+  /* border: 1px solid black; */
+}
+
+.hex-colors h1 {
+  /* border: 2px solid black; */
+  font-size: 2rem;
+  text-transform: uppercase;
+  /* border: 2px solid black; */
+  animation: changecolor 5s infinite alternate 2s;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+/* h2{
+	border: 2px solid black;
+	font-size: 2rem;
+	margin-top: 15%;
+} */
+
+.hex-colors h2 {
+  /* the margin is with reference to parent div with class - hex-colors */
+  /* therefor there will be difference in appearance of both the code as first one don't have a reference */
+  /* border: 2px solid black; */
+  font-size: 2rem;
+  margin-top: 15%;
+  /* padding-top: 4rem; */
+}
+
+@keyframes changecolor {
+  0% {
+    color: #9e0c86;
+  }
+  20% {
+    color: #adff2f;
+  }
+  40% {
+    color: #cfaf1d;
+  }
+  60% {
+    color: #34f193;
+  }
+  80% {
+    color: #d554fc;
+  }
+  100% {
+    color: #49f1b9;
+  }
+}
+
+@media (max-width: 480px) {
+  .hex-colors h1 {
+    font-size: 1.5rem;
+  }
+  .hex-colors h2 {
+    font-size: 1.5rem;
+  }
+}

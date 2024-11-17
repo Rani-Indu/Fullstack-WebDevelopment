@@ -3,7 +3,7 @@ let body = document.querySelector( "body");
 
 
 btn.addEventListener("click", () => {
-	options= ["red", "orange","green", "yellow", "purple", "violet", "magenta", "pink", "silver", "gold", "orangered", "aqua", "aquamarine", "blue", "yellowgreen"];
+	options= ["red", "orange","green", "yellow","magenta", "purple", "violet", "magenta", "pink", "silver", "gold", "orangered", "aqua", "aquamarine", "blue", "yellowgreen", "cyan"];
 	ranIdx = Math.floor(Math.random()*options.length);
 	// console.log(options[ranIdx]);
 	const selectedColor = options[ranIdx];
