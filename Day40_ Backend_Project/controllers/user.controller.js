@@ -60,21 +60,16 @@ const registerUser = asyncHandler(async (req, res) => {
 
 
   User.create({
-    fullName,
+    fullname,
     avatar: avatar.url,
     coverImage: coverImage?.url || "",
     email,
     password,
     username: username.toLowerCase()
   }) 
-  // we'll check ki sahi me user bana hai ya nahi ki empty return ho gaya hai , 1. we can directly check 
-  // 2. User.findByid - User agar successfully create hua hai to mongodb jab data save karta hai to har ek entry ke saath _id naam se ek field add kar deta hai  
   
   const createdUser = await User.findById(user._id).select(
-    "-password -refreshToken"
-    // iska fayada kya hai - humne ek Api call kar ke,  id se puch ke liya hai isliye hum password aur refreshToken field hata sakte hai 
-    // agar user mila hai na findById se yaha pe hum .select laga ke chain kar sakte hai, select field ke andar wo wo field pass karte hai jo nahi cahiye , kyuki bydefault sab hi selected hote hai  
-    // agar user create ho gaya hai to findById se karne pe mil jayega 
+    "-password -refreshToken" 
   )
   if (!createdUser) {
     throw new ApiError(500, "something went wrong while registering the user")
@@ -82,8 +77,9 @@ const registerUser = asyncHandler(async (req, res) => {
   // next step 
 return res.status(201).json(
   new ApiResponse(200, createdUser, "user registered successfully"))
-// json response bhenjege - json response jayega uska architecture define hai 
 });
 
 
 export { registerUser };
+
+
