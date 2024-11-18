@@ -78,54 +78,18 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   const {email, username, password} = req.body
 
-// hume dono email ya username me se koi ek to caahiye hi 
-  if (!username || !email) {// we don't have email and username 
+  if (!username || !email) {
     throw new ApiError(400), "username or email is required"
   }
-  // if (!email) { //we want to login through email
-  //   throw new ApiError(400), " email is required"
-  // }
-  // if (!username) {//we want to login through username
-  //   throw new ApiError(400), "username is required"
-  // }
-
   
-  // we want to find a user based on username
-  User.findOne({username})
-
-  // we want to find a user based on email
-  User.findOne({email})
-  
-  // advance -  user based on email or username
-
-  // $or: [] // array ke andar object pass kar sakte hai, 1st object- username  2nd object- email
-
-  // or operator find karega ek value ya to email ke base pe ya to username ke base pe 
-
-  // db is in another continent so await 
-
-  // user variable me store kar lete hai 
-
   const user = await User.findOne({
     $or: [ {email}, {username}] 
   })
 
-  // ab agar in dono ke basis pe i,e or lagane pe bhi user nahi mila iska matlab kya hai - iska matlab hai ki wo user kabhi register tha hi nahi i,e 
   if (!user) {
     throw new ApiError(404, "user doesn't exist")
   }
 
-  // agar user mil gaya to kya karenge  - to password check karenge
-
-  // hamare pass method ban sakte hai isPasswordCorrect, bcrypt hume madad kar sakta hai password check karne ke liye , ish bcrypt ko kya dena padega - ek password, aur ek current user ke andar se bhi password dena padega
-
-  // hum jo password denge - password 
-  // jo saved / db wala password hai - this.password se mil jayega 
-  // bcrypt hai - to await karna hoga - time lagta hai 
-  
-  // U - User - mongoose ka ek object hai - so mongoose ke through jo methods available hai jaise ki - findOne, updateOne etc ye mongodb ke mongoose ke through available hai 
-
-  // u - user - ye hamara user hai jo humne db se wapas liya hai uska instance liya hai - humne jo methods banaya hai like - isPasswordCorrect, generateAccessToken, generateRefreshToken  etc ye hamare user me available hote hai - agar User.findOne({}) se check karenge to nahi mile ga  
 });
 
 
