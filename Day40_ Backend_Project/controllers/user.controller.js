@@ -4,6 +4,17 @@ import { User } from "../models/user.model.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+// jab bhi refresh token etc banane honge to userId to pass karna hoga 
+// userId - ish point me sab kuch check ho gaya hai to user ke through userId easily mil jayega 
+const generateAccessAndRefreshTokens = async(userId) => {
+  try {
+    
+  } catch (error) {
+    throw new ApiError(500, "something went wrong while generating refresh and access token")
+    
+  }
+}
+
 const registerUser = asyncHandler(async (req, res) => {
   const { fullname, email, username, password } = req.body;
   // console.log(req.boy);
