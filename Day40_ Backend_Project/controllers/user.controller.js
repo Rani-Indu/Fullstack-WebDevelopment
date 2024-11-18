@@ -8,7 +8,14 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 // userId - ish point me sab kuch check ho gaya hai to user ke through userId easily mil jayega 
 const generateAccessAndRefreshTokens = async(userId) => {
   try {
+    // hume user find karna hoga agar uska token generate karna hai to
+    const user = await User.findById(userId)
+    const AccessToken = user.generateAccessToken()
+    const RefreshToken = user.generateRefreshToken()
     
+    // access token to hum user ko de dete hai but refresh token hum  db me bhi save kar ke rakhte hai taki baar baar password na puchna pade user se 
+
+    // so refresh token ko db me kaise daale
   } catch (error) {
     throw new ApiError(500, "something went wrong while generating refresh and access token")
     
