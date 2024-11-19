@@ -10,12 +10,18 @@ const generateAccessAndRefreshTokens = async(userId) => {
   try {
     // hume user find karna hoga agar uska token generate karna hai to
     const user = await User.findById(userId)
-    const AccessToken = user.generateAccessToken()
-    const RefreshToken = user.generateRefreshToken()
-    
-    // access token to hum user ko de dete hai but refresh token hum  db me bhi save kar ke rakhte hai taki baar baar password na puchna pade user se 
+    const accessToken = user.generateAccessToken()
+    const refreshToken = user.generateRefreshToken()
 
-    // so refresh token ko db me kaise daale
+    user.refreshToken = refreshToken
+
+    await user.save({ validateBeforeSave: false})
+
+    return { refreshToken, accessToken }
+
+    // jab bhi hume ish functionality ki zaroorat padegi hum sidha hi refreshToken and accessToken le sakte hai 
+
+
   } catch (error) {
     throw new ApiError(500, "something went wrong while generating refresh and access token")
     
