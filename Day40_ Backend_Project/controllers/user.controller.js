@@ -4,11 +4,9 @@ import { User } from "../models/user.model.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
-// jab bhi refresh token etc banane honge to userId to pass karna hoga 
-// userId - ish point me sab kuch check ho gaya hai to user ke through userId easily mil jayega 
+
 const generateAccessAndRefreshTokens = async(userId) => {
   try {
-    // hume user find karna hoga agar uska token generate karna hai to
     const user = await User.findById(userId)
     const accessToken = user.generateAccessToken()
     const refreshToken = user.generateRefreshToken()
@@ -18,8 +16,6 @@ const generateAccessAndRefreshTokens = async(userId) => {
     await user.save({ validateBeforeSave: false})
 
     return { refreshToken, accessToken }
-
-    // jab bhi hume ish functionality ki zaroorat padegi hum sidha hi refreshToken and accessToken le sakte hai 
 
 
   } catch (error) {
@@ -120,6 +116,8 @@ const loginUser = asyncHandler(async (req, res) => {
   if (!isPasswordValid) {
     throw new ApiError(401, "Invalid user credentials")
   }
+
+  const { refreshToken, accessToken } = await generateAccessAndRefreshTokens(user._id)
 
 });
 
