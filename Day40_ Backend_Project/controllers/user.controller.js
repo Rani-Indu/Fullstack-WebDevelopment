@@ -6,17 +6,21 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 
 const generateAccessAndRefreshTokens = async(userId) => {
+  // ish method ko jab bhi run karoge userId pass kar ke to - 
   try {
     const user = await User.findById(userId)
+    // apne aap hi user ko find kar lega id ke basis pe 
+    // next
+    //  accessToken, refreshToken bhi generate kar lega 
     const accessToken = user.generateAccessToken()
     const refreshToken = user.generateRefreshToken()
-
+    // next
+    // refreshToken ko db me save bhi kara diya  
     user.refreshToken = refreshToken
-
     await user.save({ validateBeforeSave: false})
-
+    // next
+    // accessToken bhi generate ho gaya 
     return { refreshToken, accessToken }
-
 
   } catch (error) {
     throw new ApiError(500, "something went wrong while generating refresh and access token")
@@ -118,6 +122,10 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 
   const { refreshToken, accessToken } = await generateAccessAndRefreshTokens(user._id)
+
+  const loggedInUser = await User.findById(user._id).select("-password -refreshToken") 
+
+
 
 });
 
