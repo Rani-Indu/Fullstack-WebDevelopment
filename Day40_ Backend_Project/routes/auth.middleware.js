@@ -15,12 +15,14 @@ export const verifyJWT = asyncHandler(async(req, res, next) => {
         await User.findById(decodeToken?._id).select("-password -refreshToken")
         
         if (!user) {
-            throw new ApiError(401, "invalid access token")
-            // humne middleware bana diya , export bhi kar diya - lekin middleware use kaise aate hai - middleware jo use aate hai wo mostly routes me aate hai 
+            throw new ApiError(401, "invalid access token")  
         }
+
         req.user = user;
         next()
     } catch (error) {
+        throw new ApiError(401, error?.message || "invalid Access Token")
+        // agaer error hai to optionally iska msg decode kar lete hai, msg nahi hai to hum apna msg de dete hai  
         
     }
     
