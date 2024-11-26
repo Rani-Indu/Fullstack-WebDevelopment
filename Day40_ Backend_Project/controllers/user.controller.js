@@ -3,6 +3,7 @@ import ApiError from "../utils/api_error.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import jwt from "jsonwebtoken"
 
 const generateAccessAndRefreshTokens = async (userId) => {
   // ish method ko jab bhi run karoge userId pass kar ke to -
@@ -101,6 +102,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, username, password } = req.body;
+  console.log(email); // body se email receive ho raha hai kya 
+  
 
   // if (!username || !email) {//If either username is missing/falsy, or email is missing/falsy (or both), run this code
   if (!(username || email)) {
@@ -130,6 +133,8 @@ const loginUser = asyncHandler(async (req, res) => {
   const loggedInUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
+  console.log(loggedInUser);
+  
 
   const options = {
     httpOnly: true,
