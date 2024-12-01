@@ -11,7 +11,7 @@
 
 // const asyncHandler = () => {}
 // const asyncHandler = (func) => {() => {}}
-    // const asyncHandler = (func) => () => {} //remove curly braces , one and same thing
+// const asyncHandler = (func) => () => {} //remove curly braces , one and same thing
     
     
     
