@@ -68,7 +68,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const avatarLocalPath = req.files?.avatar?.[0]?.path;
 
   if (!avatarLocalPath) {
-    console.log("req.files:", req.files);
+    // console.log("req.files:", req.files);
     throw new ApiError(400, "avatar file is required");
   }
 
@@ -79,7 +79,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "avatar file is required");
   }
 
-  User.create({
+ const user = await User.create({
     fullname,
     avatar: avatar.url,
     coverImage: coverImage?.url || "",
@@ -94,7 +94,8 @@ const registerUser = asyncHandler(async (req, res) => {
   if (!createdUser) {
     throw new ApiError(500, "something went wrong while registering the user");
   }
-  // next step
+  // next step 
+
   return res
     .status(201)
     .json(new ApiResponse(200, createdUser, "user registered successfully"));
