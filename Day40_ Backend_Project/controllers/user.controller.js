@@ -52,23 +52,14 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(409, "User with email or username already exists");
   }
 
-  // checking for images, avatar
-
-  // const coverImageLocalPath = req.files?.coverImage[0]?.path;
-  //on writing this code we are getting error - {"success":false,"message":"Cannot read properties of undefined (reading '0')"}
-  // so let's do it using if else
-
+  const avatarLocalPath = req.files?.avatar?.[0]?.path;
+  
   let coverImageLocalPath;
-  // if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
-  if (req.files?.coverImage?.length > 0) {
+  if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
     coverImageLocalPath = req.files.coverImage[0].path;
   }
-  // console.log(req.files);
-
-  const avatarLocalPath = req.files?.avatar?.[0]?.path;
 
   if (!avatarLocalPath) {
-    // console.log("req.files:", req.files);
     throw new ApiError(400, "avatar file is required");
   }
 
@@ -107,8 +98,9 @@ const loginUser = asyncHandler(async (req, res) => {
   
 
   // if (!username || !email) {//If either username is missing/falsy, or email is missing/falsy (or both), run this code
-  if (!(username || email)) {
+  // if (!(username || email)) {
     //If both username and email are missing or falsy, run this code
+    if (username && !email) {
     throw (new ApiError(400), "username or email is required");
   }
 
@@ -134,7 +126,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const loggedInUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
   
 
   const options = {
@@ -164,9 +156,12 @@ const logoutUser = asyncHandler(async (req, res) => {
   await user.findByIdAndUpdate(
     req.user._id,
     {
-      $set: {
-        refreshToken: undefined,
+      $unset: {
+        refreshToken: 1 // this removes the field from docoment 
       },
+      // $set: {
+      //   refreshToken: undefined,
+      // },
     },
     {
       new: true,
@@ -181,8 +176,8 @@ const logoutUser = asyncHandler(async (req, res) => {
   // cookieParser add kar rakha hai so .clearCookie method mile ga 
   return res
   .status(200)
-  .clearCookie("accessToken")
-  .clearCookie("refreshToken")
+  .clearCookie("accessToken", options)
+  .clearCookie("refreshToken", options)
   .json(new ApiResponse(200, {}, "user logged out successfully"))
   // data kuch bhej nahi rahe so empty i,e {}
 });
