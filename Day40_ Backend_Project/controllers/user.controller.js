@@ -3,7 +3,7 @@ import ApiError from "../utils/api_error.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-// import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken"
 
 const generateAccessAndRefreshTokens = async (userId) => {
   // ish method ko jab bhi run karoge userId pass kar ke to -
@@ -100,7 +100,7 @@ const loginUser = asyncHandler(async (req, res) => {
   // if (!username || !email) {//If either username is missing/falsy, or email is missing/falsy (or both), run this code
   // if (!(username || email)) {
     //If both username and email are missing or falsy, run this code
-    if (username && !email) {
+    if (!username && !email) {
     throw (new ApiError(400), "username or email is required");
   }
 
@@ -179,4 +179,22 @@ const logoutUser = asyncHandler(async (req, res) => {
   
 });
 
-export { registerUser, loginUser, logoutUser };
+const refreshAccessToken = asyncHandler(async(req, res) => {
+  const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
+
+  if (incomingRefreshToken ) {
+    throw new ApiError(401, "unauthorized request") 
+  }
+  // ab jo incoming token aa raha hai usko verify bhi to karna hoga , bhi verify nahi chalega - kyuki dono token  ban ek hi tarike se rahe hai  accessToken bhi, refresh Token bhi 
+  // verify karwa lete hai - jwt hai hamare pass 
+})
+
+
+
+
+
+
+
+
+
+export { registerUser, loginUser, logoutUser, refreshAccessToken };
