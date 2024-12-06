@@ -185,21 +185,17 @@ const refreshAccessToken = asyncHandler(async(req, res) => {
   if (incomingRefreshToken ) {
     throw new ApiError(401, "unauthorized request") 
   }
- const decodedToken =  jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRE )
+    
+ const decodedToken =  jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET)
   
-// kyuki ab ye refresh token decode ho chuka hai to iski sari information mere pass aa gai hogi
-// ish refresh token me sirf ek chiz dali thi wo hai _id, to iska access mere pass jona cahiye ab 
-// iska agar access hai to kya mai ek query mar ke mongodb se ush user ki infoemation le sakte hai - bilkul le sakte hai 
 
 const user = await User.findById(decodedToken?._id)
-// kaun sa user find karna hai - wo mere pass decodedToken me rakha hua hai , decodedToken ko optionally unwrap kar ke ishme se ._id nikal lete hai 
-// db query so await - as in another continent
 
-// agar user nahi aaya ish tarike se to , kisi ne koi ficticious token de diya to 
-// nahi hai user , to error throw kar do 
 if (!user) {
   throw new ApiError(401, "Invalid refresh token")
 }
+
+
 })
 
 
