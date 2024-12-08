@@ -231,7 +231,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 const changeCurrentPassword = asyncHandler(async (req, res) => {
   const { oldPassword, newPassword } = req.body;
 
-  const user = await User.findById(req.user?.id);
+  const user = await User.findById(req.user?._idid);
   const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
 
   // password is incorrect
@@ -241,27 +241,40 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
   // naya password set karna hai
   user.password = newPassword;
   await user.save({ validateBeforeSave: false });
-  // user ko ek message bhej dete hai ki aapka password successfully change ho gaya hai , data kuvh bhejna nahi hai
+  // user ko ek message bhej dete hai ki aapka password successfully change ho gaya hai , data kuch bhejna nahi hai
   return res
     .status(200)
     .json(new ApiResponse(200, {}, "Password Changed Successfully"));
 });
 
-// ek endpoint humko banana hai jaha pe hum current user ko get kar paye
-
-// data kya return karenge - req.user - kyuki hamari req pe middleware run ho chuka hai
-// ab uske pass user inject ho chuka hai ish object me , bash wo return kar do
 const getCurrentUser = asyncHandler(async (req, res) => {
   return res
     .status(200)
-    .json(200, req.user, "current user fetched successfully");
+    .json(200, req.user, "current user fetched successfully");   
 });
 
+const updateAccountDetails = asyncHandler(async(req, res) => { 
+  const {fullname, email} = req.body
+  
+  if (!fullname || !email) {
+    throw new ApiError(400, "All fields are required")
+  }
 
+  const user = User.findByIdAndUpdate(
+    req.user?._id,
+    {
+      $set: {
+        email,
+        fullname
+      }
+    }, 
+    {new: true} 
+  ).select("-password")
 
-
-
-
+  return res
+  .status(200)
+  .json(new ApiResponse(200, user, "Account details updated successfully")) 
+})
 
 
 
@@ -273,4 +286,5 @@ export {
   refreshAccessToken,
   changeCurrentPassword,
   getCurrentUser,
+  updateAccountDetails
 };
