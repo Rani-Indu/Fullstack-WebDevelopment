@@ -94,7 +94,7 @@ Response:
   }
 }
 
-3. Get All Users
+3. #Get All Users
 
 GET /getUsers
 
@@ -114,7 +114,7 @@ Response:
   ]
 }
 
-4. Delete User
+4. #Delete User
 
 DELETE /deleteUser/:id
 
