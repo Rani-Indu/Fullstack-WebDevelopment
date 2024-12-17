@@ -8,7 +8,7 @@ const signup = async (req, res, next) => {
   const { name, email, password, confirmPassword } = req.body;
   console.log(name, email, password, confirmPassword);
 
-  if (!name || !email || !password) {
+  if (!name || !email || !password || !confirmPassword) {
     return res.status(400).json({
       success: false,
       message: "every field is required",
@@ -31,24 +31,17 @@ const signup = async (req, res, next) => {
   }
 
   try {
-    const userInfo = userModel(req.body); //userModel(name used to access userSchema)
-    // agar schema me and req.body me key name same nahi hai to hume yaha pe mention karna hoga like
-    // const userInfo = userModel (
-    // name: new key name e.g- username, etc
-    // email: new email name e.g- useremail, etc
-    // );
+    const userInfo = userModel(req.body); 
     const result = await userInfo.save();
 
     return res.status(200).json({
       success: true,
       // data: {}
       data: result,
-      // agar ye data store karte samay badhiya se store ho jata hai to , jo result hai usko as it is response me send kar dunga, data me result ko send kar denge
+      
     });
   } catch (e) {
     if (e.code === 11000) {
-      // same email ko dobara register karne ki kosish kar rahe hai tab
-      // code for duplicate entry
       return res.status(400).json({
         success: false,
         message: "Account already exists with provided email id",
