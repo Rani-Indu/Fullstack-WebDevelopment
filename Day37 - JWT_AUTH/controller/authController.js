@@ -40,7 +40,7 @@ const signup = async (req, res, next) => {
       data: result,
       
     });
-  } catch (e) {
+  } catch (e) {                     
     if (e.code === 11000) {
       return res.status(400).json({
         success: false,
@@ -79,8 +79,6 @@ const signin = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000, 
       httpOnly: true, 
     };
-
-    
 
     res.cookie("token", token, cookieOption);
     res.status(200).json({
