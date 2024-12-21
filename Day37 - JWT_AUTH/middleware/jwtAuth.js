@@ -15,16 +15,11 @@ const jwtAuth = (req, res, next) => {
             message: 'Not Authorized'
         })
     }
-
-    
     try {
-        // agar token exists karta hai to ushse information nikalni hogi, validate karna hoga ki token sahi hai ya nahi , agar sahi hai to hum information nikalenge aur aage bhej denge
         const payload = JWT.verify(token, process.env.SECRET);
         req.user = { id: payload.id, email: payload.email} 
         next();
     } catch (e) {
-
-    
         // in case verify nahi hota hai to
         return res.status(400).json({
             success: false,
