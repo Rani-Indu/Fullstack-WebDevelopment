@@ -28,7 +28,7 @@ const jwtAuth = (req, res, next) => {
         
     }
 
-    next();
+    // next();
 } 
 
 
