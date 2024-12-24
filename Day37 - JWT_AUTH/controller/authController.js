@@ -73,7 +73,7 @@ const signin = async (req, res) => {
       });
     }
 
-    const token = user.jwtToken(); 
+    const token = await user.jwtToken(); 
     user.password = undefined;  
     const cookieOption = {
       maxAge: 24 * 60 * 60 * 1000, 
