@@ -49,7 +49,7 @@ userSchema.pre("save", async function(next) {
     }
     this.password = await bcrypt.hash(this.password, 10);
 })  
-
+// generateJWTToken 
 userSchema.methods = {
     generateJWTToken: async function() {
         return await jwt.sign(
