@@ -73,4 +73,8 @@ userSchema.methods = {
 
 const User = model('User', userSchema) // db me collection ka naam hai User
 
+
+
+
+
 export default User;
