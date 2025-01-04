@@ -47,8 +47,6 @@ return next();
 
 
 
-
-
 // mongoose allow karta hai schema me koi custom method define karne ko
 // yaha pe hum jwt token generate karne ka method likhte hai
 userSchema.methods = {
