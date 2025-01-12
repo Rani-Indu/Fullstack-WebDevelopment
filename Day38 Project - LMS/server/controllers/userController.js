@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import AppError from "../utils/error.util.js";
 import cloudinary from 'cloudinary';
-import fs from 'fs/promises'
+import fs from 'fs/promises';
 
 const cookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
@@ -43,9 +43,9 @@ const register = async (req, res, next) => {
     // TODO: file upload
     // next we'll write logic to upload file / image/ avatar
 
+    console.log(req.file);    
+    console.log('File Details > ', JSON.stringify(req.file));    
     if (req.file) {
-        console.log(req.file);
-        
         try {
             // cloudinary pe upload karne wale hai
             //  cloudinary pe jo img upload hoti hai wo async me hoti hai 
