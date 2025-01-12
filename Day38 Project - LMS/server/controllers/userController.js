@@ -155,7 +155,35 @@ const getProfile = async (req, res) => {
     }
 }
 
+const forgotPassword = async (req, res) => {
+    // humko email dena hoga 
+    const {email} = req.body;
 
+    if (!email) { // agar email nahi diya hai 
+        return next(new AppError('Email is required', 400));
+    }
+    
+    //agar email diya hai - db se validate karna hoga email exist karta hai ya nahi 
+    const user = await User.findOne({email});
+    //agar email nahi mila to error throw karenge
+    if (!user) {
+        return next(new AppError('Email not registered', 400));    
+    }
+
+    // generate new token 
+    //agar email correct hai to ek random url generate karenge, to resetToken generate kar lete hai uske basis pe url generate kar lenge 
+    const resetToken = await user.generatePasswordResetToken();
+
+    // next step : 
+    //  save token in db and 
+    await user.save();
+    // + send email with new url containing token
+
+
+};
+
+
+const resetPassword= () => {};
 
 
 
@@ -163,5 +191,6 @@ export{
     register,
     login,
     logout,
-    getProfile
+    getProfile,
+    forgotPassword,
 }

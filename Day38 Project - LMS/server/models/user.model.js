@@ -1,6 +1,7 @@
 import {Schema, model} from "mongoose";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 
 const userSchema  = new Schema({
     fullName: {
@@ -66,6 +67,22 @@ userSchema.methods = {
     comparePassword: async function(plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
         // bcrypt async hota hai so use async await 
+    },
+
+    generatePasswordResetToken: async function() { 
+        const resetToken = crypto.randomBytes(20).toString('hex');
+
+        // db me store karna cahate hai 
+        // humne model me kuch chize define ki thi i,e token and expiry unko set kar lete hai 
+
+        this.forgotPasswordToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex')
+        ;
+        //hum yaha pe upper se resetToken direct daal sakte hai but better if we encrypt it 
+        //token ko encrypt karenge using crypto 
+        this.forgitPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now 
     }
 }
 
