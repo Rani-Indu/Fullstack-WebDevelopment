@@ -175,9 +175,39 @@ const forgotPassword = async (req, res) => {
     const resetToken = await user.generatePasswordResetToken();
 
     // next step : 
-    //  save token in db and 
+    //  save token in db 
     await user.save();
     // + send email with new url containing token
+    // save karne ke baad humko url generate karna hai i,e resetPasswordURL, ye url hoga jisko hume email me send karna hai , ki ish url ko trigger karo apna kaam karne ke liye
+
+    // wo url kaha se aayega, 
+    // ye url kis chiz ka haoga , hamara frontend ek domain pe hosted hai eg - http://localhost:3000 ish url pe hi kuch aur url hoga jaha pe ye kaam kar raha hoga 
+    
+    const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`
+    // url me token set kar ke send karte hai 
+    
+    // hum resetToken ko path me de sakte hai jaise yaha, ya phir query param me bhi de sakte hai 
+
+    // ye url (i,e resetPasswordURL) khulega react application me - react application me ish token ko read karna hoga - ushko read karoge + option aayega email dalne ke liye in dono ka combination me send karna hoga 
+
+    // email send karna hai 
+    const subject = 'Reset Password';
+    const message = 'you can reset yourpasswordd by clicking <a href=${resetPasswordURL}></a>'
+    try {
+        await sendEmail(email, subject, message)  
+
+        res.status(200).json({
+            success: true,
+            message: `reset password token has been sent to ${email} successfully`
+        })
+    } catch (error) {
+        // agar kisi wajah se email send nahi hua , email fat gaya to hum token and expiry ko undefined kar denge , security purpose se 
+
+        // aisa isliye karenge kyuki humne token db me already save kar diya hai but email send nahi ho paya  - so agar hum retry karna cahate hai to previous values ko undefined i,e invalid kar denge taki koi confusion na ho retry karne pe
+        user.forgotPasswordToken= undefined ,
+        user.forgitPasswordExpiry= undefined
+        return next(new AppError(error.message, 500));   
+    }
 
 
 };
