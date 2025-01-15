@@ -184,11 +184,16 @@ const forgotPassword = async (req, res) => {
     // ye url kis chiz ka haoga , hamara frontend ek domain pe hosted hai eg - http://localhost:3000 ish url pe hi kuch aur url hoga jaha pe ye kaam kar raha hoga 
     
     const resetPasswordURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`
+
+    console.log(resetPasswordURL);
+    
     // url me token set kar ke send karte hai 
     
     // hum resetToken ko path me de sakte hai jaise yaha, ya phir query param me bhi de sakte hai 
 
     // ye url (i,e resetPasswordURL) khulega react application me - react application me ish token ko read karna hoga - ushko read karoge + option aayega email dalne ke liye in dono ka combination me send karna hoga 
+
+    // ye jo url generate hua hai isko email send karenge 
 
     // email send karna hai 
     const subject = 'Reset Password';
@@ -203,7 +208,10 @@ const forgotPassword = async (req, res) => {
     } catch (error) {
         // agar kisi wajah se email send nahi hua , email fat gaya to hum token and expiry ko undefined kar denge , security purpose se 
 
-        // aisa isliye karenge kyuki humne token db me already save kar diya hai but email send nahi ho paya  - so agar hum retry karna cahate hai to previous values ko undefined i,e invalid kar denge taki koi confusion na ho retry karne pe
+        // aisa isliye karenge kyuki humne token db me already save kar diya hai but email send nahi ho paya  - so agar hum retry karna cahate hai to previous values ko undefined / reset i,e invalid kar denge taki koi confusion na ho retry karne pe
+
+        // aisa isliye karenge kyuki hum nahi cahate ki 2 alag alag token generate ho , aur user purane wale email me jaye aur usko expire mile jab ki 15 min bhi nahi hue hai 
+
         user.forgotPasswordToken= undefined ,
         user.forgitPasswordExpiry= undefined
         return next(new AppError(error.message, 500));   
@@ -213,7 +221,7 @@ const forgotPassword = async (req, res) => {
 };
 
 
-const resetPassword= () => {};
+const resetPassword = () => {};
 
 
 
@@ -223,4 +231,5 @@ export{
     logout,
     getProfile,
     forgotPassword,
+    resetPassword
 }
