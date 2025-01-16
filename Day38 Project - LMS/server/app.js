@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
 // import 'dotenv/config';
-import express from 'express'
+import express, { urlencoded } from 'express'
 const app = express()
 import cors from "cors";
 import cookieParser from 'cookie-parser';
@@ -13,6 +13,9 @@ import errorMiddleware from './middlewares/error.middleware.js';
 connectToDb();
 
 app.use(express.json());
+
+app.use(express.urlencoded({extended: true}))
+
 app.use(cors({
     origin: [process.env.FRONTEND_URL],
   credentials: true  
