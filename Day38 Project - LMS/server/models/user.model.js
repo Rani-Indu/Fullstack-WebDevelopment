@@ -82,7 +82,10 @@ userSchema.methods = {
         ;
         //hum yaha pe upper se resetToken direct daal sakte hai but better if we encrypt it 
         //token ko encrypt karenge using crypto 
-        this.forgitPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now 
+        this.forgotPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now 
+
+        return resetToken
+        // user ko jo url me bhejna hai wo encrypted nahi bhejna hai so we'll send resetToken
     }
 }
 
