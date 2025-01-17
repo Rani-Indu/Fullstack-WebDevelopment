@@ -2,7 +2,7 @@ import { isLoggedIn } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import {register,login,logout,getProfile, forgotPassword,resetPassword } from "../controllers/userController.js";
 
-import express from "express";
+import express from "express"; // needed to make router
 import {Router} from "express"
 const router = Router();
 
