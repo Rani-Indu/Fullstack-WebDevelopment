@@ -155,7 +155,7 @@ const getProfile = async (req, res) => {
     }
 }
 
-const forgotPassword = async (req, res) => {
+const forgotPassword = async (req, res, next) => {
     // humko email dena hoga 
     const {email} = req.body;
 
@@ -197,7 +197,7 @@ const forgotPassword = async (req, res) => {
 
     // email send karna hai 
     const subject = 'Reset Password';
-    const message = 'you can reset yourpasswordd by clicking <a href=${resetPasswordURL}></a>'
+    const message = 'you can reset yourpasswordd by clicking <a href=${resetPasswordURL} target="_blank">Reset Your Password</a>\nif above link does not work for some reason then copy this link in new tab ${resetPasswordURL}.\n If you have not requested this, kindly ignore.' 
     try {
         await sendEmail(email, subject, message)  
 
@@ -212,8 +212,11 @@ const forgotPassword = async (req, res) => {
 
         // aisa isliye karenge kyuki hum nahi cahate ki 2 alag alag token generate ho , aur user purane wale email me jaye aur usko expire mile jab ki 15 min bhi nahi hue hai 
 
-        user.forgotPasswordToken= undefined ,
-        user.forgitPasswordExpiry= undefined
+        user.forgotPasswordToken= undefined;
+        user.forgitPasswordExpiry= undefined;
+        // undefined karne ke baad save kar do
+        await user.save();
+
         return next(new AppError(error.message, 500));   
     }
 
