@@ -224,7 +224,50 @@ const forgotPassword = async (req, res, next) => {
 };
 
 
-const resetPassword = () => {};
+const resetPassword = async (req, res) => {
+    const  {resetToken} = req.params;
+    const { password} = req.body;
+
+    const forgotPasswordToken = crypto
+    .cteate('sha256')
+    .update(resetToken) // we'll get this from resetToken
+    .digest('hex');
+
+    const user = await User.findOne({
+    // validate karenge ki token exist karta hai ya nahi
+        forgotPasswordToken,
+    //validate karenge ki token expire to nahi hua hai na i,e expiry abhi se greater hai ya nahi 
+        forgotPasswordExpiry: { $gt: Date.now()} 
+        // basically hume wahi token nikalna hai jo token match karta hai aur jiski expiry future me ho 
+    });
+    // agar aisa koi user nahi mila to 
+    if (!user) {
+        return next(
+            new AppError('Token is invalid or expired, please try again', 400)
+        )
+    }
+    // agar hume db me user mil gaya -
+    // new password banayenge 
+    user.password = password;
+
+    // save karne se pehle user ka token and expiry usko bhi update karna hai - inka jo kaam tha wo ho gaya 
+
+    // hum karna kya cahate the - forgotPassword ka use kar ke inko update karna cahate the - so 
+    user.forgotPasswordToken = undefined;
+    user.forgotPasswordExpiry = undefined;
+
+    user.save();
+//  sab kaam successfully ho gaya to message bhej denge 
+    res.status(200).json({
+        success: true,
+        message: 'password changed successfully'
+    })
+
+// notice: security concern 
+
+// agar kabhi hum password bhul jate hai tab ye yaad rakhna hai ki  - email me jo url aata hai wo kitna critical hai - kisi aur ko koi login ki zaroorat nahi hai , koi password ki zaroorat nahi hai - sirf ye url hone se koi bhi hamara password set kar sakta hai - 
+
+};
 
 
 
