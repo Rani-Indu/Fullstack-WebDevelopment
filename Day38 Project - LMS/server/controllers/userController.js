@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import AppError from "../utils/error.util.js";
 import cloudinary from 'cloudinary';
 import fs from 'fs/promises';
+import crypto from 'crypto';
 
 const cookieOptions = {
     maxAge: 7 * 24 * 60 * 60 * 1000, //7 days
@@ -229,7 +230,8 @@ const resetPassword = async (req, res) => {
     const { password} = req.body;
 
     const forgotPasswordToken = crypto
-    .cteate('sha256')
+    .createHash('sha256')
+    // .create('sha256')
     .update(resetToken) // we'll get this from resetToken
     .digest('hex');
 
@@ -268,6 +270,74 @@ const resetPassword = async (req, res) => {
 // agar kabhi hum password bhul jate hai tab ye yaad rakhna hai ki  - email me jo url aata hai wo kitna critical hai - kisi aur ko koi login ki zaroorat nahi hai , koi password ki zaroorat nahi hai - sirf ye url hone se koi bhi hamara password set kar sakta hai - 
 
 };
+// console.log(crypto);
+
+const changePassword = async(req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    const { id } = req.user; 
+    // auth.middleware me humne req.user ke andar user ki sari information rakhi hai 
+
+    if (!oldPassword || !newPassword) {
+        return next(
+            new AppError('All fields are mandatory', 400)
+        )
+    }
+    
+    // db me ush id ke corresponding password nikal ke compare karte hai 
+    const user = await User.findById(id).select('+password');
+
+    if (!user) {
+        return next(
+            new AppError('user does not exist', 400)
+        )   
+    }
+    
+    // agar user exist karta hai to password compare karenge
+    const isPasswordValid = await user.comparePassword(oldPassword);
+    
+    if (!isPasswordValid) {
+        return next(
+            new AppError('Invalis old Password', 400)
+        )   
+    }
+    // agar old password match kar jata hai 
+    user.password = newPassword;
+
+    await user.save();
+
+    user.password = undefined;
+    // taki password mistake se leak na ho jaye 
+
+    res.status(200).json({
+        success: true,
+        message: 'password changed successfully!'
+    })
+};
+
+
+// fullname update kar do 
+// profile picture change kar sakte hai 
+// email abhi change nahi kar rahe wo complicated problem hai 
+const updateUser = async(req, res) => {
+    const { fullName } = req.body; 
+    // body me mil jayega multer ki wajah se 
+    const { id } = req.user.id;
+
+    const user = await User.findById(id);
+
+    if (!user) {
+        return next(
+            new AppError('user does not exist', 400)
+        )
+    }
+
+    if (req.fullName){
+        user.fullName = fullName
+    }
+// kya user ne profile pic update ki hai - kaise check karenge - multer se pass hone pe req.file me hume wo file mil jayegi jo user ne dali hai 
+    if (req.file) {}
+
+}
 
 
 
@@ -277,5 +347,7 @@ export{
     logout,
     getProfile,
     forgotPassword,
-    resetPassword
+    resetPassword,
+    changePassword,
+    updateUser
 }
