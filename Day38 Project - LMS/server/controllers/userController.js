@@ -323,19 +323,26 @@ const updateUser = async(req, res) => {
     // body me mil jayega multer ki wajah se 
     const { id } = req.user.id;
 
-    const user = await User.findById(id);
 
+    const user = await User.findById(id);
+//agar koi user exist nahi karta 
     if (!user) {
         return next(
             new AppError('user does not exist', 400)
         )
     }
 
-    if (req.fullName){
+    if (req.fullName){ 
+    // agar kisi ne fullname diya hai, aur agar user exist karta hai to fullname update kar denge     
         user.fullName = fullName
     }
-// kya user ne profile pic update ki hai - kaise check karenge - multer se pass hone pe req.file me hume wo file mil jayegi jo user ne dali hai 
-    if (req.file) {}
+// kya user ne profile pic daali hai - req.file me wo pic mil jayegi jo user ne upload kiya hai 
+// kaise check karenge - 
+// agar multer se pass hone pe req.file me hume wo file mil jayegi jo user ne dali hai 
+    if (req.file) {
+        // already cloudinary me ek image exist kartihai , to pehle ushe hatana hoga , tab hi dusri image upload kar payenge 
+        await cloudinary.v2.uploader.destroy(user.avatar.public_id);
+    }
 
 }
 
