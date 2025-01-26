@@ -21,4 +21,5 @@ router.put('/update', isLoggedIn, upload.single('avatar'), updateUser)
 
 
 
+
 export default router;
