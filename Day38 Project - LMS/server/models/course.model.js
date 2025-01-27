@@ -54,3 +54,9 @@ const courseSchema = new Schema({
     required: [true, 'name of author is required']
   }
 });
+
+
+const Course = model('Course', courseSchema);
+// db me collection ka naam hai Course - Capital C 
+
+export default Course;
