@@ -3,11 +3,15 @@ import { getAllCourses, getLecturesByCourseId} from '../controllers/course.contr
 
 const router = Router();
 
-router.get('/', getAllCourses);
+// router.get('/', getAllCourses);
 // or
-// router.route('/').get(getAllCourses);
+router.route('/')
+.get(getAllCourses);
 
-router.get('/:id', getLecturesByCourseId);
+// router.get('/:id', getLecturesByCourseId);
+// or
+router.route('/:id')
+.get(getLecturesByCourseId);
 
 
 export default router;
