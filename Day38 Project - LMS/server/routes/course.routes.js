@@ -20,8 +20,8 @@ router.route('/')
 // or
 router.route('/:id')
 .get(isLoggedIn ,getLecturesByCourseId)
-.post(updateCourse)
-.delete(removeCourse)
+.post(isLoggedIn, updateCourse)
+.delete(isLoggedIn, removeCourse)
 // to update and delete any course we need id so its better to write this in /:id route and not in / route
 
 // hum / me bhi ye kaam kar sakte the but process different hota tab i,e hum data kaise le rahe hai ye different ho jata - hum query param se data le rahe hai ya post.body se data le rahe hai 
