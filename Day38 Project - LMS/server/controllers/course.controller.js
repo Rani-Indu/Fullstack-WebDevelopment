@@ -1,7 +1,7 @@
 import Course from "../models/course.model.js";
 import AppError from "../utils/error.util.js";
 import fs from "fs/promises";
-import cloudinary from 'cloudinary';
+import cloudinary from "cloudinary";
 
 const getAllCourses = async function (req, res, next) {
   try {
@@ -47,9 +47,9 @@ const createCourse = async function (req, res, next) {
     category,
     createdBy,
     thumbnail: {
-      public_is: 'Dummy',
-      secure_url: 'Dummy',
-    }
+      public_is: "Dummy",
+      secure_url: "Dummy",
+    },
   });
 
   // agar course create nahi hua to
@@ -66,7 +66,7 @@ const createCourse = async function (req, res, next) {
         folder: "lms",
       });
       console.log(JSON.stringify);
-      
+
       if (result) {
         course.thumbnail.public_id = result.public_id;
         course.thumbnail.secure_url = result.secure_url;
@@ -74,9 +74,7 @@ const createCourse = async function (req, res, next) {
       // remove file from local folder
       fs.rm("uploads/${req.file.filename}");
     } catch (error) {
-      return next(
-        new AppError(error.message, 500)
-      );
+      return next(new AppError(error.message, 500));
     }
   }
 
@@ -89,7 +87,35 @@ const createCourse = async function (req, res, next) {
   });
 };
 
-const updateCourse = async function (req, res, next) {};
+const updateCourse = async function (req, res, next) {
+  try {
+    const { id } = req.params;
+    const course = await Course.findByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+        // jo bhi, jitna bhi data available utne ko hi update kar lega , sara ka sara data nahi karega  
+      },
+      {
+        runValidators: true,
+      }
+    );
+// agar ab koi course nahi milta hai - matlab wo course exist hi nahi karta tha  
+    if (!course) {
+      return next(new AppError("course with given id does not exist", 500));
+    }
+
+    // agar course mil jata hai 
+    res.status(200).json({
+      success: true,
+      message: "Course updated successfully",
+      course,
+    });
+
+  } catch (error) {
+    return next(new AppError(error.message, 500));
+  }
+};
 
 const removeCourse = async function (req, res, next) {};
 
