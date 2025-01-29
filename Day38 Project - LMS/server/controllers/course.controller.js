@@ -1,6 +1,7 @@
 import Course from "../models/course.model.js";
 import AppError from "../utils/error.util.js";
-import fs from 'fs/promises'
+import fs from "fs/promises";
+import cloudinary from 'cloudinary';
 
 const getAllCourses = async function (req, res, next) {
   try {
@@ -33,62 +34,69 @@ const getLecturesByCourseId = async function (req, res, next) {
   }
 };
 
-
 const createCourse = async function (req, res, next) {
-    const { title,description, category, createdBy } = req.body; 
-// if information doesn't exist 
-    if (!title || !description || !category || !createdBy) {
-        return next(
-            new AppError('All fields are required', 400)
-        )
+  const { title, description, category, createdBy } = req.body;
+  // if information doesn't exist
+  if (!title || !description || !category || !createdBy) {
+    return next(new AppError("All fields are required", 400));
+  }
+  // if information exists - to course ka instance bana lenge
+  const course = await Course.create({
+    title,
+    description,
+    category,
+    createdBy,
+    thumbnail: {
+      public_is: 'Dummy',
+      secure_url: 'Dummy',
     }
-    // if information exists - to course ka instance bana lenge 
-    const course = await Course.create({
-        title,
-        description, 
-        category, 
-        createdBy,
-    })
+  });
 
-    // agar course create nahi hua to 
+  // agar course create nahi hua to
 
-    if (!course) {
-        return next(
-            new AppError('course could not be created, please try again', 500)
-        )
+  if (!course) {
+    return next(
+      new AppError("course could not be created, please try again", 500)
+    );
+  }
+
+  if (req.file) {
+    try {
+      const result = await cloudinary.v2.uploader.upload(req.file.path, {
+        folder: "lms",
+      });
+      console.log(JSON.stringify);
+      
+      if (result) {
+        course.thumbnail.public_id = result.public_id;
+        course.thumbnail.secure_url = result.secure_url;
+      }
+      // remove file from local folder
+      fs.rm("uploads/${req.file.filename}");
+    } catch (error) {
+      return next(
+        new AppError(error.message, 500)
+      );
     }
+  }
 
-    if (req.file) {
-        const result = await cloudinary.v2.uploader.upload(req.file.path, {
-            folder: 'lms'
-        });
-        if (result) {
-            course.thumbnail.public_id = result.public_id;
-            course.thumbnail.secure_url = result.secure_url;
-        }
-        // remove file from local folder
-        fs.rm('uploads/${req.file.filename}');
-    }
+  await course.save();
 
-    await course.save();
-
-
+  res.status(200).json({
+    success: true,
+    message: "Course created successfully",
+    course,
+  });
 };
-
 
 const updateCourse = async function (req, res, next) {};
 
-
-
 const removeCourse = async function (req, res, next) {};
 
-
-
-
-export { 
-    getAllCourses, 
-    getLecturesByCourseId,
-    createCourse,
-    updateCourse,
-    removeCourse 
+export {
+  getAllCourses,
+  getLecturesByCourseId,
+  createCourse,
+  updateCourse,
+  removeCourse,
 };
