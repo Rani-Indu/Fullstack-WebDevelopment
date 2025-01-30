@@ -12,16 +12,26 @@ import { getAllCourses, getLecturesByCourseId, createCourse, updateCourse, remov
 router.route('/')
 .get(getAllCourses)
 .post(
+    isLoggedIn,
     upload.single('thumbnail'),
-    createCourse
+    createCourse,
+    authorizedRoles('ADMIN')
 );
 
 // router.get('/:id', getLecturesByCourseId);
 // or
 router.route('/:id')
 .get(isLoggedIn ,getLecturesByCourseId)
-.post(isLoggedIn, updateCourse)
-.delete(isLoggedIn, removeCourse)
+.put(
+    isLoggedIn, 
+    updateCourse,
+    authorizedRoles('ADMIN'),
+)
+.delete(
+    isLoggedIn, 
+    authorizedRoles('ADMIN'),
+    removeCourse
+)
 // to update and delete any course we need id so its better to write this in /:id route and not in / route
 
 // hum / me bhi ye kaam kar sakte the but process different hota tab i,e hum data kaise le rahe hai ye different ho jata - hum query param se data le rahe hai ya post.body se data le rahe hai 
