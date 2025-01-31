@@ -12,10 +12,11 @@ import { getAllCourses, getLecturesByCourseId, createCourse, updateCourse, remov
 router.route('/')
 .get(getAllCourses)
 .post(
-    isLoggedIn,
-    upload.single('thumbnail'),
-    createCourse,
-    authorizedRoles('ADMIN')
+    isLoggedIn,   // authentication
+    authorizedRoles('ADMIN'),       // authorization
+    upload.single('thumbnail'),  // image transition , upload 
+    createCourse,         // create course 
+    // ishi sequence me sab kaam karenge 
 );
 
 // router.get('/:id', getLecturesByCourseId);
@@ -23,9 +24,9 @@ router.route('/')
 router.route('/:id')
 .get(isLoggedIn ,getLecturesByCourseId)
 .put(
-    isLoggedIn, 
+    isLoggedIn,   
+    authorizedRoles('ADMIN'),  
     updateCourse,
-    authorizedRoles('ADMIN'),
 )
 .delete(
     isLoggedIn, 
