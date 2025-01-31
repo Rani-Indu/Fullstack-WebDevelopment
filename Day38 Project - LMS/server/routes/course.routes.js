@@ -4,7 +4,7 @@ import { upload } from '../middlewares/multer.middleware.js';
 
 const router = Router();
 
-import { getAllCourses, getLecturesByCourseId, createCourse, updateCourse, removeCourse} from '../controllers/course.controller.js';
+import { getAllCourses, getLecturesByCourseId, createCourse, updateCourse, removeCourse, addLectureToCourseById} from '../controllers/course.controller.js';
 
 
 // router.get('/', getAllCourses);
@@ -33,6 +33,20 @@ router.route('/:id')
     authorizedRoles('ADMIN'),
     removeCourse
 )
+
+// adding lecture in already existing course 
+.post(
+    isLoggedIn, 
+    authorizedRoles('ADMIN'),
+    upload.single('lecture'),
+    addLectureToCourseById, 
+)
+
+
+
+
+
+
 // to update and delete any course we need id so its better to write this in /:id route and not in / route
 
 // hum / me bhi ye kaam kar sakte the but process different hota tab i,e hum data kaise le rahe hai ye different ho jata - hum query param se data le rahe hai ya post.body se data le rahe hai 

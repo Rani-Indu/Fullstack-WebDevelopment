@@ -149,10 +149,16 @@ const removeCourse = async function (req, res, next) {
   }
 };
 
+const addLectureToCourseById = async (req, res, next) => {
+  const { title, description } = req.body;
+  const { id } = req.params;
+};
+
 export {
   getAllCourses,
   getLecturesByCourseId,
   createCourse,
   updateCourse,
   removeCourse,
+  addLectureToCourseById,
 };
