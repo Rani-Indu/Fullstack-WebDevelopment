@@ -38,7 +38,7 @@ router.route('/:id')
 .post(
     isLoggedIn, 
     authorizedRoles('ADMIN'),
-    upload.single('lecture'),
+    upload.single('lecture'),  
     addLectureToCourseById, 
 )
 
