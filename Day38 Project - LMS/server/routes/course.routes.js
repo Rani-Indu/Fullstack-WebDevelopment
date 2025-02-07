@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { isLoggedIn } from '../middlewares/auth.middleware.js';
+import { isLoggedIn, authorizedRoles } from '../middlewares/auth.middleware.js';
 import { upload } from '../middlewares/multer.middleware.js';
 
 const router = Router();

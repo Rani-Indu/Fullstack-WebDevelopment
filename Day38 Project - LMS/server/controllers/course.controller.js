@@ -94,24 +94,23 @@ const updateCourse = async function (req, res, next) {
       id,
       {
         $set: req.body,
-        // jo bhi, jitna bhi data available utne ko hi update kar lega , sara ka sara data nahi karega  
+        // jo bhi, jitna bhi data available utne ko hi update kar lega , sara ka sara data nahi karega
       },
       {
         runValidators: true,
       }
     );
-// agar ab koi course nahi milta hai - matlab wo course exist hi nahi karta tha  
+    // agar ab koi course nahi milta hai - matlab wo course exist hi nahi karta tha
     if (!course) {
       return next(new AppError("course with given id does not exist", 500));
     }
 
-    // agar course mil jata hai 
+    // agar course mil jata hai
     res.status(200).json({
       success: true,
       message: "Course updated successfully",
       course,
     });
-
   } catch (error) {
     return next(new AppError(error.message, 500));
   }
@@ -123,35 +122,82 @@ const removeCourse = async function (req, res, next) {
     const course = await Course.findById(id);
     // const course = await Course.findByIdAndDelete
 
-
-    // if course does not exist 
+    // if course does not exist
     if (!course) {
-      return next(
-        new AppError('course with given id does not exist', 500)
-      )
+      return next(new AppError("course with given id does not exist", 500));
     }
 
-    // if course exist 
+    // if course exist
     await course.findByIdAndDelete(id);
 
     // if celeted successfully
     res.status(200).json({
       success: true,
-      message: 'course deleted successfully'
-    })
-
-
+      message: "course deleted successfully",
+    });
   } catch (error) {
-    
-    return next(
-      new AppError(error.message, 500)
-    )
+    return next(new AppError(error.message, 500));
   }
 };
 
 const addLectureToCourseById = async (req, res, next) => {
-  const { title, description } = req.body;
-  const { id } = req.params;
+ try {
+   const { title, description } = req.body;
+   const { id } = req.params;
+   // course ki id milegi query param se
+ 
+   // title, description exist nahi karta
+   if (!title || !description) {
+     return next(new AppError("All fields are required", 400));
+   }
+ 
+   // course agar exist nahi karta
+   if (!course) {
+     return next(new AppError("course with given id does not exist", 500));
+   }
+ 
+   // agar course exist karta hai
+   const lectureData = {
+     // title, description hume pata hai
+     title,
+     description,
+   };
+   // image related information hume nahi pata
+   if (req.file) {
+     try {
+       const result = await cloudinary.v2.uploader.upload(req.file.path, {
+         folder: "lms",
+       });
+       console.log(JSON.stringify(result));
+ 
+       if (result) {
+         lectureData.thumbnail.public_id = result.public_id;
+         lectureData.thumbnail.secure_url = result.secure_url;
+       }
+       // remove file from local folder
+       fs.rm("uploads/${req.file.filename}");
+     } catch (error) {
+       return next(new AppError(error.message, 500));
+     }
+   }
+ 
+   // ye jo naya data aaya hai , isko course.lectures ke andar karenge push 
+   // naya data kya hai -  lectureData hai 
+   course.lectures.push(lectureData)
+ 
+   // no of lectures ko integer value me display karna hai 
+   course.numbersOflectures = course.lectures.length;
+ 
+   await course.save();
+ 
+   res.status(200).json({
+     success: true,
+     message: 'lecture successfully added to the course',
+     course
+   })
+ } catch (error) {
+  return next(new AppError(error.message, 500)); 
+ }
 };
 
 export {
