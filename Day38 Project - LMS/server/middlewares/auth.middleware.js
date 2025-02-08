@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import AppError from '../utils/error.util';
+import AppError from '../utils/error.util.js';
 
 
 const isLoggedIn = async(req, res, next) => {

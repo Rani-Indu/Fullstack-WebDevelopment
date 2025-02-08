@@ -161,6 +161,9 @@ const addLectureToCourseById = async (req, res, next) => {
      // title, description hume pata hai
      title,
      description,
+     lecture: {}
+     //  lecture empty object hai jishme hum lectures add karenge
+    //  hume lecture.public id use karna hai to lecture exist bhi karna cahiye 
    };
    // image related information hume nahi pata
    if (req.file) {
