@@ -1,26 +1,45 @@
 import { Router } from 'express';
+import { authorizedRoles, isLoggedIn } from '../middlewares/auth.middleware.js';
+import{ getRazorpayApiKey, buySubscription, verifySubscription, cancelSubscription, allPayment } from '../controllers/payment.controller.js'
 
 const router = Router();
 
 router
 .route('/razorpay-key')
-.get(getRazorpayApiKey);
+.get(
+    isLoggedIn,
+    getRazorpayApiKey
+);
 
 router
 .route('/subscribe')
-.post(buySubscription);
+.post(
+    isLoggedIn,
+    buySubscription
+);
 
 router
 .route('/verify')
-.post(verifySubscription)
+.post(
+    isLoggedIn,
+    verifySubscription
+);
 
 router
 .route('/unsubscribe')
-.post(cancelSubscription)
+.post(
+    isLoggedIn,
+    cancelSubscription
+);
 
 router
 .route('/')
-.get(allPayment)
+.get(
+    isLoggedIn,
+    authorizedRoles('ADMIN'),
+    // sare payment ke details sirf admin dekh sakta hai , normal user nahi dekh sakta
+    allPayment
+);
 
 
 export default router;

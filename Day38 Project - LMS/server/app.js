@@ -10,6 +10,7 @@ import connectToDb from './config/dbConnection.js';
 import userRoutes from './routes/user.routes.js';
 import courseRoutes from './routes/course.routes.js';
 import errorMiddleware from './middlewares/error.middleware.js';
+import paymentRoutes from './routes/payment.routes.js'
 
 connectToDb();
 
@@ -36,9 +37,12 @@ app.use('/ping', function(req, res) {
   // })
   
   
-  app.use('/api/v1/user', userRoutes)
+  app.use('/api/v1/user', userRoutes);
 
-  app.use('/api/v1/courses', courseRoutes)
+  app.use('/api/v1/courses', courseRoutes);
+
+  app.use('/api/v1/payments', paymentRoutes);
+  // version is v1
   
 app.all('*', (req, res) => {
     res.status(404).send('OOPS!! 404 page not found')
