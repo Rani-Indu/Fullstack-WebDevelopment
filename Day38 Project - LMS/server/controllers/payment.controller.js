@@ -61,7 +61,7 @@ export const buySubscription = async(req, res, next) => {
     // ye subscription ki unique id generate kar dega 
 
 };
-// jaise hi upi  pin dalenge status Active ho jayega 
+// jaise hi upi  pin dalenge, payment hone pe  status Active ho jayega 
 // active hone ke baad hum verify karte hai 
 
 // to check ki payment hua ya nahi 
@@ -71,9 +71,33 @@ export const buySubscription = async(req, res, next) => {
 // razorpay_payment.id , 
 // razorpay_signature
 
+
+// subscription plan hamara sabhi ke liye same hone wala hai - i,e 1 yr subs pe dashboard ke sare course access kar sakte hai 
+
+// we can try making different subscription plans ex- hotstar
+
 export const verifySubscription = async(req, res, next) => {
     const { id } = req.user;
     const { razorpay_payment_id, razorpay_signature, razorpay_subscription_id } = req.body;
+
+    // ab pata karna hai ki payment hua ya nahi hua , signature ne details nikalni hai 
+
+    // first check karenge ki user exist karta hai ya nahi 
+
+    const user = await User.findById(id);
+    // ADMIN hai ya nahi ye check karne ki zarueat nahi hai kyuki verify kar rahe hai , koi naya subscription nahi bana rahe
+
+    // ADMIN ho koi bhi ho - koi fark nahi padta - hum verify kar lenge 
+    if(!user) {
+        return next(
+            new AppError('unauthorized, please login')
+        )
+    }
+
+// user exist karta hai , thik hai user ke andar subscription ki detail save kar di thi , to subscription ki id kaha se milegi - user se mil sakti hai 
+    const subscriptionId = user.subscription.id;
+
+    // kuch chizo ka use karte hue hume verificatio karna hai , ek signature generate karna hai jishse pata chale ki kya ye user valid hai , nahi hai , payment  hua hai ya nahi ye check karne ke liye kuch kaam karna hoga 
 };
 
 
