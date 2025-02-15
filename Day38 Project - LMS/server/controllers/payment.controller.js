@@ -1,6 +1,7 @@
 import AppError from "../utils/error.util.js";
-import razorpay from '';
+import razorpay from 'razorpay';
 // to get razopay dependency here we can define it in server.js
+import crypto from 'crypto';
 
 
 export const getRazorpayApiKey = async(req, res, next) => {
@@ -22,7 +23,7 @@ export const buySubscription = async(req, res, next) => {
     if(!user) {// agar userexist nahi karta hai 
         return next(
             new AppError('unauthorized, please login')
-            // waise middleware me humne ye error already handle kiya hai , but koi chance nahi lena cahate, isLoggedIn ?  
+            // waise middleware me humne ye error already handle kiya hai , but koi chance nahi lena cahate, i,e isLoggedIn , plz check ?  
         )
     }
 
@@ -80,7 +81,7 @@ export const verifySubscription = async(req, res, next) => {
     const { id } = req.user;
     const { razorpay_payment_id, razorpay_signature, razorpay_subscription_id } = req.body;
 
-    // ab pata karna hai ki payment hua ya nahi hua , signature ne details nikalni hai 
+    // ab pata karna hai ki payment hua ya nahi hua , signature se details nikalni hai 
 
     // first check karenge ki user exist karta hai ya nahi 
 
@@ -97,7 +98,26 @@ export const verifySubscription = async(req, res, next) => {
 // user exist karta hai , thik hai user ke andar subscription ki detail save kar di thi , to subscription ki id kaha se milegi - user se mil sakti hai 
     const subscriptionId = user.subscription.id;
 
-    // kuch chizo ka use karte hue hume verificatio karna hai , ek signature generate karna hai jishse pata chale ki kya ye user valid hai , nahi hai , payment  hua hai ya nahi ye check karne ke liye kuch kaam karna hoga 
+    // kuch chizo ka use karte hue hume verification karna hai , ek signature generate karna hai jishse pata chale ki kya ye user valid hai , nahi hai , payment  hua hai ya nahi ye check karne ke liye kuch kaam karna hoga 
+
+    const generatedSignature = crypto
+    .createHmac('sha256', process.env.RAZORPAY_SECRET)
+    .update('${razorpay_payment_id}|${subscriptionId}')
+    .digest('hex');
+
+    // generated signature i,e generatedSignature aur jo signature post data me tha i,e razorpay_signature agar matchnahi karta to error throw kar do 
+    
+    if (generatedSignature !== razorpay_signature) {
+        return next(
+            new AppError('payment not verified, please try again', 500)
+        )
+    }
+    // agar payment ho jata hai to entry create kar deni hai apne payment wale collection me 
+    await Payment.create({
+        razorpay_signature,
+        razorpay_payment_id,
+    })
+    // user level pe payment ka status inactive daal ke aaye the 
 };
 
 
