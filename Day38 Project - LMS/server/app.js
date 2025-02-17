@@ -1,6 +1,5 @@
 import { config } from 'dotenv';
 config();
-// import 'dotenv/config';
 import express, { urlencoded } from 'express'
 const app = express()
 import cors from "cors";

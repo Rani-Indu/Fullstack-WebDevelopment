@@ -1,5 +1,5 @@
 import AppError from "../utils/error.util.js";
-import razorpay from 'razorpay';
+import { razorpay } from '../server.js'
 // to get razopay dependency here we can define it in server.js
 import crypto from 'crypto';
 
@@ -77,6 +77,15 @@ export const buySubscription = async(req, res, next) => {
 
 // we can try making different subscription plans ex- hotstar
 
+// jab razorpay se redirect jo ke ek post request aati hai client pe jispe hume verify karna hai , ushpe payment_id, signature, subscription_id mila
+
+// 1st - check user exist karta hai ya nahi , karta hai to subscription id nikal lo, jo ki actually me razorpay se jo subscription id aa raha hai wahi wala id hoga  
+
+// 2nd - ye check karne ke liye ki payment successful hua tha ya nahi humko razorpay_signature ko compare karna hai khud ka signature generate kar ke 
+
+// agar payment ho gaya to record bana dena hai 
+
+// user level pe status set kar dena hai 
 export const verifySubscription = async(req, res, next) => {
     const { id } = req.user;
     const { razorpay_payment_id, razorpay_signature, razorpay_subscription_id } = req.body;
@@ -105,8 +114,8 @@ export const verifySubscription = async(req, res, next) => {
     .update('${razorpay_payment_id}|${subscriptionId}')
     .digest('hex');
 
-    // generated signature i,e generatedSignature aur jo signature post data me tha i,e razorpay_signature agar matchnahi karta to error throw kar do 
-    
+    // generated signature secret key ke through i,e generatedSignature aur jo signature post data me tha i,e razorpay_signature agar match nahi karta to error throw kar do 
+     
     if (generatedSignature !== razorpay_signature) {
         return next(
             new AppError('payment not verified, please try again', 500)
@@ -116,8 +125,15 @@ export const verifySubscription = async(req, res, next) => {
     await Payment.create({
         razorpay_signature,
         razorpay_payment_id,
+    });
+    // user level pe payment ka status created hai usko active mark karna hai 
+    user.subscription.status = 'active';
+    await user.save();
+    
+    res.status(200).json({
+        success: true,
+        message: 'Payment verified successfully '
     })
-    // user level pe payment ka status inactive daal ke aaye the 
 };
 
 
