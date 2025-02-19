@@ -43,5 +43,6 @@ const authorizeSubscriber = (req, res, next) => {
 
 export{
     isLoggedIn,
-    authorizedRoles
+    authorizedRoles,
+    authorizeSubscriber
 }
