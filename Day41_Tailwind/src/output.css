@@ -7,7 +7,12 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
+    --color-red-600: oklch(0.577 0.245 27.325);
+    --color-red-900: oklch(0.396 0.141 25.723);
     --color-orange-400: oklch(0.75 0.183 55.934);
+    --color-orange-600: oklch(0.646 0.222 41.116);
+    --color-green-600: oklch(0.627 0.194 149.214);
+    --color-blue-600: oklch(0.546 0.245 262.881);
     --color-purple-500: oklch(0.627 0.265 303.9);
     --color-gray-700: oklch(0.373 0.034 259.733);
     --spacing: 0.25rem;
@@ -351,6 +356,12 @@
       max-width: 96rem !important;
     }
   }
+  .mt-9 {
+    margin-top: calc(var(--spacing) * 9);
+  }
+  .mb-9 {
+    margin-bottom: calc(var(--spacing) * 9);
+  }
   .box-border {
     box-sizing: border-box;
   }
@@ -438,6 +449,9 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .h-80 {
+    height: calc(var(--spacing) * 80);
+  }
   .h-screen {
     height: 100vh;
   }
@@ -452,6 +466,18 @@
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
+  }
+  .w-4\/12 {
+    width: calc(4/12 * 100%);
+  }
+  .w-6\/12 {
+    width: calc(6/12 * 100%);
+  }
+  .w-12\/12 {
+    width: calc(12/12 * 100%);
+  }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
   }
   .w-screen {
     width: 100vw;
@@ -1059,11 +1085,20 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
+  .bg-blue-600 {
+    background-color: var(--color-blue-600);
+  }
   .bg-gray-700 {
     background-color: var(--color-gray-700);
   }
+  .bg-green-600 {
+    background-color: var(--color-green-600);
+  }
   .bg-orange-400 {
     background-color: var(--color-orange-400);
+  }
+  .bg-orange-600 {
+    background-color: var(--color-orange-600);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -1073,6 +1108,12 @@
   }
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
+  }
+  .bg-red-600 {
+    background-color: var(--color-red-600);
+  }
+  .bg-red-900 {
+    background-color: var(--color-red-900);
   }
   .-bg-conic {
     --tw-gradient-position: in oklab;
@@ -1239,6 +1280,9 @@
   }
   .object-top {
     object-position: top;
+  }
+  .pt-3 {
+    padding-top: calc(var(--spacing) * 3);
   }
   .text-center {
     text-align: center;
