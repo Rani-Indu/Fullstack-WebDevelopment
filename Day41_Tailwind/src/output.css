@@ -420,6 +420,9 @@
   .mt-9 {
     margin-top: calc(var(--spacing) * 9);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
@@ -1698,6 +1701,9 @@
   .text-blue-600 {
     color: var(--color-blue-600);
   }
+  .text-green-600 {
+    color: var(--color-green-600);
+  }
   .text-indigo-500 {
     color: var(--color-indigo-500);
   }
@@ -2228,6 +2234,16 @@
   .lg\:flex {
     @media (width >= 64rem) {
       display: flex;
+    }
+  }
+  .lg\:w-1\/2 {
+    @media (width >= 64rem) {
+      width: calc(1/2 * 100%);
+    }
+  }
+  .lg\:text-left {
+    @media (width >= 64rem) {
+      text-align: left;
     }
   }
 }
