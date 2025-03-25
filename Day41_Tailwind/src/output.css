@@ -13,7 +13,6 @@
     --color-orange-500: oklch(0.705 0.213 47.604);
     --color-orange-600: oklch(0.646 0.222 41.116);
     --color-yellow-600: oklch(0.681 0.162 75.834);
-    --color-green-300: oklch(0.871 0.15 154.449);
     --color-green-400: oklch(0.792 0.209 151.711);
     --color-green-600: oklch(0.627 0.194 149.214);
     --color-green-700: oklch(0.527 0.154 150.069);
@@ -420,9 +419,6 @@
   }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
-  }
-  .mt-8 {
-    margin-top: calc(var(--spacing) * 8);
   }
   .mt-9 {
     margin-top: calc(var(--spacing) * 9);
@@ -2216,13 +2212,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-blue-800);
-      }
-    }
-  }
-  .hover\:bg-green-300 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-green-300);
       }
     }
   }
