@@ -32,6 +32,7 @@
     --color-slate-500: oklch(0.554 0.046 257.417);
     --color-slate-800: oklch(0.279 0.041 260.031);
     --color-gray-200: oklch(0.928 0.006 264.531);
+    --color-gray-400: oklch(0.707 0.022 261.325);
     --color-gray-700: oklch(0.373 0.034 259.733);
     --color-black: #000;
     --color-white: #fff;
@@ -1357,8 +1358,8 @@
     --tw-gradient-position: in oklab;
     background-image: radial-gradient(var(--tw-gradient-stops));
   }
-  .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-vector\/white-background-gradient-modern-abstract-design-wave_343694-2337\.jpg\?w\=1060\&t\=st\=1683095309\~exp\=1683095909\~hmac\=1ec912f62a653077dde52545585cbe13da3dca6d279b116cf50f11443a811434\'\)\] {
-    background-image: url('https://img.freepik.com/free-vector/white-background-gradient-modern-abstract-design-wave_343694-2337.jpg?w=1060&t=st=1683095309~exp=1683095909~hmac=1ec912f62a653077dde52545585cbe13da3dca6d279b116cf50f11443a811434');
+  .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-photo\/abstract-surface-textures-white-concrete-stone-wall_74190-8189\.jpg\?ga\=GA1\.1\.1893876809\.1742550888\&semt\=ais_hybrid\'\)\] {
+    background-image: url('https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg?ga=GA1.1.1893876809.1742550888&semt=ais_hybrid');
   }
   .bg-none {
     background-image: none;
@@ -1735,6 +1736,9 @@
   }
   .text-blue-600 {
     color: var(--color-blue-600);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
   }
   .text-green-600 {
     color: var(--color-green-600);
