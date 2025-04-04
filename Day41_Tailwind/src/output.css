@@ -434,17 +434,11 @@
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
-  .mr-5 {
-    margin-right: calc(var(--spacing) * 5);
-  }
   .mb-9 {
     margin-bottom: calc(var(--spacing) * 9);
   }
   .ml-1 {
     margin-left: calc(var(--spacing) * 1);
-  }
-  .ml-5 {
-    margin-left: calc(var(--spacing) * 5);
   }
   .ml-9 {
     margin-left: calc(var(--spacing) * 9);
