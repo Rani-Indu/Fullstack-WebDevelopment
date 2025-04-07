@@ -289,9 +289,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-20 {
-    top: calc(var(--spacing) * 20);
-  }
   .isolate {
     isolation: isolate;
   }
@@ -436,6 +433,30 @@
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
   }
+  .mt-15 {
+    margin-top: calc(var(--spacing) * 15);
+  }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
+  .mt-18 {
+    margin-top: calc(var(--spacing) * 18);
+  }
+  .mt-20 {
+    margin-top: calc(var(--spacing) * 20);
+  }
+  .mt-25 {
+    margin-top: calc(var(--spacing) * 25);
+  }
+  .mt-40 {
+    margin-top: calc(var(--spacing) * 40);
+  }
+  .mt-65 {
+    margin-top: calc(var(--spacing) * 65);
+  }
+  .mt-100 {
+    margin-top: calc(var(--spacing) * 100);
+  }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
@@ -565,6 +586,9 @@
   .h-auto {
     height: auto;
   }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -577,14 +601,26 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
   }
   .w-4\/12 {
     width: calc(4/12 * 100%);
   }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
   .w-6\/12 {
     width: calc(6/12 * 100%);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
   }
   .w-12\/12 {
     width: calc(12/12 * 100%);
@@ -1307,6 +1343,9 @@
   .bg-\(color\:--my-color\) {
     background-color: var(--my-color);
   }
+  .bg-\[\#043A53\] {
+    background-color: #043A53;
+  }
   .bg-\[\#0088cc\] {
     background-color: #0088cc;
   }
@@ -1386,14 +1425,8 @@
     --tw-gradient-position: in oklab;
     background-image: radial-gradient(var(--tw-gradient-stops));
   }
-  .bg-\[url\(\'\.\.\/Assets\.\/BG\.png\'\)\] {
-    background-image: url('../Assets./BG.png');
-  }
   .bg-\[url\(\'\.\.\/Assets\/BG\.png\'\)\] {
     background-image: url('../Assets/BG.png');
-  }
-  .bg-\[url\(\'\.\/Assets\/BG\.png\'\)\] {
-    background-image: url('./Assets/BG.png');
   }
   .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-photo\/abstract-surface-textures-white-concrete-stone-wall_74190-8189\.jpg\?ga\=GA1\.1\.1893876809\.1742550888\&semt\=ais_hybrid\'\)\] {
     background-image: url('https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg?ga=GA1.1.1893876809.1742550888&semt=ais_hybrid');
@@ -1560,6 +1593,9 @@
   .object-top {
     object-position: top;
   }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
   .p-3 {
     padding: calc(var(--spacing) * 3);
   }
@@ -1571,6 +1607,18 @@
   }
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+  .p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
+  .p-30 {
+    padding: calc(var(--spacing) * 30);
+  }
+  .p-40 {
+    padding: calc(var(--spacing) * 40);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -1584,14 +1632,23 @@
   .px-13 {
     padding-inline: calc(var(--spacing) * 13);
   }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
   }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
+  }
+  .pt-16 {
+    padding-top: calc(var(--spacing) * 16);
   }
   .text-center {
     text-align: center;
@@ -1770,6 +1827,9 @@
   }
   .text-\[\#043A53\] {
     color: #043A53;
+  }
+  .text-\[\#12141D\] {
+    color: #12141D;
   }
   .text-\[\#ccf358\] {
     color: #ccf358;
@@ -2321,6 +2381,11 @@
       display: flex;
     }
   }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
   .md\:h-\[100\%\] {
     @media (width >= 48rem) {
       height: 100%;
@@ -2329,11 +2394,6 @@
   .md\:h-full {
     @media (width >= 48rem) {
       height: 100%;
-    }
-  }
-  .md\:h-screen {
-    @media (width >= 48rem) {
-      height: 100vh;
     }
   }
   .md\:w-48 {
@@ -2354,6 +2414,11 @@
   .md\:bg-transparent {
     @media (width >= 48rem) {
       background-color: transparent;
+    }
+  }
+  .md\:px-2 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 2);
     }
   }
   .md\:text-black {
@@ -2386,9 +2451,9 @@
       width: calc(var(--spacing) * 96);
     }
   }
-  .lg\:px-14 {
+  .lg\:px-4 {
     @media (width >= 64rem) {
-      padding-inline: calc(var(--spacing) * 14);
+      padding-inline: calc(var(--spacing) * 4);
     }
   }
   .lg\:text-left {
