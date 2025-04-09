@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advance Project</title>
-    <link rel="stylesheet" href="./output.css" />
     <!-- font awesome cdn -->
     <link
       rel="stylesheet"
@@ -13,14 +11,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./output.css" />
+    <title>Advance Project</title>
   </head>
   <body>
-    <header class=" md:h-[100%] text-[#043A53] bg-cover bg-[url('../Assets/BG.png')]">
+    <header
+      class="h-auto md:h-[100%] text-[#043A53] bg-cover bg-[url('https://img.freepik.com/free-vector/decorative-indian-flag-theme-tricolor-watercolor-brush-stroke-design-card_1055-21445.jpg?ga=GA1.1.1893876809.1742550888&semt=ais_country_boost&w=740')]"
+    >
+    <!-- class="h-auto md:h-[100%] text-[#043A53] bg-cover bg-[url('../Assets/BG.png')]" -->
       <!-- section 1 -->
       <nav
-        class="bg-cover bg-[url('../Assets/BG.png')] fixed w-[100vw] top-0 z-20 flex justify-center items-center px-4"
+        class="bg-cover bg-[url('../Assets/BG.png')] fixed top-0 z-20 w-[100vw] flex justify-center items-center px-4 lg:px-14 md:bg-transparent h-16"
       >
-        <!--  lg:x-14 md:bg-transparent -->
         <div class="flex items-center justify-between w-full">
           <img class="w-24 h-5" src="../Assets/Logo.png" alt="" />
           <ul class="hidden md:flex font-semibold">
@@ -36,30 +38,43 @@
           </div>
           <!-- buttons -->
           <div class="hidden md:flex">
-            <div class="md:px-2 lg:px-4 py-1 bg-white text-[#12141D] rounded-2xl mr-2">Log In</div>
-            <div class="md:px-2 lg:px-4 py-1 text-white bg-[#043A53] rounded-2xl mr-2">Sign Up</div>
+            <div
+              class="md:px-2 lg:px-4 py-1 bg-white text-[#12141D] rounded-2xl mr-2"
+            >
+              Log In
+            </div>
+            <div
+              class="md:px-2 lg:px-4 py-1 text-white bg-[#043A53] rounded-2xl mr-2"
+            >
+              Sign Up
+            </div>
           </div>
-
         </div>
       </nav>
 
       <!-- section 2 -->
-      <div class=" w-full h-full flex flex-wrap pt-16">
+      <div class="w-full h-full flex flex-wrap pt-16">
         <!-- part 1 -->
-         <div class="text-center self-center">
+        <div class="text-center self-center">
           <h1>Find High-Potential Customers with</h1>
           <h1>Trustco.</h1>
-          <p>We provide sales teams and professionals with the knowledge, skill and discipline they need to be 10x more successful.</p>
+          <p>
+            We provide sales teams and professionals with the knowledge, skill
+            and discipline they need to be 10x more successful.
+          </p>
           <!-- <button class=" mt-8 px-6 py-2 text-white bg-[#043A53] rounded-3xl md:flex">
             Explore Our Works
           </button> -->
-          <div class="px-2 inline-block py-2 text-white bg-[#043A53] rounded-3xl md:flex text-center">
+          <!-- <div class="px-2 inline-block py-2 text-white bg-[#043A53] rounded-3xl md:flex text-center">
             Explore Our Works
+          </div> -->
+          <div
+            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition"
+          >
+            Click Me
           </div>
 
           <!-- md:px-2 lg:px-4 py-1 mr-2 rounded-2xl-->
-
-
         </div>
       </div>
     </header>

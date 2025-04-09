@@ -1453,9 +1453,6 @@
   .bg-blue-300 {
     background-color: var(--color-blue-300);
   }
-  .bg-blue-400 {
-    background-color: var(--color-blue-400);
-  }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
   }
@@ -1535,11 +1532,11 @@
   .bg-\[url\(\'\.\.\/Assets\/BG\.png\'\)\] {
     background-image: url('../Assets/BG.png');
   }
-  .bg-\[url\(\'\.\/assets\/BG\.png\'\)\] {
-    background-image: url('./assets/BG.png');
-  }
   .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-photo\/abstract-surface-textures-white-concrete-stone-wall_74190-8189\.jpg\?ga\=GA1\.1\.1893876809\.1742550888\&semt\=ais_hybrid\'\)\] {
     background-image: url('https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg?ga=GA1.1.1893876809.1742550888&semt=ais_hybrid');
+  }
+  .bg-\[url\(\'https\:\/\/img\.freepik\.com\/free-vector\/decorative-indian-flag-theme-tricolor-watercolor-brush-stroke-design-card_1055-21445\.jpg\?ga\=GA1\.1\.1893876809\.1742550888\&semt\=ais_country_boost\&w\=740\'\)\] {
+    background-image: url('https://img.freepik.com/free-vector/decorative-indian-flag-theme-tricolor-watercolor-brush-stroke-design-card_1055-21445.jpg?ga=GA1.1.1893876809.1742550888&semt=ais_country_boost&w=740');
   }
   .bg-none {
     background-image: none;
@@ -2738,11 +2735,6 @@
       display: flex;
     }
   }
-  .lg\:inline-block {
-    @media (width >= 64rem) {
-      display: inline-block;
-    }
-  }
   .lg\:h-32 {
     @media (width >= 64rem) {
       height: calc(var(--spacing) * 32);
@@ -2801,6 +2793,11 @@
   .lg\:px-12 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:px-14 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 14);
     }
   }
   .lg\:px-20 {
