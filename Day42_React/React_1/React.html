@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React_1</title>
+  </head>
+  <body>
+    <div id="root">
+      
+    </div>
+
+
+
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+      const Btn = () =>
+      React.createElement("button", {id: 'btn'}, React.createElement("span", {}, "submit")) 
+
+      const rootContainer = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootContainer);
+      /* humne 2 CDN use kiya hai 
+      1 react.development.js 
+      2 react-dom.development.js
+
+      react-dom hume ek function provide karta hai i,e ReactDOM.createRoot  jishse hum ek root element bana sakte hai apne corresponding HTML page se 
+
+      HTML page pe root tha - jisko humne root element bana diya  
+      <div id="root">
+      </div>
+
+      ab ish root element ke andar kuch render karna hai to kar sakte hai 
+      */
+     root.render(Btn());
+
+    </script>
+  </body>
+</html>
