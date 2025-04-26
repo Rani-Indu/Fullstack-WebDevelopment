@@ -1,13 +1,11 @@
-import './App.css';
+import DogCard from "./DogCard";
+
 
 function App() {
   return ( 
-    <div className="App"> 
-      <button>
-        <span>
-          submit
-        </span>
-      </button>
+    <div>
+      <DogCard/>
+      <DogCard/>
     </div>
   );
 }
