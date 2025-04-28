@@ -1,4 +1,5 @@
-import DogCard from "./DogCard";
+// import DogCard from "./DogCard";
+import DogCard from "./DogCard_2.js";
 
 
 function App() {

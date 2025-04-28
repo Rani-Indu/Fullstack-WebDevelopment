@@ -12,7 +12,6 @@ function DogCard() {
     <div>
       <h3>Bruno</h3>
       <Image />
-      <Image />
     </div>
   );
 }
