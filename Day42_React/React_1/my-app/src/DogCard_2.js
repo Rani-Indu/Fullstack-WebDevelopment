@@ -8,11 +8,20 @@ function Image() {
 }
 
 function DogCard() {
+  // // grouping HTML element using div
+  // return (
+  //   <div>
+  //     <h3>Bruno</h3>
+  //     <Image />
+  //   </div>
+  // );
+  // grouping HTML element using fragment
   return (
-    <div>
+    <>
       <h3>Bruno</h3>
       <Image />
-    </div>
+      <Image />
+    </>
   );
 }
 
