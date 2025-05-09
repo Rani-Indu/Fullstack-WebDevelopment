@@ -15,6 +15,7 @@ function DogCard() {
   //     <Image />
   //   </div>
   // );
+  
   // grouping HTML element using fragment
   return (
     <>
