@@ -1,4 +1,4 @@
-function Image() {
+export function Image() {
   return (
     <img
       src="https://images.pexels.com/photos/2664417/pexels-photo-2664417.jpeg?auto=compress&cs=tinysrgb&w=400"
@@ -7,7 +7,7 @@ function Image() {
   );
 }
 
-function DogCard() {
+ export function DogCard() {
   // // grouping HTML element using div
   // return (
   //   <div>
@@ -26,4 +26,4 @@ function DogCard() {
   );
 }
 
-export default DogCard;
+// export default DogCard;

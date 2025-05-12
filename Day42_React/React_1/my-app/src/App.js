@@ -1,5 +1,6 @@
 // import DogCard from "./DogCard";
-import DogCard from "./DogCard_2.js";
+// import DogCard from "./DogCard_2.js";
+import {Image, DogCard} from "./DogCard_2.js";
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <DogCard/>
       <DogCard/>
+      <Image/>
     </div>
   );
 }
