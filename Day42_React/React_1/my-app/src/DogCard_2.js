@@ -1,13 +1,6 @@
-export function Image() {
-  return (
-    <img
-      src="https://images.pexels.com/photos/2664417/pexels-photo-2664417.jpeg?auto=compress&cs=tinysrgb&w=400"
-      alt=""
-    />
-  );
-}
+import Image from "./image.js";
 
- export function DogCard() {
+function DogCard() {
   // // grouping HTML element using div
   // return (
   //   <div>
@@ -26,4 +19,4 @@ export function Image() {
   );
 }
 
-// export default DogCard;
+export default DogCard;
