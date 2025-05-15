@@ -4,7 +4,6 @@ function DogCard(props) {
         <>
         <h3>{props.name}</h3>
         <img src={props.image} alt="" />
-        
         </>
     )
 }
