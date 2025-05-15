@@ -7,7 +7,8 @@ function Image(props) {
       <img src={props.src} alt="" />
     </div>
 
-  // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4-YSBJ_14hDiR-QMbYE0Ahu6NfxNpNxGMfA&s
+
+  
   )
 }
 
