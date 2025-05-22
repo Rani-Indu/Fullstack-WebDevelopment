@@ -1,12 +1,14 @@
+import Name from "./Name.js";
+// import image from "./image.js";
 function DogCard(props) {
-    return(
-        <>
+  return (
+    <>
+      <Name>
         <h3>{props.name}</h3>
-        <img src={props.image} alt= ""/>
-        </>
-    )
+      </Name> 
+      <img src={props.image} alt="" />       
+    </>
+  );
 }
 
 export default DogCard;
-
- 
