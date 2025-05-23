@@ -1,11 +1,9 @@
-function Image({props}) { 
+function Image({src}) { 
   return (
-    <div class="image-box">
+    <div className="image-box">
       <img src={src} alt=""/>
     </div>
   )
 }
 
 export default Image;
-
-// ==
